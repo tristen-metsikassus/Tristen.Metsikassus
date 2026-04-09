@@ -1,10 +1,10 @@
-/* --- THE INSTITUTIONAL FRAMEWORK (WITH WARD LATTICE) --- */
+/* --- THE MIDNIGHT INSTITUTIONAL FRAMEWORK --- */
 @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&display=swap');
 
 :root {
-    --indigo: #0b192c;
-    --wine: #1a1025;
-    --arcane: #4a154b;
+    --midnight: #050a14;   /* Deepest Shadow Blue */
+    --shadow-purple: #1b0a2a; /* True Midnight Purple */
+    --arcane-wine: #2d0b3a;   /* Rich Deep Violet */
     --gold: #8a6b22;
     --text: #eaeaea;
     --subtext: #bdbdcc;
@@ -16,16 +16,16 @@ body {
     color: var(--text);
     min-height: 100vh;
     
-    /* THE WARD LINES: A subtle geometric grid layered over the gradient */
+    /* THE MIDNIGHT WARD LATTICE */
     background: 
-        linear-gradient(rgba(138, 107, 34, 0.1) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(138, 107, 34, 0.1) 1px, transparent 1px),
-        linear-gradient(-45deg, var(--indigo), var(--wine), var(--arcane), var(--gold));
+        /* Subtle ward lines with a hint of violet-gold */
+        linear-gradient(rgba(138, 107, 34, 0.07) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(138, 107, 34, 0.07) 1px, transparent 1px),
+        /* Deep midnight gradient */
+        linear-gradient(-45deg, var(--midnight), var(--shadow-purple), var(--arcane-wine), var(--midnight));
     
-    /* Grid size is 60px; Background gradient is 400% for the animation */
-    background-size: 60px 60px, 60px 60px, 400% 400%;
-    
-    animation: arcaneShift 20s ease infinite;
+    background-size: 65px 65px, 65px 65px, 400% 400%;
+    animation: arcaneShift 22s ease infinite;
 }
 
 @keyframes arcaneShift {
@@ -41,22 +41,22 @@ h1, h2, h3, .nav-link {
     text-transform: uppercase;
 }
 
-/* --- WARDLINE PULSE (Standard Borders) --- */
+/* --- WARDLINE PULSE --- */
 .wardline {
     border: 1px solid var(--gold);
-    box-shadow: 0 0 10px rgba(138, 107, 34, 0.2);
-    animation: wardPulse 4s infinite alternate;
+    box-shadow: 0 0 15px rgba(138, 107, 34, 0.2);
+    animation: wardPulse 5s infinite alternate;
 }
 
 @keyframes wardPulse {
     from { border-color: var(--gold); box-shadow: 0 0 10px rgba(138, 107, 34, 0.2); }
-    to { border-color: #ffffff; box-shadow: 0 0 20px rgba(138, 107, 34, 0.5); }
+    to { border-color: #ffffff; box-shadow: 0 0 25px rgba(138, 107, 34, 0.4); }
 }
 
 /* --- REUSABLE COMPONENTS --- */
 .card {
-    background: rgba(0, 0, 0, 0.7);
-    border: 1px solid rgba(138, 107, 34, 0.3);
+    background: rgba(0, 0, 0, 0.85); /* Darker cards to pop against the purple */
+    border: 1px solid rgba(138, 107, 34, 0.25);
     border-radius: 8px;
     transition: all 0.4s ease;
     text-decoration: none;
@@ -67,6 +67,6 @@ h1, h2, h3, .nav-link {
 .card:hover {
     border-color: var(--gold);
     transform: translateY(-5px);
-    background: rgba(0, 0, 0, 0.85);
-    box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+    background: rgba(0, 0, 0, 0.95);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.8);
 }
