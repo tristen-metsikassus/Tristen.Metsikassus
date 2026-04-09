@@ -5,43 +5,124 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tristen | Author & Worldbuilder</title>
     <style>
+        /* IMPORT CINEMATIC FONTS */
+        @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&display=swap');
+
         /* The Animated Gradient Background */
         body {
             margin: 0;
-            font-family: Edwardian Script, Garamond;
+            /* Updated Body Font */
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.15rem; 
             color: #eaeaea;
             min-height: 100vh;
             background: linear-gradient(-45deg, #0b192c, #1a1025, #4a154b, #8a6b22);
             background-size: 400% 400%;
             animation: arcaneShift 15s ease infinite;
         }
+
         @keyframes arcaneShift {
             0% { background-position: 0% 50%; }
             50% { background-position: 100% 50%; }
             100% { background-position: 0% 50%; }
         }
+
+        /* --- TYPOGRAPHY & ANIMATIONS --- */
+        h1, h2, h3 {
+            font-family: 'Cinzel', serif;
+            font-weight: normal;
+            letter-spacing: 2px;
+        }
+
         header { text-align: center; padding: 60px 20px 30px; }
-        h1 { font-size: 3rem; margin-bottom: 10px; }
-        header p { color: #bdbdcc; font-size: 1.2rem; font-style: italic; }
+        
+        /* Cinematic Entrance & Pulse for Title */
+        h1 { 
+            font-size: 3.5rem; 
+            margin-bottom: 10px; 
+            color: #ffffff;
+            /* Fades in, then starts the continuous slow pulse */
+            animation: cinematicEntrance 3s ease-out forwards, arcanePulse 6s infinite alternate 3s;
+        }
+
+        /* The "Bigger and Fading Out" Continuous Animation */
+        @keyframes arcanePulse {
+            0% { transform: scale(1); text-shadow: 0 0 10px rgba(138, 107, 34, 0.4); }
+            100% { 
+                transform: scale(1.03); /* Gets bigger */
+                color: rgba(255,255,255,0.85); /* Fades slightly */
+                text-shadow: 0 0 25px rgba(138, 107, 34, 0.8), 0 0 40px rgba(74, 21, 75, 0.6); /* Aura expands */
+            }
+        }
+
+        /* The Initial Page Load Animation */
+        @keyframes cinematicEntrance {
+            0% { opacity: 0; transform: scale(0.9); text-shadow: 0 0 50px #fff; }
+            100% { opacity: 1; transform: scale(1); }
+        }
+
+        header p { 
+            color: #bdbdcc; 
+            font-size: 1.4rem; 
+            font-style: italic; 
+            letter-spacing: 1px;
+        }
+
         nav { text-align: center; margin-bottom: 40px; }
         nav ul { list-style: none; padding: 0; }
-        nav li { display: inline; margin: 0 15px; }
-        nav a { color: #d8d8e8; text-decoration: none; font-weight: bold; letter-spacing: 1px; transition: color 0.3s ease; }
-        nav a:hover { color: #ffffff; text-shadow: 0 0 8px rgba(255, 255, 255, 0.5); }
-        main {
-            text-align: center; max-width: 700px; margin: auto; padding: 30px;
-            background: rgba(0, 0, 0, 0.6); border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.4); margin-bottom: 60px;
+        nav li { display: inline; margin: 0 20px; }
+        
+        nav a { 
+            font-family: 'Cinzel', serif;
+            color: #d8d8e8; 
+            text-decoration: none; 
+            font-weight: bold; 
+            letter-spacing: 2px; 
+            display: inline-block; 
+            transition: transform 0.5s ease, color 0.5s ease, text-shadow 0.5s ease; 
         }
-        h2 { margin-bottom: 15px; color: #ffffff; }
-        p { line-height: 1.6; color: #d2d2dc; }
-        .hero-img { width: 100%; max-width: 600px; height: auto; border-radius: 8px; margin: 0 auto 25px auto; border: 1px solid #4a154b; display: block; }
+
+        /* Nav Link Hover: Grows bigger and fades into a glowing aura */
+        nav a:hover { 
+            transform: scale(1.15);
+            color: rgba(255, 255, 255, 0.7); 
+            text-shadow: 0 0 15px rgba(255, 255, 255, 0.8), 0 0 30px #8a6b22; 
+        }
+
+        main {
+            text-align: center; max-width: 700px; margin: auto; padding: 40px;
+            background: rgba(0, 0, 0, 0.6); border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.4); margin-bottom: 60px;
+            /* Fade in the main content slightly after the title */
+            opacity: 0;
+            animation: fadeIn 2s ease-in forwards 1s;
+        }
+
+        @keyframes fadeIn {
+            to { opacity: 1; }
+        }
+
+        h2 { margin-bottom: 15px; color: #ffffff; font-size: 2.2rem; }
+        p { line-height: 1.7; color: #d2d2dc; }
+        
+        .hero-img { 
+            width: 100%; 
+            max-width: 600px; 
+            height: auto; 
+            border-radius: 8px; 
+            margin: 0 auto 25px auto; 
+            border: 1px solid #4a154b; 
+            display: block; 
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5); 
+        }
     </style>
 </head>
 <body>
+
     <header>
         <h1>Tristen C. Metsikassus</h1>
         <p>Author and Visual Worldbuilder</p>
     </header>
+
     <nav>
         <ul>
             <li><a href="index.html">HOME</a></li>
@@ -52,11 +133,14 @@
             <li><a href="Contact.html">CONTACT</a></li>
         </ul>
     </nav>
+
     <main>
-        <img src="hero-image.png" alt="Atmospheric worldbuilding art by Tristen" class="hero-img">
+        <img src="institution-hero.png" alt="Atmospheric worldbuilding art by Tristen" class="hero-img">
+        
         <h2>Enter the World Behind the Work</h2>
         <p>I write dark, system-driven fiction shaped by structure, consequence, and hidden truths.</p>
         <p>Here you’ll find my novels, worldbuilding, artwork, and the growing architecture behind the stories I create.</p>
     </main>
+
 </body>
 </html>
