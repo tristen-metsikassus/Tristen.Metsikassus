@@ -10,59 +10,26 @@
         h1 { font-family: 'Cinzel', serif; font-size: 2.8rem; margin: 0; }
         .registry-subtitle { color: var(--gold); letter-spacing: 3px; font-size: 0.9rem; text-transform: uppercase; margin-top: 10px; }
 
-        .registry-container {
-            max-width: 1100px;
-            margin: 40px auto;
-            padding: 20px;
-        }
+        .registry-container { max-width: 1100px; margin: 40px auto; padding: 20px; }
 
-        /* THE TERMINAL TABLE */
+        section { margin-bottom: 80px; }
+        h2 { font-family: 'Cinzel', serif; color: var(--gold); border-bottom: 1px solid rgba(138, 107, 34, 0.3); padding-bottom: 10px; margin-bottom: 30px; font-size: 1.5rem; }
+
         .registry-table {
-            width: 100%;
-            border-collapse: collapse;
-            background: rgba(11, 25, 44, 0.6);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(138, 107, 34, 0.3);
-            font-family: 'Cormorant Garamond', serif;
+            width: 100%; border-collapse: collapse; background: rgba(11, 25, 44, 0.6);
+            backdrop-filter: blur(10px); border: 1px solid rgba(138, 107, 34, 0.3);
         }
-
-        .registry-table th {
-            background: rgba(138, 107, 34, 0.1);
-            color: var(--gold);
-            font-family: 'Cinzel', serif;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            padding: 20px;
-            text-align: left;
-            border-bottom: 1px solid var(--gold);
-        }
-
-        .registry-table td {
-            padding: 20px;
-            border-bottom: 1px solid rgba(138, 107, 34, 0.1);
-            line-height: 1.6;
-            vertical-align: top;
-        }
-
-        .registry-table tr:hover {
-            background: rgba(138, 107, 34, 0.05);
-        }
-
+        .registry-table th { background: rgba(138, 107, 34, 0.1); color: var(--gold); font-family: 'Cinzel', serif; text-transform: uppercase; letter-spacing: 2px; padding: 20px; text-align: left; border-bottom: 1px solid var(--gold); }
+        .registry-table td { padding: 20px; border-bottom: 1px solid rgba(138, 107, 34, 0.1); line-height: 1.6; vertical-align: top; }
         .inst-name { color: #fff; font-weight: bold; font-family: 'Cinzel', serif; font-size: 1rem; }
         .doctrine { color: var(--gold); font-style: italic; font-size: 0.9rem; }
 
-        .doc-links {
-            display: flex;
-            gap: 20px;
-            justify-content: center;
-            margin-top: 60px;
-        }
+        /* Mechanics Grid */
+        .mechanics-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+        .mechanic-card { padding: 30px; background: rgba(0,0,0,0.4); border-left: 3px solid var(--gold); }
+        .mechanic-card h3 { margin-top: 0; color: #fff; }
 
-        @media (max-width: 768px) {
-            .registry-table, .registry-table tbody, .registry-table tr, .registry-table td { display: block; width: 100%; }
-            .registry-table th { display: none; }
-            .registry-table td { border-bottom: 1px solid var(--gold); padding: 30px 20px; }
-        }
+        .doc-links { display: flex; gap: 20px; justify-content: center; margin-top: 60px; }
     </style>
 </head>
 <body>
@@ -82,45 +49,59 @@
 </header>
 
 <div class="registry-container">
-    <div class="atmospheric" style="margin-bottom: 50px;">
-        "The Harmony Network did not solve the world's problems; it fragmented a single, unbearable truth into manageable virtues."
-    </div>
+    
+    <section>
+        <h2>The Eight Core Anchors</h2>
+        <table class="registry-table wardline">
+            <thead>
+                <tr><th>Institution</th><th>Doctrine</th><th>Function & Blind Spot</th></tr>
+            </thead>
+            <tbody>
+                <tr><td><span class="inst-name">Rowe Institute</span></td><td><span class="doctrine">Central Alignment</span></td><td>Archival governance. Mistakes control for truth.</td></tr>
+                <tr><td><span class="inst-name">Thornward</span></td><td><span class="doctrine">Adjudication</span></td><td>Enforcement of covenant law. Legality over morality.</td></tr>
+                <tr><td><span class="inst-name">Duskward</span></td><td><span class="doctrine">Threshold Ethics</span></td><td>Governing liminal spaces. Delay becomes harm.</td></tr>
+                <tr><td><span class="inst-name">Ashfen</span></td><td><span class="doctrine">Structural Endurance</span></td><td>Holding systemic weight. Belief that anything can be borne.</td></tr>
+                <tr><td><span class="inst-name">Serentide</span></td><td><span class="doctrine">Rhythmic Harmonics</span></td><td>Network synchronization. Confuses repetition with harmony.</td></tr>
+                <tr><td><span class="inst-name">Veth</span></td><td><span class="doctrine">Spatial Logic</span></td><td>Mapping nodes and geometry. Mistaking the chart for reality.</td></tr>
+                <tr><td><span class="inst-name">Iselen</span></td><td><span class="doctrine">Flow Management</span></td><td>Handling overflow. Redirection masquerades as healing.</td></tr>
+                <tr><td><span class="inst-name">Varis Reach</span></td><td><span class="doctrine">Field Resilience</span></td><td>Emergency repair. Utility outweighs diagnosis.</td></tr>
+            </tbody>
+        </table>
+    </section>
 
-    <table class="registry-table wardline">
-        <thead>
-            <tr>
-                <th>Institution</th>
-                <th>Doctrine</th>
-                <th>Function & Blind Spot</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td><span class="inst-name">Rowe Institute</span><br>Central Command</td>
-                <td><span class="doctrine">Central Alignment</span></td>
-                <td>Standardization, calibration, and archival governance. Mistakes control for truth and containment for completion.</td>
-            </tr>
-            <tr>
-                <td><span class="inst-name">Thornward</span><br>District Tribunal</td>
-                <td><span class="doctrine">Adjudication</span></td>
-                <td>Arbitration and enforcement of covenant law. Legality becomes more important than morality; judgment as a weapon.</td>
-            </tr>
-            <tr>
-                <td><span class="inst-name">Duskward</span><br>Threshold Gatehouse</td>
-                <td><span class="doctrine">Threshold Ethics</span></td>
-                <td>Governing liminal spaces and controlled passage. Deferral; trapping people in "not yet" until delay becomes harm.</td>
-            </tr>
-            <tr>
-                <td><span class="inst-name">Ashfen</span><br>Foundation Keep</td>
-                <td><span class="doctrine">Structural Endurance</span></td>
-                <td>Holding the physical and systemic weight of the world. The belief that whatever can be borne should be borne.</td>
-            </tr>
-        </tbody>
-    </table>
+    <section>
+        <h2>Mechanics & Phenomena</h2>
+        <div class="mechanics-grid">
+            <div class="mechanic-card card">
+                <h3>Resonance</h3>
+                <p>The vibration of a system in alignment with its core doctrine. High resonance provides stability but creates "Static Heat" that must be discharged through Iselen.</p>
+            </div>
+            <div class="mechanic-card card">
+                <h3>The Fracture</h3>
+                <p>A structural failure in the Harmony Network where doctrine no longer matches reality. If not contained, a Fracture leads to a "Threshold Breach."</p>
+            </div>
+            <div class="mechanic-card card">
+                <h3>Ward-Drift</h3>
+                <p>The natural migration of containment fields over time. Requires constant calibration by the Rowe Institute to prevent slippage.</p>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Supplemental Registry</h2>
+        <table class="registry-table">
+            <tbody>
+                <tr><td><span class="inst-name">Echo Academy</span></td><td>Evaluation and legibility. Shaping students to be measurable.</td></tr>
+                <tr><td><span class="inst-name">Kassor Commission</span></td><td>Deep regulation. Managing anomalies that surface academies bury.</td></tr>
+                <tr><td><span class="inst-name">Constellate Arcanium</span></td><td>Long-Memory Archive. Preservation against sanitization.</td></tr>
+                <tr><td><span class="inst-name">Galward</span></td><td>Social Legitimacy. Mistaking respectability for truth.</td></tr>
+            </tbody>
+        </table>
+    </section>
 
     <div class="doc-links">
         <a href="#" class="btn-link">PRODUCTION BIBLE</a>
-        <a href="#" class="btn-link">PITCH DECK</a>
+        <a href="#" class="btn-link">CINEMATIC PITCH DECK</a>
     </div>
 </div>
 
