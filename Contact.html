@@ -3,222 +3,123 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact | Tristen C. Metsikassus</title>
+    <title>Correspondence | Tristen C. Metsikassus</title>
+    <link rel="stylesheet" href="style.css">
     <style>
-        /* IMPORT CINEMATIC FONTS */
-        @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&display=swap');
+        header { text-align: center; padding: 120px 20px 40px; }
+        h1 { font-size: 3rem; margin-bottom: 10px; }
+        .subtitle { color: var(--gold); font-family: 'Cinzel', serif; letter-spacing: 3px; font-size: 1rem; text-transform: uppercase; }
 
-        /* The Animated Gradient Background */
-        body {
-            margin: 0;
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 1.15rem;
-            color: #eaeaea;
-            min-height: 100vh;
-            background: linear-gradient(-45deg, #0b192c, #1a1025, #4a154b, #8a6b22);
-            background-size: 400% 400%;
-            animation: arcaneShift 15s ease infinite;
+        .contact-container {
+            max-width: 700px;
+            margin: 40px auto;
+            padding: 20px;
         }
 
-        @keyframes arcaneShift {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
-        }
-
-        /* --- TYPOGRAPHY & ANIMATIONS --- */
-        h1, h2, h3 {
-            font-family: 'Cinzel', serif;
-            font-weight: normal;
-            letter-spacing: 2px;
-        }
-
-        header { text-align: center; padding: 60px 20px 30px; }
-        
-        h1 { 
-            font-size: 3.5rem; 
-            margin-bottom: 10px; 
-            color: #ffffff;
-            animation: cinematicEntrance 3s ease-out forwards, arcanePulse 6s infinite alternate 3s;
-        }
-
-        @keyframes arcanePulse {
-            0% { transform: scale(1); text-shadow: 0 0 10px rgba(138, 107, 34, 0.4); }
-            100% { 
-                transform: scale(1.03); 
-                color: rgba(255,255,255,0.85); 
-                text-shadow: 0 0 25px rgba(138, 107, 34, 0.8), 0 0 40px rgba(74, 21, 75, 0.6); 
-            }
-        }
-
-        @keyframes cinematicEntrance {
-            0% { opacity: 0; transform: scale(0.9); text-shadow: 0 0 50px #fff; }
-            100% { opacity: 1; transform: scale(1); }
-        }
-
-        header p { 
-            color: #bdbdcc; 
-            font-size: 1.4rem; 
-            font-style: italic; 
-            letter-spacing: 1px;
-        }
-
-        nav { text-align: center; margin-bottom: 40px; }
-        nav ul { list-style: none; padding: 0; }
-        nav li { display: inline; margin: 0 20px; }
-        
-        nav a { 
-            font-family: 'Cinzel', serif;
-            color: #d8d8e8; 
-            text-decoration: none; 
-            font-weight: bold; 
-            letter-spacing: 2px; 
-            display: inline-block; 
-            transition: transform 0.5s ease, color 0.5s ease, text-shadow 0.5s ease; 
-        }
-
-        nav a:hover { 
-            transform: scale(1.15);
-            color: rgba(255, 255, 255, 0.7); 
-            text-shadow: 0 0 15px rgba(255, 255, 255, 0.8), 0 0 30px #8a6b22; 
-        }
-
-        /* Main Content Container */
-        main {
-            text-align: center; 
-            max-width: 600px; 
-            margin: auto; 
-            padding: 40px;
-            background: rgba(0, 0, 0, 0.6); 
-            border-radius: 12px; 
-            box-shadow: 0 4px 20px rgba(0,0,0,0.4); 
-            margin-bottom: 60px;
-            opacity: 0;
-            animation: fadeIn 2s ease-in forwards 1s;
-        }
-
-        @keyframes fadeIn {
-            to { opacity: 1; }
-        }
-
-        h2 { margin-bottom: 20px; color: #ffffff; font-size: 2.2rem; }
-        p.intro { line-height: 1.8; color: #d2d2dc; margin-bottom: 40px; font-size: 1.2rem; }
-
-        /* Cinematic Social Buttons */
-        .social-links {
+        .contact-form {
             display: flex;
             flex-direction: column;
             gap: 20px;
-            align-items: center;
-            margin-bottom: 40px;
         }
-        
-        .social-btn {
-            display: block;
-            width: 280px;
-            padding: 15px 20px;
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid #8a6b22;
-            color: #eaeaea;
-            text-decoration: none;
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        label {
             font-family: 'Cinzel', serif;
-            font-size: 1.1rem;
+            font-size: 0.8rem;
             letter-spacing: 2px;
-            border-radius: 6px;
+            color: var(--gold);
+            text-transform: uppercase;
+        }
+
+        input, textarea {
+            background: rgba(0, 0, 0, 0.6);
+            border: 1px solid rgba(138, 107, 34, 0.3);
+            padding: 15px;
+            color: #ffffff;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.1rem;
+            outline: none;
             transition: all 0.4s ease;
         }
 
-        .social-btn:hover {
-            background: rgba(138, 107, 34, 0.2); 
-            box-shadow: 0 0 15px rgba(138, 107, 34, 0.6);
-            color: #ffffff;
-            border-color: #ffffff;
-            transform: scale(1.05);
+        input:focus, textarea:focus {
+            border-color: var(--gold);
+            background: rgba(138, 107, 34, 0.05);
+            box-shadow: 0 0 15px rgba(138, 107, 34, 0.2);
         }
 
-        /* Direct Contact Info */
-        .contact-details {
-            padding-top: 30px;
-            border-top: 1px solid rgba(138, 107, 34, 0.3);
-            text-align: center;
-        }
-
-        .contact-details p {
-            font-size: 1.15rem;
-            color: #d2d2dc;
-            margin-bottom: 20px;
-        }
-
-        .contact-details strong {
+        .submit-btn {
+            background: transparent;
+            border: 1px solid var(--gold);
+            color: var(--gold);
+            padding: 15px;
             font-family: 'Cinzel', serif;
-            color: #ffffff;
-            display: block;
-            margin-bottom: 5px;
-            letter-spacing: 1px;
-        }
-
-        .contact-details a {
-            color: #8a6b22;
-            text-decoration: none;
             font-weight: bold;
-            transition: all 0.3s ease;
-            font-size: 1.2rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: all 0.4s ease;
+            margin-top: 10px;
         }
 
-        .contact-details a:hover {
-            color: #ffffff;
-            text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+        .submit-btn:hover {
+            background: var(--gold);
+            color: #000000;
+            box-shadow: 0 0 20px var(--gold);
         }
 
-        footer {
-            text-align: center;
-            padding: 25px 20px;
-            font-size: 0.9rem;
-            color: #8f8f9d;
-            border-top: 1px solid rgba(138, 107, 34, 0.3);
-            margin-top: 40px;
-            font-family: 'Cinzel', serif;
-        }
+        /* Navigation Sync */
+        nav { text-align: center; position: fixed; top: 0; width: 100%; background: rgba(0,0,0,0.5); backdrop-filter: blur(10px); padding: 20px 0; z-index: 100; border-bottom: 1px solid rgba(138, 107, 34, 0.2); }
+        nav ul { list-style: none; padding: 0; margin: 0; }
+        nav li { display: inline; margin: 0 25px; }
+        nav a { font-family: 'Cinzel', serif; color: var(--subtext); text-decoration: none; font-weight: bold; letter-spacing: 2px; font-size: 0.9rem; }
+        nav a:hover { color: var(--gold); }
     </style>
 </head>
 <body>
 
-    <header>
-        <h1>Tristen C. Metsikassus</h1>
-        <p>Author and Visual Worldbuilder</p>
-    </header>
+<nav>
+    <ul>
+        <li><a href="index.html">HOME</a></li>
+        <li><a href="About.html">ABOUT</a></li>
+        <li><a href="Books.html">BOOKS</a></li>
+        <li><a href="Codex.html">CODEX</a></li>
+        <li><a href="Art.html">ART</a></li>
+        <li><a href="Contact.html">CONTACT</a></li>
+    </ul>
+</nav>
 
-    <nav>
-        <ul>
-            <li><a href="index.html">HOME</a></li>
-            <li><a href="About.html">ABOUT</a></li>
-            <li><a href="Books.html">BOOKS</a></li>
-            <li><a href="Codex.html">CODEX</a></li>
-            <li><a href="Art.html">ART</a></li>
-            <li><a href="Contact.html">CONTACT</a></li>
-        </ul>
-    </nav>
+<header>
+    <p class="subtitle">Institutional Correspondence</p>
+    <h1>Transmission Registry</h1>
+</header>
 
-    <main>
-        <h2>Reach Across the Void</h2>
-        <p class="intro">Whether you are seeking to collaborate, inquire about my worlds, or simply connect, you can find me through the channels below.</p>
-        
-        <div class="social-links">
-            <a href="https://www.linkedin.com/in/tristen-metsikassus-51239b3ab/" class="social-btn" target="_blank">LinkedIn</a>
-            <a href="https://www.facebook.com/tristenmetsikassus" class="social-btn" target="_blank">Facebook</a>
-            <a href="https://www.instagram.com/tristen_metsikassus/?hl=en" class="social-btn" target="_blank">Instagram</a>
+<div class="contact-container card wardline">
+    <form class="contact-form">
+        <div class="form-group">
+            <label for="name">Identifier</label>
+            <input type="text" id="name" placeholder="Enter name or designation..." required>
         </div>
-
-        <div class="contact-details">
-            <p><strong>Primary Email</strong> <a href="mailto:Tristenpublication@outlook.com">Tristenpublication@outlook.com</a></p>
-            <p><strong>Secondary Email</strong> <a href="mailto:Tristenmett@gmail.com">Tristenmett@gmail.com</a></p>
-            <p><strong>Direct Line</strong> <a href="tel:5878516033">587-851-6033</a></p>
+        <div class="form-group">
+            <label for="email">Access Point</label>
+            <input type="email" id="email" placeholder="Return-path address..." required>
         </div>
-    </main>
+        <div class="form-group">
+            <label for="message">Transmission</label>
+            <textarea id="message" rows="6" placeholder="Document your message here..." required></textarea>
+        </div>
+        <button type="submit" class="submit-btn">Send Transmission</button>
+    </form>
+</div>
 
-    <footer>
-        © 2026 Tristen C. Metsikassus
-    </footer>
+<footer style="text-align: center; padding: 100px 40px; opacity: 0.4; font-size: 0.7rem; letter-spacing: 3px; font-family: 'Cinzel', serif;">
+    [ SECURE TERMINAL // CONTACT ENCRYPTED ]
+</footer>
 
 </body>
 </html>
