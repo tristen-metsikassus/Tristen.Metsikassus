@@ -5,54 +5,117 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Codex | Tristen C. Metsikassus</title>
     <style>
-        body { margin: 0; font-family: Garamond, serif; background-color: #0f0f14; color: #eaeaea; }
-        header { text-align: center; padding: 40px 20px; }
+        /* The Animated Gradient Background */
+        body {
+            margin: 0;
+            font-family: Garamond, serif;
+            color: #eaeaea;
+            min-height: 100vh;
+            background: linear-gradient(-45deg, #0b192c, #1a1025, #4a154b, #8a6b22);
+            background-size: 400% 400%;
+            animation: arcaneShift 15s ease infinite;
+        }
+        @keyframes arcaneShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        header { text-align: center; padding: 60px 20px 30px; }
+        h1 { font-size: 3rem; margin-bottom: 10px; }
+        header p { color: #bdbdcc; font-size: 1.2rem; font-style: italic; }
+
         nav { text-align: center; margin-bottom: 40px; }
         nav ul { list-style: none; padding: 0; }
         nav li { display: inline; margin: 0 15px; }
-        nav a { color: #d8d8e8; text-decoration: none; font-weight: bold; font-family: Garamond, serif; }
-        nav a:hover { color: #ffffff; }
-        main { max-width: 700px; margin: auto; padding: 0 20px 60px; }
+        nav a { color: #d8d8e8; text-decoration: none; font-weight: bold; letter-spacing: 1px; transition: color 0.3s ease; }
+        nav a:hover { color: #ffffff; text-shadow: 0 0 8px rgba(255, 255, 255, 0.5); }
+
+        main {
+            max-width: 800px;
+            margin: auto;
+            padding: 40px;
+            background: rgba(0, 0, 0, 0.6);
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+            margin-bottom: 60px;
+        }
+
         h1, h2 { color: #ffffff; text-align: center; }
         
-        /* The Archive Styling */
-        .intro-text { text-align: center; margin-bottom: 40px; font-style: italic; color: #bdbdcc; }
-        
-        details {
-            background-color: #16161d;
-            border: 1px solid #2a2a35;
-            border-radius: 5px;
-            margin-bottom: 15px;
-            padding: 15px 20px;
+        .intro-text {
+            text-align: center;
+            margin-bottom: 40px;
+            font-style: italic;
+            color: #bdbdcc;
+            font-size: 1.1rem;
+            line-height: 1.6;
         }
-        
+
+        /* The Archive Accordion Styling */
+        details {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid #4a154b;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            padding: 15px 20px;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+        }
+
+        details:hover {
+            border-color: #8a6b22;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+        }
+
         summary {
-            font-size: 1.2rem;
+            font-size: 1.3rem;
             color: #ffffff;
             cursor: pointer;
             font-weight: bold;
             letter-spacing: 1px;
+            outline: none;
+            transition: color 0.3s ease;
         }
-        
+
         summary:hover {
-            color: #a8a8c0;
+            color: #8a6b22;
+        }
+
+        /* Removes the default arrow on some browsers for a cleaner look */
+        summary::marker {
+            color: #8a6b22;
         }
 
         .codex-text {
             margin-top: 15px;
             padding-top: 15px;
-            border-top: 1px solid #2a2a35;
+            border-top: 1px solid rgba(138, 107, 34, 0.3);
             line-height: 1.7;
             color: #d2d2dc;
         }
-        
-        /* Highlight for the subheadings inside the codex */
+
         .codex-text strong {
             color: #ffffff;
             display: block;
-            margin-top: 15px;
+            margin-top: 20px;
             margin-bottom: 5px;
-            font-size: 1.1rem;
+            font-size: 1.15rem;
+            letter-spacing: 0.5px;
+        }
+
+        /* Styling for your PDF download links */
+        .codex-text a {
+            color: #8a6b22;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s ease;
+            display: inline-block;
+            margin-bottom: 5px;
+        }
+
+        .codex-text a:hover {
+            color: #ffffff;
+            text-shadow: 0 0 8px rgba(255, 255, 255, 0.4);
         }
     </style>
 </head>
@@ -63,14 +126,15 @@
     </header>
 
     <nav>
-  <ul>
-    <li><a href="index.html">HOME</a></li>
-    <li><a href="About.html">ABOUT</a></li>
-    <li><a href="Books.html">BOOKS</a></li>
-    <li><a href="Codex.html">CODEX</a></li>
-    <li><a href="Art.html">ART</a></li>
-  </ul>
-</nav>
+        <ul>
+            <li><a href="index.html">HOME</a></li>
+            <li><a href="About.html">ABOUT</a></li>
+            <li><a href="Books.html">BOOKS</a></li>
+            <li><a href="Codex.html">CODEX</a></li>
+            <li><a href="Art.html">ART</a></li>
+            <li><a href="Contact.html">CONTACT</a></li>
+        </ul>
+    </nav>
 
     <main>
         <p class="intro-text">
@@ -82,13 +146,10 @@
             <div class="codex-text">
                 <p><strong>The World at Its Core</strong><br>
                 The Rowe Institute trilogy is set in a civilization built around institutions that no longer fully understand the deeper metaphysical problem they were created to manage. Academies, commissions, doctrines, and wards organize life on the surface, while beneath them lies an older wrong relation that later generations inherited as procedure rather than truth.</p>
-                
                 <p><strong>The Central Conflict</strong><br>
                 The central conflict is the clash between institutional order and living alignment. The schools believe that stability comes through classification, control, correction, and managed legibility. The deeper truth of the series is that real coherence requires relation, consent, and mutuality.</p>
-
                 <p><strong>Echo vs. Resonance</strong><br>
                 Echo is the measurable, administratively legible layer of magical response. Resonance is deeper, relational, and far harder to contain. The institutions do not deny Resonance outright; they fail by trying to force it into the same frame as Echo.</p>
-
                 <p><strong>The Institutional Lie</strong><br>
                 The foundational institutional lie is that containment equals understanding. Because of that lie, systems repeatedly rename living phenomena as failure states, treat transformation as instability, and protect structures long after their moral basis has collapsed.</p>
             </div>
@@ -98,175 +159,5 @@
             <summary>Section II - CHARACTER ARCHIVE</summary>
             <div class="codex-text">
                 <p><em>The people of Rowe are not only characters but embodiments of doctrine, pressure, memory, and resistance.</em></p>
-
                 <p><strong>Aurelia Rowe</strong><br>
-                Aurelia is the heir to institutional control and the trilogy's moral center. Her arc moves from inherited certainty to the recognition that right relation protects more deeply than domination ever can.</p>
-
-                <p><strong>Caelum Rook</strong><br>
-                Caelum is the living contradiction to containment logic. He enters the Academy as an anomalous student, then becomes proof that the institution's categories are too small for the truth they are trying to manage.</p>
-
-                <p><strong>Hale Cormac</strong><br>
-                Hale is the pressure-bearer: practical, adaptive, bodily aware, and repeatedly forced to translate institutional violence into immediate consequence.</p>
-            </div>
-        </details>
-
-        <details>
-            <summary>Section III - INSTITUTIONAL REGISTRY</summary>
-            <div class="codex-text">
-                <p><em>Institutions in this trilogy are ideological machines that preserve partial truths as civilization.</em></p>
-
-                <p><strong>Rowe Institute</strong><br>
-                An elite academy that publicly claims refinement, stability, and disciplined excellence while privately functioning as an inherited containment architecture built over unresolved historical wrongness.</p>
-
-                <p><strong>Echo Academy</strong><br>
-                The evaluative face of the system—the part that teaches students to become legible before they become understood.</p>
-
-                <p><strong>Kassor Commission & Constellate Arcanium</strong><br>
-                Kassor is the deeper regulatory machine that handles active anomalies that surface academies prefer to deny. Constellate functions as a long-memory archive; its danger is distance, its value is continuity.</p>
-            </div>
-        </details>
-
-        <details>
-            <summary>Section IV - ECHO / RESONANCE MECHANICS</summary>
-            <div class="codex-text">
-                <p>The metaphysical system of Rowe turns on one distinction: institutions understand output, but not relation.</p>
-              <p>
-                Echo
-Echo is the measurable, teachable, correctable layer of magical response. It is what institutions can test, rank, and administer. Echo is real, but incomplete.
-Resonance
-Resonance is the deeper relational layer of the world. It is mutual, pattern-based, and often nonlinear. Where Echo can be observed from outside, Resonance must often be entered.
-Fracture
-Fracture is not merely damage. It is the visible sign that a false wholeness has become overstrained. Institutions call fracture failure; the trilogy frequently treats it as revelation.
-Threshold and Receiver States
-Threshold is the condition where neutrality fails and contact becomes active. A receiver is a person through whom that contact is mediated. Receivers threaten institutions because they prove the system is not the sole mediator of meaning.
-Distributed Presence and True Correction
-Distributed presence is a transformed state in which being persists through wards, sigils, or structure. True correction is not administrative stabilization but the honest repair of a wrong relation. The trilogy's end-state logic points toward mutual completion rather than cleaner containment.
-
-              </p>
-            </div>
-        </details>
-
-        <details>
-            <summary>Section V - DOCTRINE HOUSES AND ANCHOR BELIEFS</summary>
-            <div class="codex-text">
-                <p>Each doctrine house preserves one real virtue and one fatal distortion. The system fails because partial truths became total confidence.</p>
-              <p>House Rowe
-Rowe preserves order and disciplined management, but overextends control until it mistakes suppression for truth.
-House Ashfen
-Ashfen preserves endurance and burden-bearing, but distorts those virtues into the belief that whatever can be carried should be carried.
-House Serentide
-Serentide values flow and redirection, but too easily confuses smoothing with healing and redistribution with resolution.
-House Thornward
-Thornward preserves judgment and formal distinction, but turns naming into an instrument of injury when verdict becomes more important than relation.
-House Duskward
-Duskward preserves caution, but delay becomes its flaw. Necessary action arrives too late because hesitation becomes identity.
-Varis, Galward, Constellate
-Varis mistakes function for rightness, Galward mistakes respectability for truth, and Constellate mistakes preservation for sufficient resistance. Each house is partly right, but none can correct the world alone.
-</p>
-            </div>
-        </details>
-
-        <details>
-            <summary>Section VI - HISTORICAL TIMELINE</summary>
-            <div class="codex-text">
-                <p>History in Rowe is active pressure. The present is only intelligible because a buried wrongness became civilization.</p>
-              <p>Pre-Institutional Era
-Before the doctrine houses consolidated, relation to deeper power was less bureaucratically controlled and less fully codified. This era matters because later systems are responses, not origins.
-Morganna and the Ancient One
-Morganna stands at the edge of myth and history as a formative threshold figure tied to an early wrong relation with the Ancient One. The original encounter became the buried wound around which civilization later built its institutions.
-Formation of the Lattice
-The harmonic lattice and the doctrine houses emerged as distributed stabilizers, creating a world capable of preserving order around a problem it no longer understood clearly.
-Seren Vael Case
-Seren Vael's active case, preserved for more than a decade in deeper regulatory systems, proves that the present crisis has a historical precedent and that Kassor remembers more than Rowe admits.
-Book I to III Arc
-Caelum's entry into the Academy, the Harmonic Event, the courtyard replacement, the correction era, the threshold choice, the Warning From Below, and the final convergence together form the modern historical arc from mismanaged contact toward altered truth.
-</p>
-            </div>
-        </details>
-        
-       <details>
-  <summary>Section VII - THE ROWE INSTITUTE ARCHIVES</summary>
-  <div class="codex-text">
-    <p><em>Explore the foundational texts, production bibles, and lore documents that shape the world of the Academy.</em></p>
-    
-    <p><strong>Production Bibles & Lore</strong><br>
-    <a href="Rowe_Institute_Master_Production_Bible_Tristen_Metsikassus.pdf" target="_blank">Download Master Production Bible (PDF)</a><br>
-    <a href="Rowe_Institute_Full_Production_Bible_Tristen_Metsikassus.pdf" target="_blank">Download Full Production Bible (PDF)</a><br>
-    <a href="Rowe_Institute_Professional_Series_Bible_Tristen_Metsikassus.pdf" target="_blank">Download Professional Series Bible (PDF)</a><br>
-    <a href="Rowe_Institute_Codex_Lore_Bible_Illustrated.docx">Download Illustrated Lore Bible (Word)</a></p>
-    
-    <p><strong>Pitch Materials & Development Notes</strong><br>
-    <a href="Rowe_Institute_Codex_Cinematic_Deck_Speaker_Ready.pdf" target="_blank">Download Cinematic Pitch Deck (PDF)</a><br>
-    <a href="Rowe_Institute_Editorial_Refinement_Memo.docx">Download Editorial Refinement Memo (Word)</a></p>
-  </div>
-</details>
-
-       <details>
-            <summary>Section VIII - EVENT FILES</summary>
-            <div class="codex-text">
-                <p>Events in Rowe are always two things at once: what happened, and what the institution chooses to call it afterward.</p>
-
-                <p><strong>Initial Evaluation Sequence</strong><br>
-                The Academy's opening evaluation sequence matters because it establishes the system's confidence in its own measurements—the assumption that legibility equals truth.</p>
-
-                <p><strong>Quiet Wing Activation and Harmonic Verse</strong><br>
-                As hidden architecture and old texts become active, Book I reveals that memory survived doctrine in fragments and that the institution's official explanation is incomplete by design.</p>
-
-                <p><strong>Harmonic Event</strong><br>
-                The Harmonic Event is the trilogy's hinge. It fractures visible order, transforms Caelum's state, and ends the Academy's right to describe itself as untouched.</p>
-
-                <p><strong>Correction Era</strong><br>
-                Book II opens with the courtyard replacement, ring removals, and archive compressions: proof that the institution responds to revelation not with truth but with surface repair and cleaner violence.</p>
-
-                <p><strong>Book III Crisis</strong><br>
-                The Warning From Below, the anchor failure cascade, and final convergence expose the failure of partial truths and force the world toward a reckoning it can no longer delay.</p>
-            </div>
-        </details>
-
-        <details>
-            <summary>Section IX - SYMBOL, SIGIL, AND ARTIFACT INDEX</summary>
-            <div class="codex-text">
-                <p>Symbols in Rowe are structural. Emblems, sigils, ward-lines, and fracture marks all participate in the world’s argument about truth and control.</p>
-
-                <p><strong>Institutional Emblems</strong><br>
-                Institutional emblems project authority, continuity, and legitimacy. They are beautiful enough to make inherited power feel natural.</p>
-
-                <p><strong>Wing Sigils and Fracture Marks</strong><br>
-                Wing sigils encode incomplete wholeness across the trilogy's three books, while fracture marks show where false order can no longer hide its pressure.</p>
-
-                <p><strong>Warning Sigils and Star Forms</strong><br>
-                Warning sigils, outlined stars, active wall marks, and pulsing chamber symbols indicate that buried truth is no longer only latent. It is beginning to answer.</p>
-
-                <p><strong>Ward-Lattice Geometry</strong><br>
-                The lattice's circles, radiating lines, and chamber geometry make containment elegant enough to pass for wisdom. Its overstrain is therefore both visual and moral.</p>
-
-                <p><strong>Artifacts</strong><br>
-                Paper logs, registry slips, wrist sigils, and personal markers matter because they reveal how the system turns bodies and truths into readable surfaces.</p>
-            </div>
-        </details>
-
-        <details>
-            <summary>Section X - GLOSSARY AND CANON APPENDIX</summary>
-            <div class="codex-text">
-                <p>The glossary fixes the language of the world, while the appendix preserves the canon rules that keep Rowe coherent across future drafts and adaptations.</p>
-
-                <p><strong>Key Terms</strong><br>
-                Echo, Resonance, Fracture, Threshold, Receiver, Distributed Presence, Correction, Compliance, Archive, Routing, and Warning each carry both institutional and codex-level meanings. The series depends on keeping those layers distinct.</p>
-
-                <p><strong>Institutional Phrases</strong><br>
-                Phrases such as 'the system holds,' 'cleared,' 'archived,' and 'insufficient adaptation' are never neutral. They are the vocabulary through which violence is made defensible.</p>
-
-                <p><strong>Canon Rules</strong><br>
-                Institutions are never neutral; beauty can conceal wrongness; symbolism must remain structural; power is relational before it is spectacular; and no doctrine is wholly wrong or wholly sufficient.</p>
-
-                <p><strong>Continuity Principles</strong><br>
-                Rowe must always feel intentional. Surfaces and substructures must contrast. Administrative violence must stay legible. Buildings remember. Completion is not the same as victory.</p>
-
-                <p><strong>Final Codex Statement</strong><br>
-                The world of Rowe is a dark academic institutional fantasy about containment, misnaming, buried truth, and the cost of confusing order with coherence.</p>
-            </div>
-        </details>
-
-    </main>
-</body>
-</html>
+                Aurelia is the heir to institutional control and
