@@ -31,7 +31,7 @@
         nav a { color: #d8d8e8; text-decoration: none; font-weight: bold; letter-spacing: 1px; transition: color 0.3s ease; }
         nav a:hover { color: #ffffff; text-shadow: 0 0 8px rgba(255, 255, 255, 0.5); }
 
-        /* Main Container - Extra wide for the gallery */
+        /* Main Container */
         main {
             max-width: 1200px;
             margin: auto;
@@ -50,14 +50,14 @@
 
         /* The Art Cards */
         .art-card {
-            background: rgba(255, 255, 255, 0.03); /* Glass effect */
+            background: rgba(255, 255, 255, 0.03);
             border: 1px solid #4a154b;
             border-radius: 8px;
             overflow: hidden;
+            cursor: pointer; /* Changes the mouse to a pointing hand to show it's clickable */
             transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
         }
 
-        /* The hover glow effect */
         .art-card:hover {
             border-color: #8a6b22;
             transform: translateY(-5px);
@@ -69,7 +69,7 @@
             height: 260px;
             object-fit: cover;
             display: block;
-            border-bottom: 1px solid rgba(138, 107, 34, 0.3); /* Subtle gold divider */
+            border-bottom: 1px solid rgba(138, 107, 34, 0.3);
         }
 
         .art-card-content {
@@ -88,6 +88,78 @@
             line-height: 1.6;
             color: #d2d2dc;
             font-size: 1rem;
+        }
+
+        /* --- THE MODAL (FULLSCREEN LIGHTBOX) STYLES --- */
+        .modal {
+            display: none; /* Hidden by default */
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9); /* Deep black overlay */
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            backdrop-filter: blur(5px); /* Adds a cinematic blur to the background */
+        }
+
+        /* The Close Button */
+        .close-btn {
+            position: absolute;
+            top: 20px;
+            right: 40px;
+            color: #8a6b22;
+            font-size: 40px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: color 0.3s ease;
+            z-index: 1001;
+        }
+
+        .close-btn:hover {
+            color: #ffffff;
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+        }
+
+        /* The Fullscreen Image */
+        .modal-content {
+            max-width: 90%;
+            max-height: 85vh;
+            border-radius: 4px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.8);
+            border: 1px solid #4a154b;
+            object-fit: contain;
+        }
+
+        /* The Overlay Text Box */
+        .modal-caption {
+            position: absolute;
+            bottom: 5%;
+            background: rgba(11, 25, 44, 0.85); /* Sapphire glass effect */
+            border: 1px solid #8a6b22;
+            padding: 20px 30px;
+            border-radius: 8px;
+            text-align: center;
+            max-width: 800px;
+            width: 80%;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.6);
+        }
+
+        .modal-caption h2 {
+            margin: 0 0 10px 0;
+            color: #ffffff;
+            font-size: 1.8rem;
+            letter-spacing: 1px;
+        }
+
+        .modal-caption p {
+            margin: 0;
+            color: #d2d2dc;
+            font-size: 1.1rem;
+            line-height: 1.6;
         }
 
         footer {
@@ -263,6 +335,53 @@
     <footer>
         © 2026 Tristen C. Metsikassus
     </footer>
+
+    <div id="artModal" class="modal">
+        <span class="close-btn">&times;</span>
+        <img class="modal-content" id="modalImage">
+        <div class="modal-caption">
+            <h2 id="modalCaptionTitle"></h2>
+            <p id="modalCaptionText"></p>
+        </div>
+    </div>
+
+    <script>
+        // Grab the elements from the page
+        const modal = document.getElementById("artModal");
+        const modalImg = document.getElementById("modalImage");
+        const captionTitle = document.getElementById("modalCaptionTitle");
+        const captionText = document.getElementById("modalCaptionText");
+        const closeBtn = document.querySelector(".close-btn");
+        const artCards = document.querySelectorAll(".art-card");
+
+        // Loop through every art card and make it clickable
+        artCards.forEach(card => {
+            card.addEventListener("click", function() {
+                // Find the image, title, and text inside the card you clicked
+                const img = this.querySelector("img");
+                const title = this.querySelector("h2").innerText;
+                const desc = this.querySelector("p").innerText;
+
+                // Push those details into the modal and show it
+                modal.style.display = "flex";
+                modalImg.src = img.src;
+                captionTitle.innerText = title;
+                captionText.innerText = desc;
+            });
+        });
+
+        // Close the modal when the "X" is clicked
+        closeBtn.addEventListener("click", function() {
+            modal.style.display = "none";
+        });
+
+        // Close the modal if the user clicks anywhere in the dark background
+        modal.addEventListener("click", function(event) {
+            if (event.target === modal) {
+                modal.style.display = "none";
+            }
+        });
+    </script>
 
 </body>
 </html>
