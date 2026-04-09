@@ -11,7 +11,7 @@
         .tagline { color: var(--gold); font-size: 1.2rem; margin-top: 5px; font-weight: bold; font-family: 'Cinzel', serif; letter-spacing: 2px; }
         
         .atmospheric { 
-            max-width: 700px; 
+            max-width: 750px; 
             margin: 40px auto; 
             font-style: italic; 
             font-size: 1.4rem; 
@@ -29,6 +29,20 @@
             padding: 0 20px;
         }
 
+        .map-section {
+            max-width: 1100px;
+            margin: 0 auto 80px;
+            text-align: center;
+            padding: 0 20px;
+        }
+
+        .map-section img {
+            width: 100%;
+            border-radius: 8px;
+            border: 1px solid var(--gold);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.9);
+        }
+
         .featured-panel {
             max-width: 1000px;
             margin: 80px auto;
@@ -36,14 +50,14 @@
             align-items: center;
             gap: 50px;
             padding: 50px;
-            background: rgba(0, 0, 0, 0.85); /* Deepest black for the feature */
+            background: rgba(0, 0, 0, 0.9); /* Pure black for the book focus */
         }
 
         .featured-panel img { 
             width: 220px; 
             border-radius: 4px; 
             border: 1px solid var(--gold); 
-            box-shadow: 0 10px 30px rgba(0,0,0,0.8);
+            box-shadow: 0 10px 30px rgba(0,0,0,1);
         }
 
         .featured-content h2 { font-size: 2.2rem; margin-top: 0; color: #ffffff; }
@@ -62,7 +76,7 @@
             padding-top: 60px; 
         }
 
-        .author-statement p { font-size: 1.2rem; line-height: 1.8; margin-bottom: 30px; }
+        .author-statement p { font-size: 1.25rem; line-height: 1.9; margin-bottom: 30px; color: var(--subtext); }
 
         .btn-link {
             color: var(--gold);
@@ -79,7 +93,7 @@
         nav ul { list-style: none; padding: 0; }
         nav li { display: inline; margin: 0 20px; }
         nav a { font-family: 'Cinzel', serif; color: var(--subtext); text-decoration: none; font-weight: bold; letter-spacing: 2px; }
-        nav a:hover { color: #ffffff; }
+        nav a:hover { color: #ffffff; text-shadow: 0 0 8px var(--gold); }
 
         @keyframes fadeUp {
             from { opacity: 0; transform: translateY(20px); }
@@ -109,38 +123,38 @@
 
 <div class="entry-grid">
     <a href="Books.html" class="card">
-        <h3>The Bibliography</h3>
-        <p>Explore the published accounts of the Rowe Institute and the systems that govern its survival.</p>
+        <h3>Books</h3>
+        <p>The Bibliography: Published accounts and narratives within the Harmony Network.</p>
     </a>
     <a href="Codex.html" class="card">
-        <h3>The Archive</h3>
-        <p>A restricted study into the mechanics of resonance, institutional doctrine, and the Harmony Network.</p>
+        <h3>Codex</h3>
+        <p>The Archive: A doctrinal registry of the eight core anchors and world mechanics.</p>
     </a>
     <a href="Art.html" class="card">
-        <h3>The Gallery</h3>
-        <p>Visual translations of a world built on structural endurance, threshold ethics, and mapped reality.</p>
+        <h3>Art</h3>
+        <p>The Gallery: Visual translations of structural endurance and mapped reality.</p>
     </a>
 </div>
 
-<div style="max-width: 1100px; margin: 0 auto; text-align: center; padding: 0 20px;">
-    <img src="The World Of Rowe world map.png" alt="The World of Rowe Map" style="width: 100%; border-radius: 8px; border: 1px solid var(--gold); box-shadow: 0 20px 50px rgba(0,0,0,0.8);">
+<div class="map-section">
+    <img src="The World Of Rowe world map.png" alt="The World of Rowe Map">
 </div>
 
 <div class="featured-panel card wardline">
     <img src="the quiet wing.png" alt="The Quiet Wing Cover">
     <div class="featured-content">
         <h2>Primary Record: The Quiet Wing</h2>
-        <p>At the Rowe Institute, order is everything. Students are shaped to fit a system that prides itself on stability, but Caelum Rook is about to discover what the Academy is truly containing.</p>
-        <a href="Books.html" class="btn-link">Access Publication Details →</a>
+        <p>At the Rowe Institute, order is everything. But the Academy’s elegance is hiding something older and far more dangerous than simple doctrine.</p>
+        <a href="Books.html" class="btn-link">Publication Details →</a>
     </div>
 </div>
 
 <section class="author-statement">
-    <p>I build worlds that pull people in, challenge what they expect, and leave them thinking long after they close the page. Success is not gaining everything, but understanding the cadence of what you create.</p>
+    <p>I build worlds that pull people in, challenge what they expect, and leave them thinking long after they close the page. Honest art cannot be rushed; it is built on patience and the cadence of its own timing.</p>
     <a href="About.html" class="btn-link" style="font-size: 0.9rem;">The Architect's Statement</a>
 </section>
 
-<footer style="text-align: center; padding: 60px 40px; opacity: 0.6; font-size: 0.8rem; letter-spacing: 2px; font-family: 'Cinzel', serif;">
+<footer style="text-align: center; padding: 80px 40px; opacity: 0.6; font-size: 0.8rem; letter-spacing: 2px; font-family: 'Cinzel', serif;">
     © 2026 TRISTEN C. METSIKASSUS // HARMONY NETWORK AUTHORIZED ACCESS ONLY
 </footer>
 
