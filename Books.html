@@ -3,134 +3,180 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Books - The Rowe Institute</title>
+    <title>Books | Tristen C. Metsikassus</title>
     <style>
-        body { 
-            background-color: #0f0f14; 
-            color: #d2d2dc; 
-            font-family: "Garamond", serif; 
-            margin: 0; 
-            line-height: 1.6; 
+        /* The Animated Gradient Background */
+        body {
+            margin: 0;
+            font-family: Garamond, serif;
+            color: #eaeaea;
+            min-height: 100vh;
+            background: linear-gradient(-45deg, #0b192c, #1a1025, #4a154b, #8a6b22);
+            background-size: 400% 400%;
+            animation: arcaneShift 15s ease infinite;
         }
-        nav { 
-            background: #16161d; 
-            padding: 1rem; 
-            border-bottom: 1px solid #2a2a35; 
-            text-align: center; 
-        }
-        nav ul { 
-            list-style: none; 
-            padding: 0; 
-            margin: 0; 
-            display: flex; 
-            justify-content: center; 
-            gap: 20px; 
-        }
-        nav a { 
-            color: #8a8a9d; 
-            text-decoration: none; 
-            font-weight: bold; 
-            letter-spacing: 1px; 
-            font-size: 0.9rem;
-        }
-        nav a:hover { color: #ffffff; }
-        
-        main { 
-            max-width: 900px; 
-            margin: 40px auto; 
-            padding: 0 20px; 
-        }
-        
-        h1 { 
-            text-align: center; 
-            letter-spacing: 2px; 
-            color: #ffffff; 
-            margin-bottom: 40px;
+        @keyframes arcaneShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
         }
 
-        .book-card { 
-            display: flex; 
-            gap: 30px; 
-            background: #16161d; 
-            padding: 25px; 
-            border: 1px solid #2a2a35; 
-            border-radius: 8px; 
-            margin-bottom: 40px; 
-            align-items: start; 
-        }
-        .book-cover { 
-            width: 200px; 
-            height: auto; 
-            border-radius: 4px; 
-            box-shadow: 0 10px 20px rgba(0,0,0,0.5); 
-            border: 1px solid #2a2a35;
-        }
-        .book-info { flex: 1; }
-        .book-info h2 { margin-top: 0; color: #ffffff; font-size: 1.8rem; }
-        .book-info h3 { color: #8a8a9d; font-style: italic; font-size: 1.1rem; margin-bottom: 15px; }
-        .book-info p { margin-bottom: 15px; text-align: justify; }
+        header { text-align: center; padding: 60px 20px 30px; }
+        h1 { font-size: 3rem; margin-bottom: 10px; }
+        header p { color: #bdbdcc; font-size: 1.2rem; font-style: italic; }
 
-        @media (max-width: 768px) { 
-            .book-card { flex-direction: column; align-items: center; text-align: center; } 
-            .book-cover { width: 100%; max-width: 250px; }
+        nav { text-align: center; margin-bottom: 40px; }
+        nav ul { list-style: none; padding: 0; }
+        nav li { display: inline; margin: 0 15px; }
+        nav a { color: #d8d8e8; text-decoration: none; font-weight: bold; letter-spacing: 1px; transition: color 0.3s ease; }
+        nav a:hover { color: #ffffff; text-shadow: 0 0 8px rgba(255, 255, 255, 0.5); }
+
+        main {
+            max-width: 900px;
+            margin: auto;
+            padding: 40px;
+            background: rgba(0, 0, 0, 0.6);
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+            margin-bottom: 60px;
+        }
+
+        h2.section-title { color: #ffffff; text-align: center; margin-bottom: 40px; font-size: 2.2rem; letter-spacing: 2px; }
+
+        .book-container {
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+        }
+
+        .book-card {
+            display: flex;
+            gap: 30px;
+            background: rgba(255, 255, 255, 0.03);
+            padding: 25px;
+            border: 1px solid #4a154b;
+            border-radius: 8px;
+            align-items: start;
+            transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .book-card:hover {
+            border-color: #8a6b22;
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.6);
+        }
+
+        .book-cover {
+            width: 200px;
+            height: auto;
+            border-radius: 4px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+            border: 1px solid #8a6b22; /* Adds a clean gold border to your covers */
+        }
+
+        .book-info {
+            flex: 1;
+        }
+
+        .book-title {
+            margin-top: 0;
+            color: #ffffff;
+            font-size: 1.8rem;
+            margin-bottom: 5px;
+        }
+
+        .book-status {
+            color: #8a6b22;
+            font-style: italic;
+            font-size: 1.1rem;
+            margin-bottom: 15px;
+        }
+
+        .book-info p {
+            margin-bottom: 15px;
+            text-align: justify;
+            line-height: 1.6;
+            color: #d2d2dc;
+        }
+
+        /* Makes sure it looks good on mobile devices */
+        @media (max-width: 768px) {
+            .book-card {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+            .book-info p {
+                text-align: center;
+            }
         }
     </style>
 </head>
 <body>
 
-<nav>
-    <ul>
-        <li><a href="index.html">HOME</a></li>
-        <li><a href="About.html">ABOUT</a></li>
-        <li><a href="Books.html">BOOKS</a></li>
-        <li><a href="Codex.html">CODEX</a></li>
-        <li><a href="Art.html">ART</a></li>
-    </ul>
-</nav>
+    <header>
+        <h1>Tristen C. Metsikassus</h1>
+        <p>Author and Visual Worldbuilder</p>
+    </header>
 
-<main>
-    <h1>The Bibliography</h1>
+    <nav>
+        <ul>
+            <li><a href="index.html">HOME</a></li>
+            <li><a href="About.html">ABOUT</a></li>
+            <li><a href="Books.html">BOOKS</a></li>
+            <li><a href="Codex.html">CODEX</a></li>
+            <li><a href="Art.html">ART</a></li>
+            <li><a href="Contact.html">CONTACT</a></li>
+        </ul>
+    </nav>
 
-    <div class="book-card">
-        <img src="sigil-1.png" alt="The Sovereignty Stone Cover" class="book-cover">
-        <div class="book-info">
-            <h2>The Sovereignty Stone</h2>
-            <h3>A Prequel to The Rowe Institute Trilogy</h3>
-            <p>Before the Academy was a fortress of doctrine, it was a site of discovery—and dangerous ambition. <em>The Sovereignty Stone</em> traces the origins of the Institute's power and the first harmonic distortions that would eventually lead to the events of the trilogy.</p>
-            <p>This prequel explores the foundation of the Rowe legacy and the cost of the original "containment" that defined the world Caelum and Aurelia would later inherit.</p>
+    <main>
+        <h2 class="section-title">The Bibliography</h2>
+        
+        <div class="book-container">
+            
+            <div class="book-card">
+                <img src="sigil-1.png" alt="The Sovereignty Stone Cover" class="book-cover">
+                <div class="book-info">
+                    <h2 class="book-title">The Sovereignty Stone</h2>
+                    <div class="book-status">A Prequel to The Rowe Institute Trilogy</div>
+                    <p>Before the Academy was a fortress of doctrine, it was a site of discovery—and dangerous ambition. <em>The Sovereignty Stone</em> traces the origins of the Institute's power and the first harmonic distortions that would eventually lead to the events of the trilogy.</p>
+                    <p>This prequel explores the foundation of the Rowe legacy and the cost of the original "containment" that defined the world Caelum and Aurelia would later inherit.</p>
+                </div>
+            </div>
+
+            <div class="book-card">
+                <img src="the quiet wing.png" alt="The Quiet Wing Cover" class="book-cover">
+                <div class="book-info">
+                    <h2 class="book-title">The Quiet Wing</h2>
+                    <div class="book-status">Book I of The Rowe Institute</div>
+                    <p>At the Rowe Institute, order is everything. Students are measured, disciplined, and shaped to fit a system that prides itself on stability, precision, and control. When Caelum Rook enters that world, he quickly realizes the Academy’s elegance is hiding something older and far more dangerous.</p>
+                    <p>As he is drawn toward the sealed mystery of the Quiet Wing, he begins to uncover a buried history the institution has spent years translating into silence. Meanwhile, Aurelia Rowe, heir to one of the school’s most powerful legacies, is forced into a conflict between the order she was raised to protect and the truth she can no longer ignore.</p>
+                </div>
+            </div>
+
+            <div class="book-card">
+                <img src="the fractured wing.png" alt="The Fractured Wing Cover" class="book-cover">
+                <div class="book-info">
+                    <h2 class="book-title">The Fractured Wing</h2>
+                    <div class="book-status">Book II of The Rowe Institute</div>
+                    <p>After the Harmonic Event, the Rowe Institute does what it does best: it corrects. By morning, the fractured courtyard has been replaced, the official story has already hardened into doctrine, and Caelum Rook has been classified as non-recoverable. But beneath the restored stone, nothing is truly quiet.</p>
+                    <p><em>The Fractured Wing</em> is the trilogy’s pressure-book — a dark academic novel of institutional dread, moral compromise, and buried continuity — where the system’s visible order begins to crack, and those inside it must decide whether survival is worth becoming part of the machine that is consuming them.</p>
+                </div>
+            </div>
+
+            <div class="book-card">
+                <img src="The Warning from Below.png" alt="The Warning From Below Cover" class="book-cover">
+                <div class="book-info">
+                    <h2 class="book-title">The Warning From Below</h2>
+                    <div class="book-status">Book III of The Rowe Institute</div>
+                    <p>The Rowe Institute was built to contain what it never truly understood. Now, what was buried is beginning to answer. In the aftermath of fracture, failed correction, and the slow collapse of institutional certainty, the survivors are forced beneath the surface of everything they were taught to trust.</p>
+                    <p><em>The Warning From Below</em> is the final movement of the Rowe Institute trilogy: a dark academic climax of buried truth, institutional reckoning, and ancient contact finally met without illusion.</p>
+                </div>
+            </div>
+
         </div>
-    </div>
-
-    <div class="book-card">
-        <img src="the quiet wing.png" alt="The Quiet Wing Cover" class="book-cover">
-        <div class="book-info">
-            <h2>The Quiet Wing</h2>
-            <h3>Book I of The Rowe Institute</h3>
-            <p>At the Rowe Institute, order is everything. Students are measured, disciplined, and shaped to fit a system that prides itself on stability, precision, and control. When Caelum Rook enters that world, he quickly realizes the Academy’s elegance is hiding something older and far more dangerous.</p>
-            <p>As he is drawn toward the sealed mystery of the Quiet Wing, he begins to uncover a buried history the institution has spent years translating into silence. Meanwhile, Aurelia Rowe, heir to one of the school’s most powerful legacies, is forced into a conflict between the order she was raised to protect and the truth she can no longer ignore.</p>
-        </div>
-    </div>
-
-    <div class="book-card">
-        <img src="the fractured wing.png" alt="The Fractured Wing Cover" class="book-cover">
-        <div class="book-info">
-            <h2>The Fractured Wing</h2>
-            <h3>Book II of The Rowe Institute</h3>
-            <p>After the Harmonic Event, the Rowe Institute does what it does best: it corrects. By morning, the fractured courtyard has been replaced, the official story has already hardened into doctrine, and Caelum Rook has been classified as non-recoverable. But beneath the restored stone, nothing is truly quiet.</p>
-            <p><em>The Fractured Wing</em> is the trilogy’s pressure-book — a dark academic novel of institutional dread, moral compromise, and buried continuity — where the system’s visible order begins to crack, and those inside it must decide whether survival is worth becoming part of the machine that is consuming them.</p>
-        </div>
-    </div>
-
-    <div class="book-card">
-        <img src="The Warning from Below.png" alt="The Warning From Below Cover" class="book-cover">
-        <div class="book-info">
-            <h2>The Warning From Below</h2>
-            <h3>Book III of The Rowe Institute</h3>
-            <p>The Rowe Institute was built to contain what it never truly understood. Now, what was buried is beginning to answer. In the aftermath of fracture, failed correction, and the slow collapse of institutional certainty, the survivors are forced beneath the surface of everything they were taught to trust.</p>
-            <p><em>The Warning From Below</em> is the final movement of the Rowe Institute trilogy: a dark academic climax of buried truth, institutional reckoning, and ancient contact finally met without illusion.</p>
-        </div>
-    </div>
-</main>
+    </main>
 
 </body>
 </html>
