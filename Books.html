@@ -7,8 +7,6 @@
     <link rel="stylesheet" href="style.css">
     <style>
         header { text-align: center; padding: 140px 20px 40px; }
-        
-        /* SERIES FOCUS SYSTEM */
         .series-container { max-width: 1100px; margin: 0 auto; padding: 20px; }
         
         .start-here-banner {
@@ -22,19 +20,14 @@
             color: var(--gold-bright);
         }
 
-        .book-grid { display: grid; gap: 80px; margin-top: 40px; }
+        .book-grid { display: grid; gap: 60px; margin-top: 40px; }
 
         .book-entry { 
             display: flex; gap: 50px; align-items: flex-start; 
             padding: 50px; position: relative;
-            overflow: hidden;
-        }
-
-        /* Strongest Ward Visuals (Internal to the Card) */
-        .book-entry::before {
-            content: ""; position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-            background: linear-gradient(45deg, rgba(138, 107, 34, 0.05), transparent);
-            z-index: -1;
+            background: rgba(11, 25, 44, 0.7);
+            border: 1px solid rgba(138, 107, 34, 0.2);
+            backdrop-filter: blur(8px);
         }
 
         .book-cover { flex-shrink: 0; }
@@ -42,16 +35,18 @@
             width: 240px; 
             border: 1px solid var(--gold); 
             box-shadow: 0 20px 40px rgba(0,0,0,0.6); 
-            transition: transform 0.3s ease;
         }
-        .book-cover img:hover { transform: scale(1.02); border-color: var(--gold-bright); }
 
         .book-content { flex-grow: 1; }
         .book-status { font-family: 'Cinzel', serif; color: var(--gold); font-size: 0.8rem; margin-bottom: 10px; display: block; }
-        .book-title { font-family: 'Cinzel', serif; font-size: 2.2rem; margin: 0 0 20px 0; color: #fff; line-height: 1.1; }
+        .book-title { font-family: 'Cinzel', serif; font-size: 2.2rem; margin: 0 0 20px 0; color: #fff; }
         .book-description { font-size: 1.15rem; line-height: 1.8; color: var(--subtext); margin-bottom: 30px; }
 
         .cta-group { display: flex; gap: 15px; flex-wrap: wrap; }
+        
+        /* Adjacent Section */
+        .adjacent-section { margin-top: 100px; border-top: 1px solid rgba(138, 107, 34, 0.2); padding-top: 60px; }
+        .adjacent-title { font-family: 'Cinzel'; text-align: center; color: var(--gold); margin-bottom: 40px; letter-spacing: 4px; }
 
         @media (max-width: 850px) {
             .book-entry { flex-direction: column; align-items: center; text-align: center; padding: 30px; }
@@ -79,46 +74,74 @@
 <div class="series-container">
     
     <div class="start-here-banner">
-        RECOMMENDED ENTRY POINT: THE QUIET WING (PRIMARY RECORD)
+        RECOMMENDED ENTRY POINT: THE QUIET WING
     </div>
 
     <div class="book-grid">
         
-        <div class="book-entry card">
+        <div class="book-entry">
             <div class="book-cover">
                 <img src="the%20quiet%20wing.png" alt="The Quiet Wing Cover">
             </div>
             <div class="book-content">
-                <span class="book-status">STATUS: ACTIVE // PRIMARY RECORD</span>
+                <span class="book-status">STATUS: AVAILABLE // PRIMARY RECORD</span>
                 <h2 class="book-title">The Quiet Wing</h2>
                 <p class="book-description">
-                    At the Rowe Institute, order is everything. Students are shaped to fit a system that prides itself on stability, but Caelum Rook is about to discover what the Academy is truly containing. A descent into the mechanics of doctrine and the price of structural silence.
+                    At the Rowe Institute, order is everything. Students are shaped to fit a system that prides itself on stability, but Caelum Rook is about to discover what the Academy is truly containing.
                 </p>
                 <div class="cta-group">
-                    <a href="#" class="btn-link">PRE-ORDER NOW</a>
+                    <a href="#" class="btn-link">PURCHASE RECORD</a>
                     <a href="#" class="btn-link" style="border-color: rgba(255,255,255,0.2); color: #fff;">READ SAMPLE</a>
                 </div>
             </div>
         </div>
 
-        <div class="book-entry card" style="opacity: 0.7;">
+        <div class="book-entry">
             <div class="book-cover">
-                <div style="width: 240px; height: 360px; background: rgba(0,0,0,0.4); border: 1px dashed var(--gold); display: flex; align-items: center; justify-content: center; color: var(--gold); font-family: 'Cinzel';">
-                    [REDACTED]
-                </div>
+                <img src="the%20quiet%20wing.png" alt="The Fractured Wing placeholder">
             </div>
             <div class="book-content">
-                <span class="book-status">STATUS: ENCRYPTED // FORTHCOMING</span>
+                <span class="book-status">STATUS: AVAILABLE // SECONDARY RECORD</span>
                 <h2 class="book-title">The Fractured Wing</h2>
                 <p class="book-description">
-                    The institutional accounts continue as the Harmony Network begins to show the true cost of resonance. (Access restricted until the next cycle).
+                    The institutional accounts continue as the Harmony Network begins to show the true cost of resonance. The descent deepens into the mechanics of structural failure.
                 </p>
                 <div class="cta-group">
-                    <a href="Codex.html" class="btn-link">VIEW CASE FILE</a>
+                    <a href="#" class="btn-link">PURCHASE RECORD</a>
                 </div>
             </div>
         </div>
 
+        <div class="book-entry" style="opacity: 0.7;">
+            <div class="book-cover">
+                <div style="width: 240px; height: 360px; background: rgba(0,0,0,0.4); border: 1px dashed var(--gold); display: flex; align-items: center; justify-content: center; color: var(--gold); font-family: 'Cinzel';">FORTHCOMING</div>
+            </div>
+            <div class="book-content">
+                <span class="book-status">STATUS: IN DEVELOPMENT</span>
+                <h2 class="book-title">The Warning From Below</h2>
+                <p class="book-description">
+                    The final stage of the fracture sequence. Information currently restricted by the Rowe Archive.
+                </p>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="adjacent-section">
+        <h3 class="adjacent-title">Adjacent Records</h3>
+        <div class="book-entry" style="background: rgba(0,0,0,0.3);">
+            <div class="book-cover">
+                <div style="width: 180px; height: 260px; background: rgba(0,0,0,0.5); border: 1px solid var(--gold); display: flex; align-items: center; justify-content: center; font-family: 'Cinzel'; font-size: 0.8rem; text-align: center; padding: 10px;">THE SOVEREIGNTY OF STONE</div>
+            </div>
+            <div class="book-content">
+                <span class="book-status">STATUS: ANCIENT RECORD // PREQUEL</span>
+                <h2 class="book-title" style="font-size: 1.5rem;">The Sovereignty of Stone</h2>
+                <p class="book-description" style="font-size: 1rem;">A deep-history analysis of the foundations before the Institute was established.</p>
+                <div class="cta-group">
+                    <a href="#" class="btn-link">EXPLORE PREQUEL</a>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
 
