@@ -1,9 +1,7 @@
-/* --- THE MIDNIGHT WARD SYSTEM (MASTER) --- */
 @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&display=swap');
 
 :root {
     --midnight: #050a14;   
-    --indigo-glow: rgba(26, 31, 70, 0.4); 
     --gold: #8a6b22;
     --gold-bright: #e1c57a;
     --text: #eaeaea;
@@ -29,7 +27,7 @@ body::before {
         linear-gradient(rgba(138, 107, 34, 0.1) 1px, transparent 1px),
         linear-gradient(90deg, rgba(138, 107, 34, 0.1) 1px, transparent 1px);
     background-size: 80px 80px;
-    animation: wardDrift 60s linear infinite, wardPulse 10s ease-in-out infinite alternate;
+    animation: wardDrift 80s linear infinite, wardPulse 10s ease-in-out infinite alternate;
 }
 
 @keyframes wardDrift {
@@ -39,26 +37,33 @@ body::before {
 
 @keyframes wardPulse {
     0% { opacity: 0.2; }
-    50% { opacity: 0.6; }
+    50% { opacity: 0.5; }
     100% { opacity: 0.2; }
+}
+
+/* SCREEN VIGNETTE */
+body::after {
+    content: "";
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    pointer-events: none;
+    background: radial-gradient(circle, transparent 65%, rgba(0,0,0,0.5) 100%);
+    z-index: 999;
 }
 
 /* NAVIGATION */
 nav { 
     text-align: center; position: fixed; top: 0; width: 100%; 
     background: rgba(0,0,0,0.7); backdrop-filter: blur(10px); 
-    padding: 20px 0; z-index: 100; border-bottom: 1px solid rgba(138, 107, 34, 0.2); 
+    padding: 20px 0; z-index: 1000; border-bottom: 1px solid rgba(138, 107, 34, 0.2); 
 }
-nav a { 
-    font-family: 'Cinzel', serif; color: var(--subtext); 
-    text-decoration: none; margin: 0 20px; font-size: 0.9rem; letter-spacing: 2px; 
-}
+nav a { color: var(--subtext); text-decoration: none; margin: 0 15px; font-size: 0.85rem; letter-spacing: 2px; transition: 0.3s; }
 nav a:hover { color: var(--gold-bright); }
 
-/* THRESHOLD PLATES & CARDS */
-.threshold-plate, .featured-panel {
+/* SHARED COMPONENTS */
+.card, .threshold-plate, .featured-panel {
     background: rgba(11, 25, 44, 0.7);
-    border: 1px solid rgba(138, 107, 34, 0.3);
+    border: 1px solid rgba(138, 107, 34, 0.2);
     backdrop-filter: blur(8px);
     transition: all 0.5s ease;
 }
@@ -66,6 +71,7 @@ nav a:hover { color: var(--gold-bright); }
 .threshold-plate:hover, .featured-panel:hover {
     border-color: var(--gold-bright);
     box-shadow: 0 0 30px rgba(138, 107, 34, 0.2);
+    transform: translateY(-3px);
 }
 
 .btn-link {
@@ -73,83 +79,31 @@ nav a:hover { color: var(--gold-bright); }
     border: 1px solid var(--gold);
     color: var(--gold);
     text-decoration: none;
-    padding: 10px 20px;
-    font-family: 'Cinzel', serif;
+    padding: 10px 25px;
     font-size: 0.8rem;
     letter-spacing: 2px;
     transition: 0.3s;
+    cursor: pointer;
+    background: transparent;
 }
 
-.btn-link:hover {
-    background: var(--gold);
-    color: white;
-}
-/* --- THE INSTITUTIONAL AURA --- */
+.btn-link:hover { background: var(--gold); color: white; }
 
-/* Custom Scrollbar for the Archive */
-::-webkit-scrollbar {
-    width: 8px;
-}
-
-::-webkit-scrollbar-track {
-    background: var(--midnight);
-}
-
-::-webkit-scrollbar-thumb {
-    background: var(--gold);
-    border-radius: 0;
-}
-
-::-webkit-scrollbar-thumb:hover {
-    background: #e1c57a; /* Brighter gold on hover */
-}
-
-/* Custom Text Selection */
-::selection {
-    background: var(--gold);
-    color: var(--midnight);
-}
-
-/* Screen Vignette: Makes the corners of the screen feel like an old terminal */
-body::after {
-    content: "";
-    position: fixed;
-    top: 0; left: 0; width: 100%; height: 100%;
-    pointer-events: none;
-    background: radial-gradient(circle, transparent 60%, rgba(0,0,0,0.4) 100%);
-    z-index: 999;
-}
 /* --- THE MOBILE SHIELD --- */
 @media (max-width: 768px) {
-    header h1 {
-        font-size: 2.2rem;
-    }
-    
-    .atmospheric {
-        font-size: 1.1rem;
-        padding: 0 15px;
-    }
-
-    .featured-panel {
-        flex-direction: column;
-        padding: 25px;
-        text-align: center;
-    }
-
-    .featured-panel img {
-        width: 150px;
-        margin-bottom: 20px;
-    }
-
-    nav a {
-        margin: 0 8px;
-        font-size: 0.75rem;
-    }
+    header h1 { font-size: 2.2rem !important; }
+    nav a { margin: 0 5px; font-size: 0.7rem; }
+    .featured-panel { flex-direction: column; text-align: center; }
 }
 
-/* GLOBAL TYPOGRAPHY: Forces the Institutional look everywhere */
-h1, h2, h3, .nav-link, .brand-title { 
+/* GLOBAL TYPOGRAPHY */
+h1, h2, h3, nav a, .btn-link, .tagline, .subtitle { 
     font-family: 'Cinzel', serif !important; 
     text-transform: uppercase; 
     letter-spacing: 3px; 
 }
+
+/* SCROLLBAR */
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-track { background: var(--midnight); }
+::-webkit-scrollbar-thumb { background: var(--gold); }
