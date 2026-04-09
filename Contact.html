@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tristen | Contact</title>
+    <title>Contact | Tristen C. Metsikassus</title>
     <style>
-        /* The Animated Gradient Background (Same as Index) */
+        /* The Animated Gradient Background */
         body {
             margin: 0;
             font-family: Garamond, serif;
@@ -34,7 +34,7 @@
             background: rgba(0, 0, 0, 0.6); border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.4); margin-bottom: 60px;
         }
         h2 { margin-bottom: 15px; color: #ffffff; font-size: 2.2rem; }
-        p { line-height: 1.6; color: #d2d2dc; margin-bottom: 30px; }
+        p.intro { line-height: 1.6; color: #d2d2dc; margin-bottom: 40px; }
 
         /* Custom Styling for the Social Links */
         .social-links {
@@ -42,6 +42,7 @@
             flex-direction: column;
             gap: 20px;
             align-items: center;
+            margin-bottom: 40px;
         }
         
         .social-btn {
@@ -58,12 +59,37 @@
             transition: all 0.3s ease;
         }
 
-        /* The hover effect makes them glow gold when clicked */
         .social-btn:hover {
             background: rgba(138, 107, 34, 0.2); 
             box-shadow: 0 0 15px rgba(138, 107, 34, 0.5);
             color: #ffffff;
             border-color: #ffffff;
+        }
+
+        /* Direct Contact Info */
+        .contact-details {
+            padding-top: 30px;
+            border-top: 1px solid rgba(138, 107, 34, 0.3);
+            text-align: center;
+        }
+
+        .contact-details p {
+            font-size: 1.1rem;
+            color: #d2d2dc;
+            margin-bottom: 15px;
+        }
+
+        .contact-details a {
+            color: #8a6b22;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s ease;
+            letter-spacing: 1px;
+        }
+
+        .contact-details a:hover {
+            color: #ffffff;
+            text-shadow: 0 0 8px rgba(255, 255, 255, 0.5);
         }
     </style>
 </head>
@@ -87,13 +113,18 @@
 
     <main>
         <h2>Reach Across the Void</h2>
-        <p>Whether you are seeking to collaborate, inquire about my worlds, or simply connect, you can find me through the channels below.</p>
+        <p class="intro">Whether you are seeking to collaborate, inquire about my worlds, or simply connect, you can find me through the channels below.</p>
         
         <div class="social-links">
-            <a href="#" class="social-btn" target="_blank">LinkedIn</a>
-            <a href="#" class="social-btn" target="_blank">Facebook</a>
-            <a href="#" class="social-btn" target="_blank">Instagram</a>
-            <a href="mailto:your-email@example.com" class="social-btn">Email Me</a>
+            <a href="https://www.linkedin.com/in/tristen-metsikassus-51239b3ab/" class="social-btn" target="_blank">LinkedIn</a>
+            <a href="https://www.facebook.com/tristenmetsikassus" class="social-btn" target="_blank">Facebook</a>
+            <a href="https://www.instagram.com/tristen_metsikassus/?hl=en" class="social-btn" target="_blank">Instagram</a>
+        </div>
+
+        <div class="contact-details">
+            <p><strong>Primary Email:</strong> <br><a href="mailto:Tristenpublication@outlook.com">Tristenpublication@outlook.com</a></p>
+            <p><strong>Secondary Email:</strong> <br><a href="mailto:Tristenmett@gmail.com">Tristenmett@gmail.com</a></p>
+            <p><strong>Direct Line:</strong> <br><a href="tel:5878516033">587-851-6033</a></p>
         </div>
     </main>
 
