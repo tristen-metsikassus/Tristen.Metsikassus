@@ -5,117 +5,174 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Codex | Tristen C. Metsikassus</title>
     <style>
+        /* IMPORT CINEMATIC FONTS */
+        @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&display=swap');
+
         /* The Animated Gradient Background */
         body {
             margin: 0;
-            font-family: Garamond, serif;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.15rem;
             color: #eaeaea;
             min-height: 100vh;
             background: linear-gradient(-45deg, #0b192c, #1a1025, #4a154b, #8a6b22);
             background-size: 400% 400%;
             animation: arcaneShift 15s ease infinite;
         }
+
         @keyframes arcaneShift {
             0% { background-position: 0% 50%; }
             50% { background-position: 100% 50%; }
             100% { background-position: 0% 50%; }
         }
 
+        /* --- TYPOGRAPHY & ANIMATIONS --- */
+        h1, h2, h3 {
+            font-family: 'Cinzel', serif;
+            font-weight: normal;
+            letter-spacing: 2px;
+        }
+
         header { text-align: center; padding: 60px 20px 30px; }
-        h1 { font-size: 3rem; margin-bottom: 10px; }
-        header p { color: #bdbdcc; font-size: 1.2rem; font-style: italic; }
+        
+        h1 { 
+            font-size: 3.5rem; 
+            margin-bottom: 10px; 
+            color: #ffffff;
+            animation: cinematicEntrance 3s ease-out forwards, arcanePulse 6s infinite alternate 3s;
+        }
+
+        @keyframes arcanePulse {
+            0% { transform: scale(1); text-shadow: 0 0 10px rgba(138, 107, 34, 0.4); }
+            100% { 
+                transform: scale(1.03); 
+                color: rgba(255,255,255,0.85); 
+                text-shadow: 0 0 25px rgba(138, 107, 34, 0.8), 0 0 40px rgba(74, 21, 75, 0.6); 
+            }
+        }
+
+        @keyframes cinematicEntrance {
+            0% { opacity: 0; transform: scale(0.9); text-shadow: 0 0 50px #fff; }
+            100% { opacity: 1; transform: scale(1); }
+        }
 
         nav { text-align: center; margin-bottom: 40px; }
         nav ul { list-style: none; padding: 0; }
-        nav li { display: inline; margin: 0 15px; }
-        nav a { color: #d8d8e8; text-decoration: none; font-weight: bold; letter-spacing: 1px; transition: color 0.3s ease; }
-        nav a:hover { color: #ffffff; text-shadow: 0 0 8px rgba(255, 255, 255, 0.5); }
+        nav li { display: inline; margin: 0 20px; }
+        
+        nav a { 
+            font-family: 'Cinzel', serif;
+            color: #d8d8e8; 
+            text-decoration: none; 
+            font-weight: bold; 
+            letter-spacing: 2px; 
+            display: inline-block; 
+            transition: transform 0.5s ease, color 0.5s ease, text-shadow 0.5s ease; 
+        }
 
+        nav a:hover { 
+            transform: scale(1.15);
+            color: rgba(255, 255, 255, 0.7); 
+            text-shadow: 0 0 15px rgba(255, 255, 255, 0.8), 0 0 30px #8a6b22; 
+        }
+
+        /* Main Content Container */
         main {
-            max-width: 800px;
+            max-width: 850px;
             margin: auto;
             padding: 40px;
             background: rgba(0, 0, 0, 0.6);
             border-radius: 12px;
             box-shadow: 0 4px 20px rgba(0,0,0,0.4);
             margin-bottom: 60px;
+            opacity: 0;
+            animation: fadeIn 2s ease-in forwards 1s;
         }
 
-        h1, h2 { color: #ffffff; text-align: center; }
-        
+        @keyframes fadeIn {
+            to { opacity: 1; }
+        }
+
         .intro-text {
             text-align: center;
             margin-bottom: 40px;
             font-style: italic;
             color: #bdbdcc;
-            font-size: 1.1rem;
+            font-size: 1.2rem;
             line-height: 1.6;
         }
 
-        /* The Archive Accordion Styling */
+        /* --- ACCORDION STYLING --- */
         details {
             background: rgba(255, 255, 255, 0.03);
             border: 1px solid #4a154b;
             border-radius: 8px;
             margin-bottom: 20px;
-            padding: 15px 20px;
-            transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+            padding: 20px;
+            transition: all 0.4s ease;
         }
 
         details:hover {
             border-color: #8a6b22;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.6);
+            transform: scale(1.01);
         }
 
         summary {
+            font-family: 'Cinzel', serif;
             font-size: 1.3rem;
             color: #ffffff;
             cursor: pointer;
-            font-weight: bold;
-            letter-spacing: 1px;
+            font-weight: normal;
+            letter-spacing: 1.5px;
             outline: none;
-            transition: color 0.3s ease;
+            list-style: none; /* Hides default arrow on some browsers */
         }
+
+        summary::-webkit-details-marker { display: none; } /* Hides arrow in Chrome/Safari */
 
         summary:hover {
             color: #8a6b22;
-        }
-
-        /* Removes the default arrow on some browsers for a cleaner look */
-        summary::marker {
-            color: #8a6b22;
+            text-shadow: 0 0 8px rgba(138, 107, 34, 0.5);
         }
 
         .codex-text {
-            margin-top: 15px;
-            padding-top: 15px;
+            margin-top: 20px;
+            padding-top: 20px;
             border-top: 1px solid rgba(138, 107, 34, 0.3);
-            line-height: 1.7;
+            line-height: 1.8;
             color: #d2d2dc;
         }
 
         .codex-text strong {
+            font-family: 'Cinzel', serif;
             color: #ffffff;
             display: block;
             margin-top: 20px;
-            margin-bottom: 5px;
-            font-size: 1.15rem;
-            letter-spacing: 0.5px;
+            margin-bottom: 8px;
+            font-size: 1.1rem;
         }
 
-        /* Styling for your PDF download links */
         .codex-text a {
             color: #8a6b22;
             text-decoration: none;
             font-weight: bold;
-            transition: color 0.3s ease;
-            display: inline-block;
-            margin-bottom: 5px;
+            transition: all 0.3s ease;
         }
 
         .codex-text a:hover {
             color: #ffffff;
-            text-shadow: 0 0 8px rgba(255, 255, 255, 0.4);
+            text-shadow: 0 0 10px #ffffff;
+        }
+
+        footer {
+            text-align: center;
+            padding: 25px 20px;
+            font-size: 0.9rem;
+            color: #8f8f9d;
+            border-top: 1px solid rgba(138, 107, 34, 0.3);
+            margin-top: 40px;
+            font-family: 'Cinzel', serif;
         }
     </style>
 </head>
@@ -145,19 +202,58 @@
             <summary>Section I - FOUNDATIONAL OVERVIEW</summary>
             <div class="codex-text">
                 <p><strong>The World at Its Core</strong><br>
-                The Rowe Institute trilogy is set in a civilization built around institutions that no longer fully understand the deeper metaphysical problem they were created to manage. Academies, commissions, doctrines, and wards organize life on the surface, while beneath them lies an older wrong relation that later generations inherited as procedure rather than truth.</p>
-                <p><strong>The Central Conflict</strong><br>
-                The central conflict is the clash between institutional order and living alignment. The schools believe that stability comes through classification, control, correction, and managed legibility. The deeper truth of the series is that real coherence requires relation, consent, and mutuality.</p>
+                The Rowe Institute trilogy is set in a civilization built around institutions that no longer fully understand the deeper metaphysical problem they were created to manage.</p>
                 <p><strong>Echo vs. Resonance</strong><br>
-                Echo is the measurable, administratively legible layer of magical response. Resonance is deeper, relational, and far harder to contain. The institutions do not deny Resonance outright; they fail by trying to force it into the same frame as Echo.</p>
-                <p><strong>The Institutional Lie</strong><br>
-                The foundational institutional lie is that containment equals understanding. Because of that lie, systems repeatedly rename living phenomena as failure states, treat transformation as instability, and protect structures long after their moral basis has collapsed.</p>
+                Echo is the measurable, administratively legible layer of magical response. Resonance is deeper, relational, and far harder to contain.</p>
             </div>
         </details>
 
         <details>
             <summary>Section II - CHARACTER ARCHIVE</summary>
             <div class="codex-text">
-                <p><em>The people of Rowe are not only characters but embodiments of doctrine, pressure, memory, and resistance.</em></p>
-                <p><strong>Aurelia Rowe</strong><br>
-                Aurelia is the heir to institutional control and
+                <p><strong>Aurelia Rowe</strong><br> Heir to institutional control and the trilogy's moral center.</p>
+                <p><strong>Caelum Rook</strong><br> The living contradiction to containment logic.</p>
+                <p><strong>Hale Cormac</strong><br> The pressure-bearer: practical, adaptive, and bodily aware.</p>
+            </div>
+        </details>
+
+        <details>
+            <summary>Section III - INSTITUTIONAL REGISTRY</summary>
+            <div class="codex-text">
+                <p><strong>Rowe Institute</strong><br> An elite academy publicly claiming refinement, privately functioning as an inherited containment architecture.</p>
+                <p><strong>Kassor Commission</strong><br> The deeper regulatory machine handling active anomalies.</p>
+            </div>
+        </details>
+
+        <details>
+            <summary>Section IV - ECHO / RESONANCE MECHANICS</summary>
+            <div class="codex-text">
+                <p><strong>Fracture</strong><br> Not merely damage, but the visible sign that a false wholeness has become overstrained.</p>
+                <p><strong>Threshold</strong><br> The condition where neutrality fails and contact becomes active.</p>
+            </div>
+        </details>
+
+        <details>
+            <summary>Section V - DOCTRINE HOUSES</summary>
+            <div class="codex-text">
+                <p><strong>House Rowe</strong> (Order), <strong>House Ashfen</strong> (Endurance), <strong>House Serentide</strong> (Flow), <strong>House Thornward</strong> (Judgment), <strong>House Duskward</strong> (Caution).</p>
+            </div>
+        </details>
+
+        <details>
+            <summary>Section VI - THE ROWE INSTITUTE ARCHIVES</summary>
+            <div class="codex-text">
+                <p><strong>Production Bibles & Lore</strong><br>
+                <a href="Rowe_Institute_Master_Production_Bible_Tristen_Metsikassus.pdf" target="_blank">Download Master Production Bible (PDF)</a><br>
+                <a href="Rowe_Institute_Full_Production_Bible_Tristen_Metsikassus.pdf" target="_blank">Download Full Production Bible (PDF)</a></p>
+            </div>
+        </details>
+
+    </main>
+
+    <footer>
+        © 2026 Tristen C. Metsikassus
+    </footer>
+
+</body>
+</html>
