@@ -10,11 +10,21 @@
         .registry-container { max-width: 1100px; margin: 40px auto; padding: 20px; }
         section { margin-bottom: 80px; }
         h2 { color: var(--gold); border-bottom: 1px solid rgba(138, 107, 34, 0.3); padding-bottom: 10px; margin-bottom: 30px; }
-        .registry-table { width: 100%; border-collapse: collapse; background: rgba(11, 25, 44, 0.6); backdrop-filter: blur(10px); border: 1px solid rgba(138, 107, 34, 0.3); }
-        .registry-table th { background: rgba(138, 107, 34, 0.1); color: var(--gold); padding: 20px; text-align: left; border-bottom: 1px solid var(--gold); }
+        
+        /* Reinforced Table Styling */
+        .registry-table { 
+            width: 100%; border-collapse: collapse; background: rgba(11, 25, 44, 0.6); 
+            backdrop-filter: blur(10px); border: 1px solid rgba(138, 107, 34, 0.3); 
+        }
+        .registry-table th { 
+            background: rgba(138, 107, 34, 0.1); color: var(--gold); 
+            padding: 20px; text-align: left; border-bottom: 1px solid var(--gold); 
+            font-family: 'Cinzel', serif; font-size: 0.8rem; letter-spacing: 2px;
+        }
         .registry-table td { padding: 20px; border-bottom: 1px solid rgba(138, 107, 34, 0.1); line-height: 1.6; }
-        .inst-name { color: #fff; font-weight: bold; }
+        .inst-name { color: #fff; font-weight: bold; font-family: 'Cinzel', serif; }
         .doctrine { color: var(--gold); font-style: italic; font-size: 0.9rem; }
+        
         .mechanics-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
         .mechanic-card { padding: 30px; background: rgba(0,0,0,0.4); border-left: 3px solid var(--gold); }
     </style>
@@ -40,17 +50,17 @@
         <h2>The Eight Core Anchors</h2>
         <table class="registry-table">
             <thead>
-                <tr><th>Institution</th><th>Doctrine</th><th>Function</th></tr>
+                <tr><th>Institution</th><th>Doctrine</th><th>Primary Function</th></tr>
             </thead>
             <tbody>
-                <tr><td><span class="inst-name">Rowe Institute</span></td><td><span class="doctrine">Central Alignment</span></td><td>Archival governance and calibration.</td></tr>
-                <tr><td><span class="inst-name">Thornward</span></td><td><span class="doctrine">Adjudication</span></td><td>Enforcement of covenant law.</td></tr>
-                <tr><td><span class="inst-name">Duskward</span></td><td><span class="doctrine">Threshold Ethics</span></td><td>Liminal space and passage control.</td></tr>
-                <tr><td><span class="inst-name">Ashfen</span></td><td><span class="doctrine">Structural Endurance</span></td><td>Holding systemic and physical weight.</td></tr>
-                <tr><td><span class="inst-name">Serentide</span></td><td><span class="doctrine">Rhythmic Harmonics</span></td><td>Network synchronization and timing.</td></tr>
-                <tr><td><span class="inst-name">Veth</span></td><td><span class="doctrine">Spatial Logic</span></td><td>Geometry and node cartography.</td></tr>
-                <tr><td><span class="inst-name">Iselen</span></td><td><span class="doctrine">Flow Management</span></td><td>Handling the discharge of static heat.</td></tr>
-                <tr><td><span class="inst-name">Varis Reach</span></td><td><span class="doctrine">Field Resilience</span></td><td>Emergency maintenance and utility.</td></tr>
+                <tr><td><span class="inst-name">Rowe Institute</span></td><td><span class="doctrine">Central Alignment</span></td><td>Archival governance and systemic calibration.</td></tr>
+                <tr><td><span class="inst-name">Thornward</span></td><td><span class="doctrine">Adjudication</span></td><td>Enforcement of covenant law and structural justice.</td></tr>
+                <tr><td><span class="inst-name">Duskward</span></td><td><span class="doctrine">Threshold Ethics</span></td><td>Liminal space management and passage control.</td></tr>
+                <tr><td><span class="inst-name">Ashfen</span></td><td><span class="doctrine">Structural Endurance</span></td><td>Holding systemic weight and physical resilience.</td></tr>
+                <tr><td><span class="inst-name">Serentide</span></td><td><span class="doctrine">Rhythmic Harmonics</span></td><td>Network synchronization and timing regulation.</td></tr>
+                <tr><td><span class="inst-name">Veth</span></td><td><span class="doctrine">Spatial Logic</span></td><td>Geometry, node cartography, and spatial anchoring.</td></tr>
+                <tr><td><span class="inst-name">Iselen</span></td><td><span class="doctrine">Flow Management</span></td><td>Redirection and discharge of systemic static heat.</td></tr>
+                <tr><td><span class="inst-name">Varis Reach</span></td><td><span class="doctrine">Field Resilience</span></td><td>Emergency field repair and utility maintenance.</td></tr>
             </tbody>
         </table>
     </section>
@@ -60,23 +70,25 @@
         <div class="mechanics-grid">
             <div class="mechanic-card card">
                 <h3>Resonance</h3>
-                <p>The vibration of a system in alignment with its core doctrine.</p>
+                <p>The vibration of a system in alignment with its core doctrine. High resonance provides stability but generates heat.</p>
             </div>
             <div class="mechanic-card card">
                 <h3>The Fracture</h3>
-                <p>Structural failure in the network where doctrine no longer matches reality.</p>
+                <p>A structural failure where institutional doctrine no longer matches physical reality.</p>
             </div>
             <div class="mechanic-card card">
-                <h3>Ward-Drift</h3>
-                <p>The natural migration of containment fields requiring calibration.</p>
+                <h3>Echo</h3>
+                <p>Residual memory of a previous resonance state. If not cleared, Echo builds into structural noise that destabilizes the ward.</p>
             </div>
         </div>
     </section>
+    
+    <div style="text-align: center; margin-top: 60px;">
+        <a href="Books.html" class="btn-link">SEE THE FRACTURE IN ACTION</a>
+    </div>
 </div>
 
-<footer style="text-align: center; padding: 100px; opacity: 0.3; font-size: 0.7rem;">
-    [ SECURE TERMINAL // CODEX-RESONANCE ACTIVE ]
-</footer>
+<footer style="text-align: center; padding: 100px; opacity: 0.3; font-size: 0.7rem;">[ SECURE TERMINAL // CODEX-RESONANCE ACTIVE ]</footer>
 
 </body>
 </html>
