@@ -84,3 +84,38 @@ nav a:hover { color: var(--gold-bright); }
     background: var(--gold);
     color: white;
 }
+/* --- THE INSTITUTIONAL AURA --- */
+
+/* Custom Scrollbar for the Archive */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--midnight);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--gold);
+    border-radius: 0;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #e1c57a; /* Brighter gold on hover */
+}
+
+/* Custom Text Selection */
+::selection {
+    background: var(--gold);
+    color: var(--midnight);
+}
+
+/* Screen Vignette: Makes the corners of the screen feel like an old terminal */
+body::after {
+    content: "";
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    pointer-events: none;
+    background: radial-gradient(circle, transparent 60%, rgba(0,0,0,0.4) 100%);
+    z-index: 999;
+}
