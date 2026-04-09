@@ -3,269 +3,94 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Books | Tristen C. Metsikassus</title>
+    <title>The Bibliography | Tristen C. Metsikassus</title>
+    <link rel="stylesheet" href="style.css">
     <style>
-        /* IMPORT CINEMATIC FONTS */
-        @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&display=swap');
+        header { text-align: center; padding: 120px 20px 40px; }
+        h1 { font-size: 3rem; margin-bottom: 10px; }
+        .subtitle { color: var(--gold); font-family: 'Cinzel', serif; letter-spacing: 3px; font-size: 1rem; text-transform: uppercase; }
 
-        /* The Animated Gradient Background */
-        body {
-            margin: 0;
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 1.15rem;
-            color: #eaeaea;
-            min-height: 100vh;
-            background: linear-gradient(-45deg, #0b192c, #1a1025, #4a154b, #8a6b22);
-            background-size: 400% 400%;
-            animation: arcaneShift 15s ease infinite;
-        }
-
-        @keyframes arcaneShift {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
-        }
-
-        /* --- TYPOGRAPHY & ANIMATIONS --- */
-        h1, h2, h3 {
-            font-family: 'Cinzel', serif;
-            font-weight: normal;
-            letter-spacing: 2px;
-        }
-
-        header { text-align: center; padding: 60px 20px 30px; }
-        
-        h1 { 
-            font-size: 3.5rem; 
-            margin-bottom: 10px; 
-            color: #ffffff;
-            animation: cinematicEntrance 3s ease-out forwards, arcanePulse 6s infinite alternate 3s;
-        }
-
-        @keyframes arcanePulse {
-            0% { transform: scale(1); text-shadow: 0 0 10px rgba(138, 107, 34, 0.4); }
-            100% { 
-                transform: scale(1.03); 
-                color: rgba(255,255,255,0.85); 
-                text-shadow: 0 0 25px rgba(138, 107, 34, 0.8), 0 0 40px rgba(74, 21, 75, 0.6); 
-            }
-        }
-
-        @keyframes cinematicEntrance {
-            0% { opacity: 0; transform: scale(0.9); text-shadow: 0 0 50px #fff; }
-            100% { opacity: 1; transform: scale(1); }
-        }
-
-        header p { 
-            color: #bdbdcc; 
-            font-size: 1.4rem; 
-            font-style: italic; 
-            letter-spacing: 1px;
-        }
-
-        nav { text-align: center; margin-bottom: 40px; }
-        nav ul { list-style: none; padding: 0; }
-        nav li { display: inline; margin: 0 20px; }
-        
-        nav a { 
-            font-family: 'Cinzel', serif;
-            color: #d8d8e8; 
-            text-decoration: none; 
-            font-weight: bold; 
-            letter-spacing: 2px; 
-            display: inline-block; 
-            transition: transform 0.5s ease, color 0.5s ease, text-shadow 0.5s ease; 
-        }
-
-        nav a:hover { 
-            transform: scale(1.15);
-            color: rgba(255, 255, 255, 0.7); 
-            text-shadow: 0 0 15px rgba(255, 255, 255, 0.8), 0 0 30px #8a6b22; 
-        }
-
-        /* Main Content Container */
-        main {
-            max-width: 900px;
-            margin: auto;
-            padding: 40px;
-            background: rgba(0, 0, 0, 0.6);
-            border-radius: 12px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.4);
-            margin-bottom: 60px;
-            opacity: 0;
-            animation: fadeIn 2s ease-in forwards 1s;
-        }
-
-        @keyframes fadeIn {
-            to { opacity: 1; }
-        }
-
-        h2.section-title { color: #ffffff; text-align: center; margin-bottom: 40px; font-size: 2.2rem; }
-
-        .book-container {
-            display: flex;
-            flex-direction: column;
+        .book-grid {
+            max-width: 1100px;
+            margin: 60px auto;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: 1fr;
             gap: 40px;
         }
 
-        .book-card {
+        .book-entry {
             display: flex;
-            gap: 30px;
-            background: rgba(255, 255, 255, 0.03);
-            padding: 25px;
-            border: 1px solid #4a154b;
-            border-radius: 8px;
-            align-items: start;
-            transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+            gap: 40px;
+            align-items: flex-start;
         }
 
-        .book-card:hover {
-            border-color: #8a6b22;
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(0,0,0,0.6);
-        }
-
-        .book-cover {
+        .book-cover img {
             width: 200px;
-            height: auto;
-            border-radius: 4px;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.5);
-            border: 1px solid #8a6b22;
+            border: 1px solid var(--gold);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.8);
         }
 
-        .book-info {
-            flex: 1;
-        }
-
-        .book-title {
-            margin-top: 0;
-            color: #ffffff;
-            font-size: 2rem;
-            margin-bottom: 5px;
-        }
-
-        .book-status {
-            color: #8a6b22;
-            font-style: italic;
-            font-size: 1.1rem;
-            margin-bottom: 15px;
-            letter-spacing: 1px;
-        }
-
-        .book-info p {
-            margin-bottom: 15px;
-            text-align: justify;
-            line-height: 1.7;
-            color: #d2d2dc;
-            font-size: 1.1rem;
-        }
-
-        /* Cinematic Buttons */
-        .read-more-btn {
-            display: inline-block;
-            padding: 12px 24px;
-            background: transparent;
-            color: #eaeaea;
-            border: 1px solid #8a6b22;
-            border-radius: 4px;
-            text-decoration: none;
-            font-family: 'Cinzel', serif;
-            font-weight: bold;
-            letter-spacing: 1.5px;
-            transition: all 0.4s ease;
-            margin-top: 10px;
-        }
-
-        .read-more-btn:hover {
-            background: rgba(138, 107, 34, 0.2);
-            color: #ffffff;
-            box-shadow: 0 0 15px rgba(138, 107, 34, 0.6);
-            border-color: #ffffff;
-        }
+        .book-details h2 { font-size: 2rem; margin-top: 0; color: #ffffff; }
+        .book-meta { font-family: 'Cinzel', serif; color: var(--gold); font-size: 0.9rem; margin-bottom: 15px; }
+        .book-details p { line-height: 1.8; color: var(--subtext); font-size: 1.1rem; }
 
         @media (max-width: 768px) {
-            .book-card { flex-direction: column; align-items: center; text-align: center; }
-            .book-info p { text-align: center; }
+            .book-entry { flex-direction: column; align-items: center; text-align: center; }
         }
 
-        footer {
-            text-align: center;
-            padding: 25px 20px;
-            font-size: 0.9rem;
-            color: #8f8f9d;
-            border-top: 1px solid rgba(138, 107, 34, 0.3);
-            margin-top: 40px;
-            font-family: 'Cinzel', serif;
-        }
+        nav { text-align: center; position: fixed; top: 0; width: 100%; background: rgba(0,0,0,0.5); backdrop-filter: blur(10px); padding: 20px 0; z-index: 100; border-bottom: 1px solid rgba(138, 107, 34, 0.2); }
+        nav ul { list-style: none; padding: 0; margin: 0; }
+        nav li { display: inline; margin: 0 25px; }
+        nav a { font-family: 'Cinzel', serif; color: var(--subtext); text-decoration: none; font-weight: bold; letter-spacing: 2px; font-size: 0.9rem; }
+        nav a:hover { color: var(--gold); }
     </style>
 </head>
 <body>
 
-    <header>
-        <h1>Tristen C. Metsikassus</h1>
-        <p>Author and Visual Worldbuilder</p>
-    </header>
+<nav>
+    <ul>
+        <li><a href="index.html">HOME</a></li>
+        <li><a href="About.html">ABOUT</a></li>
+        <li><a href="Books.html">BOOKS</a></li>
+        <li><a href="Codex.html">CODEX</a></li>
+        <li><a href="Art.html">ART</a></li>
+        <li><a href="Contact.html">CONTACT</a></li>
+    </ul>
+</nav>
 
-    <nav>
-        <ul>
-            <li><a href="index.html">HOME</a></li>
-            <li><a href="About.html">ABOUT</a></li>
-            <li><a href="Books.html">BOOKS</a></li>
-            <li><a href="Codex.html">CODEX</a></li>
-            <li><a href="Art.html">ART</a></li>
-            <li><a href="Contact.html">CONTACT</a></li>
-        </ul>
-    </nav>
+<header>
+    <p class="subtitle">Rowe Institute Registry</p>
+    <h1>The Bibliography</h1>
+</header>
 
-    <main>
-        <h2 class="section-title">The Bibliography</h2>
-        
-        <div class="book-container">
-            <div class="book-card">
-                <img src="sigil-1.png" alt="The Sovereignty Stone Cover" class="book-cover">
-                <div class="book-info">
-                    <h2 class="book-title">The Sovereignty Stone</h2>
-                    <div class="book-status">A Prequel to The Rowe Institute Trilogy</div>
-                    <p>Before the Academy was a fortress of doctrine, it was a site of discovery—and dangerous ambition. This prequel explores the foundation of the Rowe legacy and the cost of the original "containment."</p>
-                    <a href="#" class="read-more-btn">Coming Soon</a>
-                </div>
-            </div>
-
-            <div class="book-card">
-                <img src="the quiet wing.png" alt="The Quiet Wing Cover" class="book-cover">
-                <div class="book-info">
-                    <h2 class="book-title">The Quiet Wing</h2>
-                    <div class="book-status">Book I of The Rowe Institute</div>
-                    <p>At the Rowe Institute, order is everything. When Caelum Rook enters that world, he quickly realizes the Academy’s elegance is hiding something older and far more dangerous.</p>
-                    <a href="https://www.amazon.com/s?k=the+quiet+wing&ref=nb_sb_noss" class="read-more-btn" target="_blank">Purchase on Amazon</a>
-                </div>
-            </div>
-
-            <div class="book-card">
-                <img src="the fractured wing.png" alt="The Fractured Wing Cover" class="book-cover">
-                <div class="book-info">
-                    <h2 class="book-title">The Fractured Wing</h2>
-                    <div class="book-status">Book II of The Rowe Institute</div>
-                    <p>After the Harmonic Event, the Rowe Institute does what it does best: it corrects. The fractured courtyard has been replaced, the official story has hardened into doctrine.</p>
-                    <a href="https://www.amazon.com/Fractured-Wing-institute-novel-Institute-ebook/dp/B0FTZT8C2B/ref=sr_1_2?keywords=the+fractured+wing" class="read-more-btn" target="_blank">Purchase on Amazon</a>
-                </div>
-            </div>
-
-            <div class="book-card">
-                <img src="The Warning from Below.png" alt="The Warning From Below Cover" class="book-cover">
-                <div class="book-info">
-                    <h2 class="book-title">The Warning From Below</h2>
-                    <div class="book-status">Book III of The Rowe Institute</div>
-                    <p>The Rowe Institute was built to contain what it never truly understood. Now, what was buried is beginning to answer. The final movement of the Rowe Institute trilogy.</p>
-                    <a href="#" class="read-more-btn">Coming Soon</a>
-                </div>
-            </div>
+<div class="book-grid">
+    <div class="book-entry card wardline">
+        <div class="book-cover">
+            <img src="the quiet wing.png" alt="The Quiet Wing Cover">
         </div>
-    </main>
+        <div class="book-details">
+            <div class="book-meta">Primary Record // Status: Published</div>
+            <h2>The Quiet Wing</h2>
+            <p>At the Rowe Institute, order is everything. Students are shaped to fit a system that prides itself on stability, but Caelum Rook is about to discover what the Academy is truly containing. A descent into the mechanics of doctrine and the price of structural silence.</p>
+        </div>
+    </div>
 
-    <footer>
-        © 2026 Tristen C. Metsikassus
-    </footer>
+    <div class="book-entry card" style="opacity: 0.6;">
+        <div class="book-cover">
+            <div style="width: 200px; height: 300px; background: rgba(0,0,0,0.5); border: 1px dashed var(--gold); display: flex; align-items: center; justify-content: center; font-family: 'Cinzel', serif;">[REDACTED]</div>
+        </div>
+        <div class="book-details">
+            <div class="book-meta">Secondary Record // Status: In Progress</div>
+            <h2>The Second Fracture</h2>
+            <p>The institutional accounts continue as the Harmony Network begins to show the true cost of resonance. (Information restricted by the Rowe Archive).</p>
+        </div>
+    </div>
+</div>
+
+<footer style="text-align: center; padding: 100px 40px; opacity: 0.4; font-size: 0.7rem; letter-spacing: 3px; font-family: 'Cinzel', serif;">
+    [ SECURE TERMINAL // BIBLIOGRAPHY ACCESS ]
+</footer>
 
 </body>
 </html>
