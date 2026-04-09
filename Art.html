@@ -5,31 +5,85 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Art | Tristen C. Metsikassus</title>
     <style>
+        /* IMPORT CINEMATIC FONTS */
+        @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&display=swap');
+
         /* The Animated Gradient Background */
         body {
             margin: 0;
-            font-family: Garamond, serif;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.15rem;
             color: #eaeaea;
             min-height: 100vh;
             background: linear-gradient(-45deg, #0b192c, #1a1025, #4a154b, #8a6b22);
             background-size: 400% 400%;
             animation: arcaneShift 15s ease infinite;
         }
+
         @keyframes arcaneShift {
             0% { background-position: 0% 50%; }
             50% { background-position: 100% 50%; }
             100% { background-position: 0% 50%; }
         }
 
+        /* --- TYPOGRAPHY & ANIMATIONS --- */
+        h1, h2, h3 {
+            font-family: 'Cinzel', serif;
+            font-weight: normal;
+            letter-spacing: 2px;
+        }
+
         header { text-align: center; padding: 60px 20px 30px; }
-        h1 { font-size: 3rem; margin-bottom: 10px; }
-        header p { color: #bdbdcc; font-size: 1.2rem; font-style: italic; max-width: 700px; margin: 0 auto; }
+        
+        h1 { 
+            font-size: 3.5rem; 
+            margin-bottom: 10px; 
+            color: #ffffff;
+            animation: cinematicEntrance 3s ease-out forwards, arcanePulse 6s infinite alternate 3s;
+        }
+
+        @keyframes arcanePulse {
+            0% { transform: scale(1); text-shadow: 0 0 10px rgba(138, 107, 34, 0.4); }
+            100% { 
+                transform: scale(1.03); 
+                color: rgba(255,255,255,0.85); 
+                text-shadow: 0 0 25px rgba(138, 107, 34, 0.8), 0 0 40px rgba(74, 21, 75, 0.6); 
+            }
+        }
+
+        @keyframes cinematicEntrance {
+            0% { opacity: 0; transform: scale(0.9); text-shadow: 0 0 50px #fff; }
+            100% { opacity: 1; transform: scale(1); }
+        }
+
+        header p { 
+            color: #bdbdcc; 
+            font-size: 1.4rem; 
+            font-style: italic; 
+            letter-spacing: 1px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
 
         nav { text-align: center; margin-bottom: 40px; }
         nav ul { list-style: none; padding: 0; }
-        nav li { display: inline; margin: 0 15px; }
-        nav a { color: #d8d8e8; text-decoration: none; font-weight: bold; letter-spacing: 1px; transition: color 0.3s ease; }
-        nav a:hover { color: #ffffff; text-shadow: 0 0 8px rgba(255, 255, 255, 0.5); }
+        nav li { display: inline; margin: 0 20px; }
+        
+        nav a { 
+            font-family: 'Cinzel', serif;
+            color: #d8d8e8; 
+            text-decoration: none; 
+            font-weight: bold; 
+            letter-spacing: 2px; 
+            display: inline-block; 
+            transition: transform 0.5s ease, color 0.5s ease, text-shadow 0.5s ease; 
+        }
+
+        nav a:hover { 
+            transform: scale(1.15);
+            color: rgba(255, 255, 255, 0.7); 
+            text-shadow: 0 0 15px rgba(255, 255, 255, 0.8), 0 0 30px #8a6b22; 
+        }
 
         /* Main Container */
         main {
@@ -40,127 +94,96 @@
             border-radius: 12px;
             box-shadow: 0 4px 20px rgba(0,0,0,0.4);
             margin-bottom: 60px;
+            opacity: 0;
+            animation: fadeIn 2s ease-in forwards 1s;
         }
 
+        @keyframes fadeIn {
+            to { opacity: 1; }
+        }
+
+        /* Gallery Grid */
         .gallery {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 30px;
         }
 
-        /* The Art Cards */
         .art-card {
             background: rgba(255, 255, 255, 0.03);
             border: 1px solid #4a154b;
             border-radius: 8px;
             overflow: hidden;
-            cursor: pointer; /* Changes the mouse to a pointing hand to show it's clickable */
-            transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+            transition: all 0.4s ease;
         }
 
         .art-card:hover {
             border-color: #8a6b22;
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(0,0,0,0.6);
+            transform: translateY(-8px);
+            box-shadow: 0 12px 30px rgba(0,0,0,0.7);
         }
 
         .art-card img {
             width: 100%;
-            height: 260px;
+            height: 280px;
             object-fit: cover;
             display: block;
             border-bottom: 1px solid rgba(138, 107, 34, 0.3);
         }
 
-        .art-card-content {
-            padding: 20px;
-        }
+        .art-card-content { padding: 20px; }
+        .art-card h2 { margin: 0 0 10px 0; font-size: 1.3rem; color: #ffffff; }
+        .art-card p { margin: 0; color: #d2d2dc; font-size: 1rem; line-height: 1.5; }
 
-        .art-card h2 {
-            margin-top: 0;
-            margin-bottom: 10px;
-            font-size: 1.4rem;
-            color: #ffffff;
-        }
-
-        .art-card p {
-            margin: 0;
-            line-height: 1.6;
-            color: #d2d2dc;
-            font-size: 1rem;
-        }
-
-        /* --- THE MODAL (FULLSCREEN LIGHTBOX) STYLES --- */
+        /* --- THE MODAL (FULLSCREEN LIGHTBOX) --- */
         .modal {
-            display: none; /* Hidden by default */
+            display: none;
             position: fixed;
             z-index: 1000;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.9); /* Deep black overlay */
+            left: 0; top: 0;
+            width: 100%; height: 100%;
+            background-color: rgba(0, 0, 0, 0.95);
             justify-content: center;
             align-items: center;
             flex-direction: column;
-            backdrop-filter: blur(5px); /* Adds a cinematic blur to the background */
+            backdrop-filter: blur(8px);
         }
 
-        /* The Close Button */
         .close-btn {
             position: absolute;
-            top: 20px;
-            right: 40px;
+            top: 20px; right: 40px;
             color: #8a6b22;
-            font-size: 40px;
-            font-weight: bold;
+            font-size: 50px;
             cursor: pointer;
             transition: color 0.3s ease;
-            z-index: 1001;
         }
 
-        .close-btn:hover {
-            color: #ffffff;
-            text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
-        }
+        .close-btn:hover { color: #ffffff; }
 
-        /* The Fullscreen Image */
         .modal-content {
             max-width: 90%;
-            max-height: 85vh;
-            border-radius: 4px;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.8);
-            border: 1px solid #4a154b;
-            object-fit: contain;
+            max-height: 80vh;
+            border: 1px solid #8a6b22;
+            box-shadow: 0 0 50px rgba(0,0,0,1);
         }
 
-        /* The Overlay Text Box */
+        /* Opaque Overlay for Description */
         .modal-caption {
             position: absolute;
-            bottom: 5%;
-            background: rgba(11, 25, 44, 0.85); /* Sapphire glass effect */
+            bottom: 30px;
+            background: rgba(11, 25, 44, 0.9);
             border: 1px solid #8a6b22;
-            padding: 20px 30px;
+            padding: 25px;
             border-radius: 8px;
             text-align: center;
-            max-width: 800px;
-            width: 80%;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.6);
+            max-width: 700px;
+            width: 85%;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.8);
         }
 
-        .modal-caption h2 {
-            margin: 0 0 10px 0;
-            color: #ffffff;
-            font-size: 1.8rem;
-            letter-spacing: 1px;
-        }
-
-        .modal-caption p {
-            margin: 0;
-            color: #d2d2dc;
-            font-size: 1.1rem;
-            line-height: 1.6;
-        }
+        .modal-caption h2 { color: #ffffff; font-size: 1.8rem; margin-bottom: 10px; }
+        .modal-caption p { color: #d2d2dc; font-size: 1.1rem; line-height: 1.6; }
 
         footer {
             text-align: center;
@@ -169,6 +192,7 @@
             color: #8f8f9d;
             border-top: 1px solid rgba(138, 107, 34, 0.3);
             margin-top: 40px;
+            font-family: 'Cinzel', serif;
         }
     </style>
 </head>
@@ -176,7 +200,7 @@
 
     <header>
         <h1>Visual Worldbuilding</h1>
-        <p>This gallery holds the visual architecture behind my stories — concept pieces, symbolic imagery, institutional aesthetics, and the larger visual language that shapes my worlds.</p>
+        <p>This gallery holds the visual architecture behind my stories—concept pieces, symbolic imagery, and the larger visual language that shapes the World of Rowe.</p>
     </header>
 
     <nav>
@@ -192,149 +216,31 @@
 
     <main>
         <section class="gallery">
-            
             <div class="art-card">
-                <img src="institution-hero.png" alt="A monumental gothic institution in a mountain landscape">
+                <img src="institution-hero.png" alt="The Institution">
                 <div class="art-card-content">
                     <h2>The Institution</h2>
-                    <p>A large-scale worldbuilding image centered on atmosphere, architecture, and the institutional weight behind the setting.</p>
+                    <p>Atmosphere and architectural weight behind the setting.</p>
                 </div>
             </div>
-
             <div class="art-card">
-                <img src="landscape.png" alt="An environmental fantasy concept painting">
+                <img src="landscape.png" alt="Environment Study">
                 <div class="art-card-content">
                     <h2>Environment Study</h2>
-                    <p>Landscape and setting explorations used to establish mood, scale, and narrative tension.</p>
+                    <p>Landscape explorations establishing mood and scale.</p>
                 </div>
             </div>
-
             <div class="art-card">
-                <img src="Rowe Institute staff portraits.png" alt="A character concept illustration">
-                <div class="art-card-content">
-                    <h2>The Staff</h2>
-                    <p>Visual studies that help define the emotional presence and mythic silhouette of major figures within the Institute.</p>
-                </div>
-            </div>
-
-            <div class="art-card">
-                <img src="sigil-1.png" alt="Sigil Design 1">
+                <img src="sigil-1.png" alt="Sigil Archive: I">
                 <div class="art-card-content">
                     <h2>Sigil Archive: I</h2>
-                    <p>Symbol work that supports the deeper systems, doctrines, and visual identity of the fiction.</p>
+                    <p>Symbol work supporting the deeper systems and doctrines.</p>
                 </div>
             </div>
-
-            <div class="art-card">
-                <img src="sigil-2.png" alt="Sigil Design 2">
-                <div class="art-card-content">
-                    <h2>Sigil Archive: II</h2>
-                    <p>Foundational geometry used in the outer wards.</p>
-                </div>
-            </div>
-
-            <div class="art-card">
-                <img src="sigil-3.png" alt="Sigil Design 3">
-                <div class="art-card-content">
-                    <h2>Sigil Archive: III</h2>
-                    <p>A warning symbol indicating threshold pressure.</p>
-                </div>
-            </div>
-
-            <div class="art-card">
-                <img src="sigil-4.png" alt="Sigil Design 4">
-                <div class="art-card-content">
-                    <h2>Sigil Archive: IV</h2>
-                    <p>Marks of distributed presence and institutional routing.</p>
-                </div>
-            </div>
-
-            <div class="art-card">
-                <img src="sigil-5.png" alt="Sigil Design 5">
-                <div class="art-card-content">
-                    <h2>Sigil Archive: V</h2>
-                    <p>Fracture marks showing where false order fails.</p>
-                </div>
-            </div>
-
-            <div class="art-card">
-                <img src="sigil-6.png" alt="Sigil Design 6">
-                <div class="art-card-content">
-                    <h2>Sigil Archive: VI</h2>
-                    <p>The final layer of containment architecture.</p>
-                </div>
-            </div>
-
-            <div class="art-card">
-                <img src="Gothic library of magical scholars.png" alt="Scholars in a gothic library">
-                <div class="art-card-content">
-                    <h2>The Grand Archive</h2>
-                    <p>Scholars studying the deep doctrines and hidden histories of the Institute's earliest days.</p>
-                </div>
-            </div>
-
-            <div class="art-card">
-                <img src="Gothic council in arcane discussion.png" alt="Council in arcane discussion">
-                <div class="art-card-content">
-                    <h2>The Council</h2>
-                    <p>Masters of the Academy convened to discuss threshold pressures and institutional control.</p>
-                </div>
-            </div>
-
-            <div class="art-card">
-                <img src="Scholars gathered around a magical table.png" alt="Scholars gathered around a magical table">
-                <div class="art-card-content">
-                    <h2>Resonance Analysis</h2>
-                    <p>Evaluating magical outputs and tracking fracture patterns across the active lattice.</p>
-                </div>
-            </div>
-
-            <div class="art-card">
-                <img src="Figures activating the ward grid.png" alt="Figures activating the ward grid">
-                <div class="art-card-content">
-                    <h2>Grid Activation</h2>
-                    <p>Initiates channeling resonance to stabilize the foundational ward structures of the lower levels.</p>
-                </div>
-            </div>
-
-            <div class="art-card">
-                <img src="Mages activate the ward construct.png" alt="Mages activating the ward construct">
-                <div class="art-card-content">
-                    <h2>Containment Architecture</h2>
-                    <p>Active maintenance of the ward construct, enforcing order over the deeper wrongness below.</p>
-                </div>
-            </div>
-
-            <div class="art-card">
-                <img src="Protective wards at the gothic academy.png" alt="Protective wards at the gothic academy">
-                <div class="art-card-content">
-                    <h2>Outer Defenses</h2>
-                    <p>The visible, elegant manifestation of the Academy's protective wards passing for wisdom.</p>
-                </div>
-            </div>
-
-            <div class="art-card">
-                <img src="Ritual of elemental convergence.png" alt="Ritual of elemental convergence">
-                <div class="art-card-content">
-                    <h2>Elemental Convergence</h2>
-                    <p>A high-level institutional ritual demonstrating the sheer scale of managed resonance.</p>
-                </div>
-            </div>
-
-            <div class="art-card">
-                <img src="Mages battle fiery magic in stone chamber.png" alt="Mages battle fiery magic in stone chamber">
-                <div class="art-card-content">
-                    <h2>Threshold Breach</h2>
-                    <p>The violent reality of false order failing within the stone chambers of the Institute.</p>
-                </div>
-            </div>
-
-        </section>
+             </section>
     </main>
 
-    <footer>
-        © 2026 Tristen C. Metsikassus
-    </footer>
+    <footer> © 2026 Tristen C. Metsikassus </footer>
 
     <div id="artModal" class="modal">
         <span class="close-btn">&times;</span>
@@ -346,7 +252,6 @@
     </div>
 
     <script>
-        // Grab the elements from the page
         const modal = document.getElementById("artModal");
         const modalImg = document.getElementById("modalImage");
         const captionTitle = document.getElementById("modalCaptionTitle");
@@ -354,15 +259,11 @@
         const closeBtn = document.querySelector(".close-btn");
         const artCards = document.querySelectorAll(".art-card");
 
-        // Loop through every art card and make it clickable
         artCards.forEach(card => {
             card.addEventListener("click", function() {
-                // Find the image, title, and text inside the card you clicked
                 const img = this.querySelector("img");
                 const title = this.querySelector("h2").innerText;
                 const desc = this.querySelector("p").innerText;
-
-                // Push those details into the modal and show it
                 modal.style.display = "flex";
                 modalImg.src = img.src;
                 captionTitle.innerText = title;
@@ -370,18 +271,8 @@
             });
         });
 
-        // Close the modal when the "X" is clicked
-        closeBtn.addEventListener("click", function() {
-            modal.style.display = "none";
-        });
-
-        // Close the modal if the user clicks anywhere in the dark background
-        modal.addEventListener("click", function(event) {
-            if (event.target === modal) {
-                modal.style.display = "none";
-            }
-        });
+        closeBtn.onclick = () => modal.style.display = "none";
+        window.onclick = (e) => { if(e.target == modal) modal.style.display = "none"; }
     </script>
-
 </body>
 </html>
