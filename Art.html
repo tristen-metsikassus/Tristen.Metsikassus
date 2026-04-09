@@ -3,276 +3,97 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Art | Tristen C. Metsikassus</title>
+    <title>The Gallery | Tristen C. Metsikassus</title>
+    <link rel="stylesheet" href="style.css">
     <style>
-        /* IMPORT CINEMATIC FONTS */
-        @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&display=swap');
+        header { text-align: center; padding: 120px 20px 40px; }
+        h1 { font-size: 3rem; margin-bottom: 10px; }
+        .subtitle { color: var(--gold); font-family: 'Cinzel', serif; letter-spacing: 3px; font-size: 1rem; text-transform: uppercase; }
 
-        /* The Animated Gradient Background */
-        body {
-            margin: 0;
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 1.15rem;
-            color: #eaeaea;
-            min-height: 100vh;
-            background: linear-gradient(-45deg, #0b192c, #1a1025, #4a154b, #8a6b22);
-            background-size: 400% 400%;
-            animation: arcaneShift 15s ease infinite;
-        }
-
-        @keyframes arcaneShift {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
-        }
-
-        /* --- TYPOGRAPHY & ANIMATIONS --- */
-        h1, h2, h3 {
-            font-family: 'Cinzel', serif;
-            font-weight: normal;
-            letter-spacing: 2px;
-        }
-
-        header { text-align: center; padding: 60px 20px 30px; }
-        
-        h1 { 
-            font-size: 3.5rem; 
-            margin-bottom: 10px; 
-            color: #ffffff;
-            animation: cinematicEntrance 3s ease-out forwards, arcanePulse 6s infinite alternate 3s;
-        }
-
-        @keyframes arcanePulse {
-            0% { transform: scale(1); text-shadow: 0 0 10px rgba(138, 107, 34, 0.4); }
-            100% { 
-                transform: scale(1.03); 
-                color: rgba(255,255,255,0.85); 
-                text-shadow: 0 0 25px rgba(138, 107, 34, 0.8), 0 0 40px rgba(74, 21, 75, 0.6); 
-            }
-        }
-
-        @keyframes cinematicEntrance {
-            0% { opacity: 0; transform: scale(0.9); text-shadow: 0 0 50px #fff; }
-            100% { opacity: 1; transform: scale(1); }
-        }
-
-        header p { 
-            color: #bdbdcc; 
-            font-size: 1.4rem; 
-            font-style: italic; 
-            letter-spacing: 1px;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        nav { text-align: center; margin-bottom: 40px; }
-        nav ul { list-style: none; padding: 0; }
-        nav li { display: inline; margin: 0 20px; }
-        
-        nav a { 
-            font-family: 'Cinzel', serif;
-            color: #d8d8e8; 
-            text-decoration: none; 
-            font-weight: bold; 
-            letter-spacing: 2px; 
-            display: inline-block; 
-            transition: transform 0.5s ease, color 0.5s ease, text-shadow 0.5s ease; 
-        }
-
-        nav a:hover { 
-            transform: scale(1.15);
-            color: rgba(255, 255, 255, 0.7); 
-            text-shadow: 0 0 15px rgba(255, 255, 255, 0.8), 0 0 30px #8a6b22; 
-        }
-
-        /* Main Container */
-        main {
+        .gallery-grid {
             max-width: 1200px;
-            margin: auto;
-            padding: 40px;
-            background: rgba(0, 0, 0, 0.6);
-            border-radius: 12px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.4);
-            margin-bottom: 60px;
-            opacity: 0;
-            animation: fadeIn 2s ease-in forwards 1s;
-        }
-
-        @keyframes fadeIn {
-            to { opacity: 1; }
-        }
-
-        /* Gallery Grid */
-        .gallery {
+            margin: 40px auto;
+            padding: 20px;
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 30px;
         }
 
-        .art-card {
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid #4a154b;
-            border-radius: 8px;
+        .gallery-item {
+            cursor: pointer;
             overflow: hidden;
-            cursor: pointer;
-            transition: all 0.4s ease;
-        }
-
-        .art-card:hover {
-            border-color: #8a6b22;
-            transform: translateY(-8px);
-            box-shadow: 0 12px 30px rgba(0,0,0,0.7);
-        }
-
-        .art-card img {
-            width: 100%;
-            height: 280px;
-            object-fit: cover;
-            display: block;
-            border-bottom: 1px solid rgba(138, 107, 34, 0.3);
-        }
-
-        .art-card-content { padding: 20px; }
-        .art-card h2 { margin: 0 0 10px 0; font-size: 1.3rem; color: #ffffff; }
-        .art-card p { margin: 0; color: #d2d2dc; font-size: 1rem; line-height: 1.5; }
-
-        /* --- THE MODAL (FULLSCREEN LIGHTBOX) --- */
-        .modal {
-            display: none;
-            position: fixed;
-            z-index: 1000;
-            left: 0; top: 0;
-            width: 100%; height: 100%;
-            background-color: rgba(0, 0, 0, 0.95);
-            justify-content: center;
-            align-items: center;
+            display: flex;
             flex-direction: column;
-            backdrop-filter: blur(8px);
         }
 
-        .close-btn {
-            position: absolute;
-            top: 20px; right: 40px;
-            color: #8a6b22;
-            font-size: 50px;
-            cursor: pointer;
-            transition: color 0.3s ease;
+        .gallery-item img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.5s ease;
         }
 
-        .close-btn:hover { color: #ffffff; }
-
-        .modal-content {
-            max-width: 90%;
-            max-height: 80vh;
-            border: 1px solid #8a6b22;
-            box-shadow: 0 0 50px rgba(0,0,0,1);
+        .gallery-item:hover img {
+            transform: scale(1.05);
         }
 
-        /* Opaque Overlay for Description */
-        .modal-caption {
-            position: absolute;
-            bottom: 30px;
-            background: rgba(11, 25, 44, 0.9);
-            border: 1px solid #8a6b22;
-            padding: 25px;
-            border-radius: 8px;
-            text-align: center;
-            max-width: 700px;
-            width: 85%;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.8);
-        }
-
-        .modal-caption h2 { color: #ffffff; font-size: 1.8rem; margin-bottom: 10px; }
-        .modal-caption p { color: #d2d2dc; font-size: 1.1rem; line-height: 1.6; }
-
-        footer {
-            text-align: center;
-            padding: 25px 20px;
+        .caption {
+            padding: 15px;
             font-size: 0.9rem;
-            color: #8f8f9d;
-            border-top: 1px solid rgba(138, 107, 34, 0.3);
-            margin-top: 40px;
-            font-family: 'Cinzel', serif;
+            color: var(--subtext);
+            text-align: center;
+            border-top: 1px solid rgba(138, 107, 34, 0.2);
+            margin-top: auto;
         }
+
+        /* Navigation Sync */
+        nav { text-align: center; position: fixed; top: 0; width: 100%; background: rgba(0,0,0,0.5); backdrop-filter: blur(10px); padding: 20px 0; z-index: 100; border-bottom: 1px solid rgba(138, 107, 34, 0.2); }
+        nav ul { list-style: none; padding: 0; margin: 0; }
+        nav li { display: inline; margin: 0 25px; }
+        nav a { font-family: 'Cinzel', serif; color: var(--subtext); text-decoration: none; font-weight: bold; letter-spacing: 2px; font-size: 0.9rem; }
+        nav a:hover { color: var(--gold); }
     </style>
 </head>
 <body>
 
-    <header>
-        <h1>Visual Worldbuilding</h1>
-        <p>This gallery holds the visual architecture behind my stories—concept pieces, symbolic imagery, and the larger visual language that shapes the World of Rowe.</p>
-    </header>
+<nav>
+    <ul>
+        <li><a href="index.html">HOME</a></li>
+        <li><a href="About.html">ABOUT</a></li>
+        <li><a href="Books.html">BOOKS</a></li>
+        <li><a href="Codex.html">CODEX</a></li>
+        <li><a href="Art.html">ART</a></li>
+        <li><a href="Contact.html">CONTACT</a></li>
+    </ul>
+</nav>
 
-    <nav>
-        <ul>
-            <li><a href="index.html">HOME</a></li>
-            <li><a href="About.html">ABOUT</a></li>
-            <li><a href="Books.html">BOOKS</a></li>
-            <li><a href="Codex.html">CODEX</a></li>
-            <li><a href="Art.html">ART</a></li>
-            <li><a href="Contact.html">CONTACT</a></li>
-        </ul>
-    </nav>
+<header>
+    <p class="subtitle">Visual Translations</p>
+    <h1>The Gallery</h1>
+</header>
 
-    <main>
-        <section class="gallery">
-            <div class="art-card">
-                <img src="institution-hero.png" alt="The Institution">
-                <div class="art-card-content">
-                    <h2>The Institution</h2>
-                    <p>Atmosphere and architectural weight behind the setting.</p>
-                </div>
-            </div>
-            <div class="art-card">
-                <img src="landscape.png" alt="Environment Study">
-                <div class="art-card-content">
-                    <h2>Environment Study</h2>
-                    <p>Landscape explorations establishing mood and scale.</p>
-                </div>
-            </div>
-            <div class="art-card">
-                <img src="sigil-1.png" alt="Sigil Archive: I">
-                <div class="art-card-content">
-                    <h2>Sigil Archive: I</h2>
-                    <p>Symbol work supporting the deeper systems and doctrines.</p>
-                </div>
-            </div>
-             </section>
-    </main>
-
-    <footer> © 2026 Tristen C. Metsikassus </footer>
-
-    <div id="artModal" class="modal">
-        <span class="close-btn">&times;</span>
-        <img class="modal-content" id="modalImage">
-        <div class="modal-caption">
-            <h2 id="modalCaptionTitle"></h2>
-            <p id="modalCaptionText"></p>
-        </div>
+<div class="gallery-grid">
+    <div class="gallery-item card wardline">
+        <img src="The World Of Rowe world map.png" alt="World Map of Rowe">
+        <div class="caption">The World of Rowe: Initial Cartographic Resonance</div>
     </div>
 
-    <script>
-        const modal = document.getElementById("artModal");
-        const modalImg = document.getElementById("modalImage");
-        const captionTitle = document.getElementById("modalCaptionTitle");
-        const captionText = document.getElementById("modalCaptionText");
-        const closeBtn = document.querySelector(".close-btn");
-        const artCards = document.querySelectorAll(".art-card");
+    <div class="gallery-item card">
+        <img src="the quiet wing.png" alt="The Quiet Wing Cover Art">
+        <div class="caption">The Quiet Wing: Cover Study // Internal Record</div>
+    </div>
 
-        artCards.forEach(card => {
-            card.addEventListener("click", function() {
-                const img = this.querySelector("img");
-                const title = this.querySelector("h2").innerText;
-                const desc = this.querySelector("p").innerText;
-                modal.style.display = "flex";
-                modalImg.src = img.src;
-                captionTitle.innerText = title;
-                captionText.innerText = desc;
-            });
-        });
+    <div class="gallery-item card" style="opacity: 0.5;">
+        <div style="aspect-ratio: 16/9; background: rgba(0,0,0,0.5); display: flex; align-items: center; justify-content: center; font-family: 'Cinzel', serif; color: var(--gold);">
+            [ ARCHIVE PENDING ]
+        </div>
+        <div class="caption">Sigil Drafts: Threshold Adjudication (Restricted)</div>
+    </div>
+</div>
 
-        closeBtn.onclick = () => modal.style.display = "none";
-        window.onclick = (e) => { if(e.target == modal) modal.style.display = "none"; }
-    </script>
+<footer style="text-align: center; padding: 100px 40px; opacity: 0.4; font-size: 0.7rem; letter-spacing: 3px; font-family: 'Cinzel', serif;">
+    [ SECURE TERMINAL // VISUAL ARCHIVE ACCESS ]
+</footer>
+
 </body>
 </html>
