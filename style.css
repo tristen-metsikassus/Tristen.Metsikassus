@@ -1,4 +1,4 @@
-/* --- THE INSTITUTIONAL FRAMEWORK --- */
+/* --- THE INSTITUTIONAL FRAMEWORK (WITH WARD LATTICE) --- */
 @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&display=swap');
 
 :root {
@@ -13,17 +13,25 @@
 body {
     margin: 0;
     font-family: 'Cormorant Garamond', serif;
-    background: linear-gradient(-45deg, var(--indigo), var(--wine), var(--arcane), var(--gold));
-    background-size: 400% 400%;
-    animation: arcaneShift 20s ease infinite;
     color: var(--text);
     min-height: 100vh;
+    
+    /* THE WARD LINES: A subtle geometric grid layered over the gradient */
+    background: 
+        linear-gradient(rgba(138, 107, 34, 0.1) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(138, 107, 34, 0.1) 1px, transparent 1px),
+        linear-gradient(-45deg, var(--indigo), var(--wine), var(--arcane), var(--gold));
+    
+    /* Grid size is 60px; Background gradient is 400% for the animation */
+    background-size: 60px 60px, 60px 60px, 400% 400%;
+    
+    animation: arcaneShift 20s ease infinite;
 }
 
 @keyframes arcaneShift {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
+    0% { background-position: 0% 0%, 0% 0%, 0% 50%; }
+    50% { background-position: 0% 0%, 0% 0%, 100% 50%; }
+    100% { background-position: 0% 0%, 0% 0%, 0% 50%; }
 }
 
 /* --- TYPOGRAPHY --- */
@@ -33,7 +41,7 @@ h1, h2, h3, .nav-link {
     text-transform: uppercase;
 }
 
-/* --- WARDLINE PULSE (Subtle Border Animation) --- */
+/* --- WARDLINE PULSE (Standard Borders) --- */
 .wardline {
     border: 1px solid var(--gold);
     box-shadow: 0 0 10px rgba(138, 107, 34, 0.2);
@@ -60,4 +68,5 @@ h1, h2, h3, .nav-link {
     border-color: var(--gold);
     transform: translateY(-5px);
     background: rgba(0, 0, 0, 0.85);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.6);
 }
