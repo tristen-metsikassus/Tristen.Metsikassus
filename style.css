@@ -68,12 +68,6 @@ nav a:hover { color: var(--gold-bright); }
     transition: all 0.5s ease;
 }
 
-.threshold-plate:hover, .featured-panel:hover {
-    border-color: var(--gold-bright);
-    box-shadow: 0 0 30px rgba(138, 107, 34, 0.2);
-    transform: translateY(-3px);
-}
-
 .btn-link {
     display: inline-block;
     border: 1px solid var(--gold);
@@ -96,14 +90,9 @@ nav a:hover { color: var(--gold-bright); }
     .featured-panel { flex-direction: column; text-align: center; }
 }
 
-/* GLOBAL TYPOGRAPHY: Forces the Institutional look everywhere */
-h1, h2, h3, nav a, .btn-link, .tagline, .subtitle { 
+/* GLOBAL TYPOGRAPHY */
+h1, h2, h3, nav a, .btn-link, .tagline, .subtitle, .book-title { 
     font-family: 'Cinzel', serif !important; 
     text-transform: uppercase; 
     letter-spacing: 3px; 
 }
-
-/* SCROLLBAR */
-::-webkit-scrollbar { width: 8px; }
-::-webkit-scrollbar-track { background: var(--midnight); }
-::-webkit-scrollbar-thumb { background: var(--gold); }
