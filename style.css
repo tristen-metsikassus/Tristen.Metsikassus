@@ -1,11 +1,11 @@
-/* --- THE LIVING WARD SYSTEM --- */
+/* --- THE MIDNIGHT WARD SYSTEM (MASTER) --- */
 @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&display=swap');
 
 :root {
     --midnight: #050a14;   
-    --shadow-purple: #1b0a2a; 
-    --arcane-wine: #2d0b3a;   
+    --indigo-glow: rgba(26, 31, 70, 0.4); 
     --gold: #8a6b22;
+    --gold-bright: #e1c57a;
     --text: #eaeaea;
     --subtext: #bdbdcc;
 }
@@ -19,75 +19,68 @@ body {
     overflow-x: hidden;
 }
 
-/* THE WARD SYSTEM LAYER */
+/* THE BACKGROUND WARD GRID */
 body::before {
     content: "";
     position: fixed;
-    top: -10%; left: -10%; width: 120%; height: 120%;
+    top: -100px; left: -100px; width: 200%; height: 200%;
     z-index: -1;
     background-image: 
-        linear-gradient(rgba(138, 107, 34, 0.15) 1.5px, transparent 1.5px),
-        linear-gradient(90deg, rgba(138, 107, 34, 0.15) 1.5px, transparent 1.5px);
-    background-size: 100px 100px;
-    
-    /* ANIMATIONS: Drift + Pulse + Fracture Flicker */
-    animation: 
-        wardDrift 80s linear infinite, 
-        wardPulse 12s ease-in-out infinite alternate,
-        fractureFlicker 15s infinite;
-}
-
-/* Background Color Drift */
-body::after {
-    content: "";
-    position: fixed;
-    top: 0; left: 0; width: 100%; height: 100%;
-    z-index: -2;
-    background: linear-gradient(-45deg, var(--midnight), var(--shadow-purple), var(--arcane-wine), var(--midnight));
-    background-size: 400% 400%;
-    animation: arcaneShift 30s ease infinite;
+        linear-gradient(rgba(138, 107, 34, 0.1) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(138, 107, 34, 0.1) 1px, transparent 1px);
+    background-size: 80px 80px;
+    animation: wardDrift 60s linear infinite, wardPulse 10s ease-in-out infinite alternate;
 }
 
 @keyframes wardDrift {
-    0% { transform: translate(0,0); }
-    100% { transform: translate(100px, 100px); }
+    0% { transform: translate(0, 0); }
+    100% { transform: translate(80px, 80px); }
 }
 
 @keyframes wardPulse {
-    0% { opacity: 0.3; }
-    50% { opacity: 0.7; }
-    100% { opacity: 0.3; }
+    0% { opacity: 0.2; }
+    50% { opacity: 0.6; }
+    100% { opacity: 0.2; }
 }
 
-@keyframes fractureFlicker {
-    0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% { opacity: 1; }
-    20%, 24%, 55% { opacity: 0.5; filter: contrast(150%) brightness(120%); }
+/* NAVIGATION */
+nav { 
+    text-align: center; position: fixed; top: 0; width: 100%; 
+    background: rgba(0,0,0,0.7); backdrop-filter: blur(10px); 
+    padding: 20px 0; z-index: 100; border-bottom: 1px solid rgba(138, 107, 34, 0.2); 
+}
+nav a { 
+    font-family: 'Cinzel', serif; color: var(--subtext); 
+    text-decoration: none; margin: 0 20px; font-size: 0.9rem; letter-spacing: 2px; 
+}
+nav a:hover { color: var(--gold-bright); }
+
+/* THRESHOLD PLATES & CARDS */
+.threshold-plate, .featured-panel {
+    background: rgba(11, 25, 44, 0.7);
+    border: 1px solid rgba(138, 107, 34, 0.3);
+    backdrop-filter: blur(8px);
+    transition: all 0.5s ease;
 }
 
-@keyframes arcaneShift {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
+.threshold-plate:hover, .featured-panel:hover {
+    border-color: var(--gold-bright);
+    box-shadow: 0 0 30px rgba(138, 107, 34, 0.2);
 }
 
-/* --- THRESHOLD PLATE STYLING --- */
-.threshold-plate {
-    background: rgba(11, 25, 44, 0.7); /* Midnight Indigo */
-    border: 1px solid rgba(138, 107, 34, 0.4);
-    padding: 35px 25px;
-    text-align: center;
+.btn-link {
+    display: inline-block;
+    border: 1px solid var(--gold);
+    color: var(--gold);
     text-decoration: none;
-    color: var(--text);
-    transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
-    backdrop-filter: blur(5px);
+    padding: 10px 20px;
+    font-family: 'Cinzel', serif;
+    font-size: 0.8rem;
+    letter-spacing: 2px;
+    transition: 0.3s;
 }
 
-.threshold-plate:hover {
-    border-color: var(--gold);
-    background: rgba(138, 107, 34, 0.1);
-    box-shadow: 0 0 25px rgba(138, 107, 34, 0.2);
-    transform: translateY(-5px);
+.btn-link:hover {
+    background: var(--gold);
+    color: white;
 }
-
-.threshold-plate h3 { font-family: 'Cinzel', serif; letter-spacing: 3px; color: #ffffff; margin-bottom: 10px; }
-.threshold-plate p { font-size: 0.9rem; color: var(--subtext); font-style: italic; }
