@@ -1,4 +1,4 @@
-/* --- THE ANIMATED & PULSATING MIDNIGHT WARD LATTICE --- */
+/* --- THE LIVING ARCHIVE FRAMEWORK --- */
 @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&display=swap');
 
 :root {
@@ -6,6 +6,7 @@
     --shadow-purple: #1b0a2a; 
     --arcane-wine: #2d0b3a;   
     --gold: #8a6b22;
+    --gold-glow: rgba(138, 107, 34, 0.5);
     --text: #eaeaea;
     --subtext: #bdbdcc;
 }
@@ -18,9 +19,11 @@ body {
     overflow-x: hidden;
     background-color: var(--midnight);
     position: relative;
+    /* This adds the "Ancient Stone" texture */
+    background-image: url('https://www.transparenttextures.com/patterns/dark-matter.png');
 }
 
-/* THE BACKGROUND COLOR SHIFT */
+/* THE SHIFTING VOID */
 body::after {
     content: "";
     position: fixed;
@@ -28,24 +31,26 @@ body::after {
     z-index: -2;
     background: linear-gradient(-45deg, var(--midnight), var(--shadow-purple), var(--arcane-wine), var(--midnight));
     background-size: 400% 400%;
-    animation: arcaneShift 22s ease infinite;
+    animation: arcaneShift 25s ease infinite;
+    opacity: 0.9;
 }
 
-/* THE MOVING & PULSATING WARD GRID */
+/* THE ANCIENT WARD LATTICE */
 body::before {
     content: "";
     position: fixed;
-    top: -100px; left: -100px; width: 200%; height: 200%;
+    top: -100px; left: -100px; width: 220%; height: 220%;
     z-index: -1;
     background-image: 
-        linear-gradient(rgba(138, 107, 34, 0.25) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(138, 107, 34, 0.25) 1px, transparent 1px);
-    background-size: 80px 80px;
+        linear-gradient(rgba(138, 107, 34, 0.15) 1.5px, transparent 1.5px),
+        linear-gradient(90deg, rgba(138, 107, 34, 0.15) 1.5px, transparent 1.5px);
+    background-size: 100px 100px;
     
-    /* Dual Animation: One for Drifting, one for Pulsing */
+    /* Animation: Drifting, Pulsing, and Flickering */
     animation: 
-        arcaneDrift 40s linear infinite, 
-        wardPulseBreath 6s ease-in-out infinite alternate;
+        arcaneDrift 60s linear infinite, 
+        wardPulseBreath 8s ease-in-out infinite alternate,
+        flicker 10s infinite;
 }
 
 @keyframes arcaneShift {
@@ -55,34 +60,51 @@ body::before {
 }
 
 @keyframes arcaneDrift {
-    0% { transform: translate(0, 0); }
-    100% { transform: translate(80px, 80px); } /* Moves by exactly one grid tile for a seamless loop */
+    0% { transform: translate(0, 0) rotate(0deg); }
+    100% { transform: translate(100px, 100px) rotate(0.5deg); }
 }
 
 @keyframes wardPulseBreath {
-    0% { opacity: 0.3; filter: blur(0.5px); }
-    50% { opacity: 0.8; filter: blur(0px); } /* Brightest point */
-    100% { opacity: 0.3; filter: blur(0.5px); }
+    0% { opacity: 0.2; filter: blur(1px); }
+    50% { opacity: 0.6; filter: blur(0px); }
+    100% { opacity: 0.2; filter: blur(1px); }
+}
+
+@keyframes flicker {
+    0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% { opacity: 1; }
+    20%, 24%, 55% { opacity: 0.7; }
 }
 
 /* --- REUSABLE COMPONENTS --- */
-h1, h2, h3, .nav-link { font-family: 'Cinzel', serif; letter-spacing: 2px; text-transform: uppercase; }
+h1, h2, h3, .nav-link { font-family: 'Cinzel', serif; letter-spacing: 3px; text-transform: uppercase; }
 
 .card { 
-    background: rgba(0, 0, 0, 0.85); 
-    border: 1px solid rgba(138, 107, 34, 0.25); 
-    border-radius: 8px; 
-    transition: all 0.4s ease; 
+    background: rgba(0, 0, 0, 0.8); 
+    border: 1px solid rgba(138, 107, 34, 0.3);
+    border-radius: 4px; /* Sharper edges feel more ancient than rounded ones */
+    transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1); 
     text-decoration: none; 
     color: inherit; 
     padding: 30px; 
     position: relative;
-    z-index: 1; /* Ensures cards stay above the background animations */
+    z-index: 1;
+    overflow: hidden;
 }
 
+/* THE RESONANCE GLOW */
 .card:hover { 
     border-color: var(--gold); 
-    transform: translateY(-5px); 
-    background: rgba(0, 0, 0, 0.95); 
-    box-shadow: 0 15px 40px rgba(0,0,0,0.8); 
+    transform: translateY(-8px) scale(1.02);
+    background: rgba(10, 5, 15, 0.95);
+    box-shadow: 0 0 30px var(--gold-glow);
 }
+
+.card::before {
+    content: "";
+    position: absolute;
+    top: 0; left: -100%; width: 100%; height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(138, 107, 34, 0.1), transparent);
+    transition: 0.5s;
+}
+
+.card:hover::before { left: 100%; }
