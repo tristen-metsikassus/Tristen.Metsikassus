@@ -121,13 +121,8 @@ body::after {
 }
 /* --- THE MOBILE SHIELD --- */
 @media (max-width: 768px) {
-    h1, h2, h3, .nav-link { 
-    font-family: 'Cinzel', serif; 
-    text-transform: uppercase; 
-    letter-spacing: 3px; 
-}
     header h1 {
-        font-size: 2.2rem; /* Shrinks the name so it fits on one line on phones */
+        font-size: 2.2rem;
     }
     
     .atmospheric {
@@ -150,4 +145,11 @@ body::after {
         margin: 0 8px;
         font-size: 0.75rem;
     }
+}
+
+/* GLOBAL TYPOGRAPHY: Forces the Institutional look everywhere */
+h1, h2, h3, .nav-link, .brand-title { 
+    font-family: 'Cinzel', serif !important; 
+    text-transform: uppercase; 
+    letter-spacing: 3px; 
 }
