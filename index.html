@@ -6,95 +6,31 @@
     <title>Tristen C. Metsikassus | The World of Rowe</title>
     <link rel="stylesheet" href="style.css">
     <style>
-        /* Specific layout for the landing page */
         header { text-align: center; padding: 120px 20px 60px; }
-        h1 { font-size: 3.8rem; margin-bottom: 0; text-shadow: 0 0 20px rgba(0,0,0,0.8); }
+        h1 { font-size: 3.8rem; margin-bottom: 0; }
         .tagline { color: var(--gold); font-size: 1.1rem; margin-top: 10px; font-weight: bold; font-family: 'Cinzel', serif; letter-spacing: 4px; }
-        
-        .atmospheric { 
-            max-width: 800px; 
-            margin: 50px auto; 
-            font-style: italic; 
-            font-size: 1.5rem; 
-            line-height: 1.9; 
-            color: var(--subtext); 
-            text-align: center;
-        }
-
-        .entry-grid { 
-            display: grid; 
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
-            gap: 30px; 
-            max-width: 1200px; 
-            margin: 80px auto; 
-            padding: 0 20px;
-        }
-
-        .map-section {
-            max-width: 1100px;
-            margin: 100px auto;
-            text-align: center;
-            padding: 0 20px;
-            filter: sepia(0.3) contrast(1.1);
-        }
-
-        .map-section img {
-            width: 100%;
-            border-radius: 2px;
-            border: 1px solid var(--gold);
-            box-shadow: 0 30px 60px rgba(0,0,0,1);
-        }
-
+        .atmospheric { max-width: 800px; margin: 50px auto; font-style: italic; font-size: 1.5rem; line-height: 1.9; color: var(--subtext); text-align: center; }
+        .map-section { max-width: 1100px; margin: 80px auto; text-align: center; padding: 0 20px; }
+        .map-section img { width: 100%; border: 1px solid var(--gold); box-shadow: 0 30px 60px rgba(0,0,0,1); }
         nav { text-align: center; position: fixed; top: 0; width: 100%; background: rgba(0,0,0,0.5); backdrop-filter: blur(10px); padding: 20px 0; z-index: 100; border-bottom: 1px solid rgba(138, 107, 34, 0.2); }
         nav ul { list-style: none; padding: 0; margin: 0; }
         nav li { display: inline; margin: 0 25px; }
         nav a { font-family: 'Cinzel', serif; color: var(--subtext); text-decoration: none; font-weight: bold; letter-spacing: 2px; font-size: 0.9rem; }
-        nav a:hover { color: var(--gold); text-shadow: 0 0 10px var(--gold); }
+        nav a:hover { color: var(--gold); }
     </style>
 </head>
 <body>
-
-<nav>
-    <ul>
-        <li><a href="index.html">HOME</a></li>
-        <li><a href="About.html">ABOUT</a></li>
-        <li><a href="Books.html">BOOKS</a></li>
-        <li><a href="Codex.html">CODEX</a></li>
-        <li><a href="Art.html">ART</a></li>
-        <li><a href="Contact.html">CONTACT</a></li>
-    </ul>
-</nav>
-
-<header>
-    <h1>Tristen C. Metsikassus</h1>
-    <p class="tagline">Architect of the Rowe Institute</p>
-    <div class="atmospheric">
-        "Enter a world of doctrine, fracture, and buried design—where institutions remember, and every threshold has a cost."
+    <nav><ul><li><a href="index.html">HOME</a></li><li><a href="About.html">ABOUT</a></li><li><a href="Books.html">BOOKS</a></li><li><a href="Codex.html">CODEX</a></li><li><a href="Art.html">ART</a></li><li><a href="Contact.html">CONTACT</a></li></ul></nav>
+    <header>
+        <h1>Tristen C. Metsikassus</h1>
+        <p class="tagline">Architect of the Rowe Institute</p>
+        <div class="atmospheric">"Enter a world of doctrine, fracture, and buried design—where institutions remember, and every threshold has a cost."</div>
+    </header>
+    <div class="entry-grid">
+        <a href="Books.html" class="threshold-plate"><h3>Books</h3><p>Enter the published works, the trilogy, and the world’s unfolding fracture.</p></a>
+        <a href="Codex.html" class="threshold-plate"><h3>Codex</h3><p>Access the institutional archive: doctrine, mechanics, records, and buried design.</p></a>
+        <a href="Art.html" class="threshold-plate"><h3>Art</h3><p>View the visual architecture of the world: sigils, halls, systems, and rupture.</p></a>
     </div>
-</header>
-
-<div class="entry-grid">
-    <a href="Books.html" class="card">
-        <h3>The Bibliography</h3>
-        <p>Explore the published accounts of the Rowe Institute and the systems that govern its survival.</p>
-    </a>
-    <a href="Codex.html" class="card">
-        <h3>The Archive</h3>
-        <p>A restricted study into the mechanics of resonance, institutional doctrine, and the Harmony Network.</p>
-    </a>
-    <a href="Art.html" class="card">
-        <h3>The Gallery</h3>
-        <p>Visual translations of a world built on structural endurance, threshold ethics, and mapped reality.</p>
-    </a>
-</div>
-
-<div class="map-section">
-    <img src="The World Of Rowe world map.png" alt="The World of Rowe Map">
-</div>
-
-<footer style="text-align: center; padding: 100px 40px; opacity: 0.4; font-size: 0.7rem; letter-spacing: 3px; font-family: 'Cinzel', serif;">
-    [ SECURE TERMINAL // HARMONY NETWORK ACCESS ]
-</footer>
-
+    <div class="map-section"><img src="The World Of Rowe world map.png" alt="World Map"></div>
 </body>
 </html>
