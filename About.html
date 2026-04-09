@@ -5,101 +5,113 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About | Tristen C. Metsikassus</title>
     <style>
-        body { margin: 0; font-family: Garamond, serif; background-color: #0f0f14; color: #eaeaea; }
-        header { text-align: center; padding: 40px 20px; }
+        /* The Animated Gradient Background */
+        body {
+            margin: 0;
+            font-family: Garamond, serif;
+            color: #eaeaea;
+            min-height: 100vh;
+            background: linear-gradient(-45deg, #0b192c, #1a1025, #4a154b, #8a6b22);
+            background-size: 400% 400%;
+            animation: arcaneShift 15s ease infinite;
+        }
+        @keyframes arcaneShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        
+        header { text-align: center; padding: 60px 20px 30px; }
+        h1 { font-size: 3rem; margin-bottom: 10px; }
+        header p { color: #bdbdcc; font-size: 1.2rem; font-style: italic; }
+        
         nav { text-align: center; margin-bottom: 40px; }
         nav ul { list-style: none; padding: 0; }
         nav li { display: inline; margin: 0 15px; }
-        nav a { color: #d8d8e8; text-decoration: none; }
-        nav a:hover { color: #ffffff; }
-        main { max-width: 700px; margin: auto; padding: 0 20px 60px; line-height: 1.8; }
-        h1, h2 { color: #ffffff; text-align: center; }
-        .bio-section { margin-top: 40px; }
-        .profile-container {
-    text-align: center;
-    margin-bottom: 40px;
-}
+        nav a { color: #d8d8e8; text-decoration: none; font-weight: bold; letter-spacing: 1px; transition: color 0.3s ease; }
+        nav a:hover { color: #ffffff; text-shadow: 0 0 8px rgba(255, 255, 255, 0.5); }
+        
+        /* Main Content Container - Slightly wider for reading comfort */
+        main {
+            max-width: 800px;
+            margin: auto;
+            padding: 40px;
+            background: rgba(0, 0, 0, 0.6);
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+            margin-bottom: 60px;
+        }
 
-.author-photo {
-    width: 220px;
-    height: 220px;
-    object-fit: cover;
-    border-radius: 50%;
-    border: 2px solid #2a2a35;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-}
+        h2 { color: #ffffff; text-align: center; margin-bottom: 20px; font-size: 2.2rem; }
+
+        .profile-container {
+            text-align: center;
+            margin-bottom: 35px;
+        }
+
+        /* Updated photo styling with a gold ring */
+        .author-photo {
+            width: 220px;
+            height: 220px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 2px solid #8a6b22; 
+            box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+        }
+
+        /* Styling for your bio text */
+        .bio-section p {
+            line-height: 1.8;
+            color: #d2d2dc;
+            margin-bottom: 20px;
+            text-align: justify; /* Aligns both sides like a novel */
+            font-size: 1.1rem;
+        }
     </style>
 </head>
 <body>
-    
-<nav>
-    <ul>
-        <li><a href="index.html">HOME</a></li>
-        <li><a href="About.html">ABOUT</a></li>
-        <li><a href="Books.html">BOOKS</a></li>
-        <li><a href="Codex.html">CODEX</a></li>
-        <li><a href="Art.html">ART</a></li>
-        <li><a href="Contact.html">CONTACT</a></li>
-    </ul>
-</nav>
-    
+
     <header>
-        <h1>The Architect</h1>
+        <h1>Tristen C. Metsikassus</h1>
+        <p>Author and Visual Worldbuilder</p>
     </header>
 
-    <main>
-        <div class="profile-container">
-        <img src="659823009_2431351264003736_1850895456253538370_n.jpg" alt="Tristen C. Metsikassus" class="author-photo">
-    </div>
-        
-        <section class="bio-section">
-            <p>
-    My name is Tristen C. Metsikassus, and one thing I have come to understand about myself is that I have always felt different.
-</p>
+    <nav>
+        <ul>
+            <li><a href="index.html">HOME</a></li>
+            <li><a href="About.html">ABOUT</a></li>
+            <li><a href="Books.html">BOOKS</a></li>
+            <li><a href="Codex.html">CODEX</a></li>
+            <li><a href="Art.html">ART</a></li>
+            <li><a href="Contact.html">CONTACT</a></li>
+        </ul>
+    </nav>
 
-<p>  
-            Growing up, I often felt like the odd one out. Even when I was surrounded by people, there was still a part of me that felt separate, like I was standing in the same room but hearing life through a different wall. For a long time, that feeling was hard to explain. At times it was lonely. At times it made me question where I fit. But as I’ve gotten older, I’ve come to see that being different is not a flaw. It is part of who I am.
-            </p>
-            <p>
-                Looking back, I no longer see my past only through pain or discomfort. I see lessons. Every interaction, every disappointment, every bond, and every silence taught me something. The very things that made me feel different also made me more reflective, more observant, and more aware. What once felt like distance became perspective.
-            </p>
-            <p>
-                I’ve learned that some people are not broken just because they feel different. Sometimes they are simply listening to life at a deeper volume.
-            </p>
-            <p>
-                Self-reflection is one of the most important parts of my life. I do not want to move through the world blindly. I know I am still growing, and I accept that growth never really ends. A person is not a finished building — they are more like a road still being laid, one section at a time.
-            </p>
-            <p>
-                One of the greatest things life has taught me is patience. Patience has been the quiet force behind everything I create. Whether I am writing, drawing, or singing, I have learned that honest art cannot be rushed. A tree forced to grow too fast does not become stronger; it becomes easier to break. In the same way, creativity needs time, discipline, and truth.
-            </p>
-            <p>
-                I’ve also realized that all of this creating has never been about chasing the world. It has been about honoring my own cadence. I do not create to satisfy trends or keep up with someone else’s timing. I create to meet the standard inside my own mind. Some things are meant to be built slowly if they are going to be built right.
-            </p>
-            <p>
-                That same patience, feeling, and observation is what I pour into my work as an author. I don’t just want to write books. I want to build worlds that pull people in, challenge what they expect, and leave them thinking long after they close the page. The same moments in life that made me stop and question everything are the same feelings I try to give my readers.
-            </p>
-            <p>
-                I may not have always understood why I felt different, but I understand now that being different is not something to fix. It is a source of strength. Some people are shaped by fitting in. Others are shaped by learning how to stand alone without losing themselves.
-            </p>
-            <p>
-                My philosophy is simple: bless others where you can, judge less, and do not build a final opinion of a person from one chapter of their life. If I see behavior I do not respect, I do not need to carry hatred for it — I simply choose not to become it.
-            </p>
-          <p>
-            I have also learned that wants come and go, but character remains. Desire changes like weather, but values are what stay standing after the storm passes. At the end of the day, the things that matter most are simple: food, water, shelter, peace of mind, and the people who are real with you.
-        </p>
-        <p>
-            I do not want possessions to cost me real connection. I do not want pride to cost me peace. And I do not want the world to convince me that success means gaining everything while understanding nothing.
-        </p>
-        <p>
-            So this is who I am: someone still learning, still reflecting, still building. Someone who has felt different, but no longer fears that difference. Someone who believes patience is power, character is built in quiet choices, and not every meaningful life has to be loud.
-        </p>
-        <p>
-            Sometimes the deepest rivers make the least noise.
-        </p>
-        <p>
-            And no matter what comes next, I know this much for certain: I will keep learning, I will keep creating, and I will keep walking in my own cadence.
-        </p>
-    </section>
-</main>
+    <main>
+        <h2>The Architect</h2>
+        
+        <div class="profile-container">
+            <img src="659823009_2431351264003736_1850895456253538370_n.jpg" alt="Tristen C. Metsikassus" class="author-photo">
+        </div>
+
+        <section class="bio-section">
+            <p>My name is Tristen C. Metsikassus, and one thing I have come to understand about myself is that I have always felt different.</p>
+            <p>Growing up, I often felt like the odd one out. Even when I was surrounded by people, there was still a part of me that felt separate, like I was standing in the same room but hearing life through a different wall. For a long time, that feeling was hard to explain. At times it was lonely. At times it made me question where I fit. But as I’ve gotten older, I’ve come to see that being different is not a flaw. It is part of who I am.</p>
+            <p>Looking back, I no longer see my past only through pain or discomfort. I see lessons. Every interaction, every disappointment, every bond, and every silence taught me something. The very things that made me feel different also made me more reflective, more observant, and more aware. What once felt like distance became perspective.</p>
+            <p>I’ve learned that some people are not broken just because they feel different. Sometimes they are simply listening to life at a deeper volume.</p>
+            <p>Self-reflection is one of the most important parts of my life. I do not want to move through the world blindly. I know I am still growing, and I accept that growth never really ends. A person is not a finished building — they are more like a road still being laid, one section at a time.</p>
+            <p>One of the greatest things life has taught me is patience. Patience has been the quiet force behind everything I create. Whether I am writing, drawing, or singing, I have learned that honest art cannot be rushed. A tree forced to grow too fast does not become stronger; it becomes easier to break. In the same way, creativity needs time, discipline, and truth.</p>
+            <p>I’ve also realized that all of this creating has never been about chasing the world. It has been about honoring my own cadence. I do not create to satisfy trends or keep up with someone else’s timing. I create to meet the standard inside my own mind. Some things are meant to be built slowly if they are going to be built right.</p>
+            <p>That same patience, feeling, and observation is what I pour into my work as an author. I don’t just want to write books. I want to build worlds that pull people in, challenge what they expect, and leave them thinking long after they close the page. The same moments in life that made me stop and question everything are the same feelings I try to give my readers.</p>
+            <p>I may not have always understood why I felt different, but I understand now that being different is not something to fix. It is a source of strength. Some people are shaped by fitting in. Others are shaped by learning how to stand alone without losing themselves.</p>
+            <p>My philosophy is simple: bless others where you can, judge less, and do not build a final opinion of a person from one chapter of their life. If I see behavior I do not respect, I do not need to carry hatred for it — I simply choose not to become it.</p>
+            <p>I have also learned that wants come and go, but character remains. Desire changes like weather, but values are what stay standing after the storm passes. At the end of the day, the things that matter most are simple: food, water, shelter, peace of mind, and the people who are real with you.</p>
+            <p>I do not want possessions to cost me real connection. I do not want pride to cost me peace. And I do not want the world to convince me that success means gaining everything while understanding nothing.</p>
+            <p>So this is who I am: someone still learning, still reflecting, still building. Someone who has felt different, but no longer fears that difference. Someone who believes patience is power, character is built in quiet choices, and not every meaningful life has to be loud.</p>
+            <p>Sometimes the deepest rivers make the least noise.</p>
+            <p>And no matter what comes next, I know this much for certain: I will keep learning, I will keep creating, and I will keep walking in my own cadence.</p>
+        </section>
+    </main>
+
 </body>
 </html>
