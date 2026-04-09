@@ -5,71 +5,63 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Art | Tristen C. Metsikassus</title>
     <style>
+        /* The Animated Gradient Background */
         body {
             margin: 0;
-            font-family: Georgia, serif;
-            background-color: #0f0f14;
+            font-family: Garamond, serif;
             color: #eaeaea;
+            min-height: 100vh;
+            background: linear-gradient(-45deg, #0b192c, #1a1025, #4a154b, #8a6b22);
+            background-size: 400% 400%;
+            animation: arcaneShift 15s ease infinite;
+        }
+        @keyframes arcaneShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
         }
 
-        header {
-            text-align: center;
-            padding: 60px 20px 30px;
-            border-bottom: 1px solid #22222c;
-        }
+        header { text-align: center; padding: 60px 20px 30px; }
+        h1 { font-size: 3rem; margin-bottom: 10px; }
+        header p { color: #bdbdcc; font-size: 1.2rem; font-style: italic; max-width: 700px; margin: 0 auto; }
 
-        h1 {
-            font-size: 3rem;
-            margin-bottom: 10px;
-        }
+        nav { text-align: center; margin-bottom: 40px; }
+        nav ul { list-style: none; padding: 0; }
+        nav li { display: inline; margin: 0 15px; }
+        nav a { color: #d8d8e8; text-decoration: none; font-weight: bold; letter-spacing: 1px; transition: color 0.3s ease; }
+        nav a:hover { color: #ffffff; text-shadow: 0 0 8px rgba(255, 255, 255, 0.5); }
 
-        header p {
-            color: #bdbdcc;
-            max-width: 700px;
-            margin: 0 auto;
-            line-height: 1.6;
-        }
-
-        nav {
-            text-align: center;
-            padding: 20px;
-        }
-
-        nav a {
-            color: #d8d8e8;
-            text-decoration: none;
-            margin: 0 15px;
-            font-size: 1rem;
-        }
-
-        nav a:hover {
-            color: #ffffff;
-        }
-
+        /* Main Container - Extra wide for the gallery */
         main {
             max-width: 1200px;
             margin: auto;
-            padding: 40px 20px 70px;
+            padding: 40px;
+            background: rgba(0, 0, 0, 0.6);
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+            margin-bottom: 60px;
         }
 
         .gallery {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 24px;
+            gap: 30px;
         }
 
+        /* The Art Cards */
         .art-card {
-            background-color: #17171f;
-            border: 1px solid #2a2a36;
-            border-radius: 10px;
+            background: rgba(255, 255, 255, 0.03); /* Glass effect */
+            border: 1px solid #4a154b;
+            border-radius: 8px;
             overflow: hidden;
-            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
         }
 
+        /* The hover glow effect */
         .art-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 14px 30px rgba(0, 0, 0, 0.35);
+            border-color: #8a6b22;
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.6);
         }
 
         .art-card img {
@@ -77,22 +69,25 @@
             height: 260px;
             object-fit: cover;
             display: block;
+            border-bottom: 1px solid rgba(138, 107, 34, 0.3); /* Subtle gold divider */
         }
 
         .art-card-content {
-            padding: 18px;
+            padding: 20px;
         }
 
         .art-card h2 {
             margin-top: 0;
             margin-bottom: 10px;
-            font-size: 1.35rem;
+            font-size: 1.4rem;
+            color: #ffffff;
         }
 
         .art-card p {
             margin: 0;
             line-height: 1.6;
-            color: #cfcfda;
+            color: #d2d2dc;
+            font-size: 1rem;
         }
 
         footer {
@@ -100,7 +95,8 @@
             padding: 25px 20px;
             font-size: 0.9rem;
             color: #8f8f9d;
-            border-top: 1px solid #22222c;
+            border-top: 1px solid rgba(138, 107, 34, 0.3);
+            margin-top: 40px;
         }
     </style>
 </head>
@@ -108,24 +104,23 @@
 
     <header>
         <h1>Visual Worldbuilding</h1>
-        <p>
-            This gallery holds the visual architecture behind my stories — concept pieces,
-            symbolic imagery, institutional aesthetics, and the larger visual language that shapes my worlds.
-        </p>
+        <p>This gallery holds the visual architecture behind my stories — concept pieces, symbolic imagery, institutional aesthetics, and the larger visual language that shapes my worlds.</p>
     </header>
 
     <nav>
-    <ul>
-        <li><a href="index.html">HOME</a></li>
-        <li><a href="About.html">ABOUT</a></li>
-        <li><a href="Books.html">BOOKS</a></li>
-        <li><a href="Codex.html">CODEX</a></li>
-        <li><a href="Art.html">ART</a></li>
-    </ul>
-</nav>
+        <ul>
+            <li><a href="index.html">HOME</a></li>
+            <li><a href="About.html">ABOUT</a></li>
+            <li><a href="Books.html">BOOKS</a></li>
+            <li><a href="Codex.html">CODEX</a></li>
+            <li><a href="Art.html">ART</a></li>
+            <li><a href="Contact.html">CONTACT</a></li>
+        </ul>
+    </nav>
+
     <main>
         <section class="gallery">
-
+            
             <div class="art-card">
                 <img src="institution-hero.png" alt="A monumental gothic institution in a mountain landscape">
                 <div class="art-card-content">
@@ -253,6 +248,7 @@
                     <p>A high-level institutional ritual demonstrating the sheer scale of managed resonance.</p>
                 </div>
             </div>
+
             <div class="art-card">
                 <img src="Mages battle fiery magic in stone chamber.png" alt="Mages battle fiery magic in stone chamber">
                 <div class="art-card-content">
@@ -260,6 +256,7 @@
                     <p>The violent reality of false order failing within the stone chambers of the Institute.</p>
                 </div>
             </div>
+
         </section>
     </main>
 
