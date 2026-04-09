@@ -1,0 +1,63 @@
+/* --- THE INSTITUTIONAL FRAMEWORK --- */
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&display=swap');
+
+:root {
+    --indigo: #0b192c;
+    --wine: #1a1025;
+    --arcane: #4a154b;
+    --gold: #8a6b22;
+    --text: #eaeaea;
+    --subtext: #bdbdcc;
+}
+
+body {
+    margin: 0;
+    font-family: 'Cormorant Garamond', serif;
+    background: linear-gradient(-45deg, var(--indigo), var(--wine), var(--arcane), var(--gold));
+    background-size: 400% 400%;
+    animation: arcaneShift 20s ease infinite;
+    color: var(--text);
+    min-height: 100vh;
+}
+
+@keyframes arcaneShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* --- TYPOGRAPHY --- */
+h1, h2, h3, .nav-link {
+    font-family: 'Cinzel', serif;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+/* --- WARDLINE PULSE (Subtle Border Animation) --- */
+.wardline {
+    border: 1px solid var(--gold);
+    box-shadow: 0 0 10px rgba(138, 107, 34, 0.2);
+    animation: wardPulse 4s infinite alternate;
+}
+
+@keyframes wardPulse {
+    from { border-color: var(--gold); box-shadow: 0 0 10px rgba(138, 107, 34, 0.2); }
+    to { border-color: #ffffff; box-shadow: 0 0 20px rgba(138, 107, 34, 0.5); }
+}
+
+/* --- REUSABLE COMPONENTS --- */
+.card {
+    background: rgba(0, 0, 0, 0.7);
+    border: 1px solid rgba(138, 107, 34, 0.3);
+    border-radius: 8px;
+    transition: all 0.4s ease;
+    text-decoration: none;
+    color: inherit;
+    padding: 30px;
+}
+
+.card:hover {
+    border-color: var(--gold);
+    transform: translateY(-5px);
+    background: rgba(0, 0, 0, 0.85);
+}
