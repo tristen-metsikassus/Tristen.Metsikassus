@@ -6,90 +6,124 @@
     <title>The Bibliography | Tristen C. Metsikassus</title>
     <link rel="stylesheet" href="style.css">
     <style>
-        header { text-align: center; padding: 120px 20px 40px; }
-        h1 { font-size: 3rem; margin-bottom: 10px; }
-        .subtitle { color: var(--gold); font-family: 'Cinzel', serif; letter-spacing: 3px; font-size: 1rem; text-transform: uppercase; }
-
-        .book-grid {
-            max-width: 1100px;
-            margin: 60px auto;
-            padding: 0 20px;
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 40px;
-        }
-
-        .book-entry {
-            display: flex;
-            gap: 40px;
-            align-items: flex-start;
-        }
-
-        .book-cover img {
-            width: 200px;
+        header { text-align: center; padding: 140px 20px 40px; }
+        
+        /* SERIES FOCUS SYSTEM */
+        .series-container { max-width: 1100px; margin: 0 auto; padding: 20px; }
+        
+        .start-here-banner {
+            background: rgba(138, 107, 34, 0.15);
             border: 1px solid var(--gold);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.8);
+            padding: 20px;
+            text-align: center;
+            margin-bottom: 60px;
+            font-family: 'Cinzel', serif;
+            letter-spacing: 2px;
+            color: var(--gold-bright);
         }
 
-        .book-details h2 { font-size: 2rem; margin-top: 0; color: #ffffff; }
-        .book-meta { font-family: 'Cinzel', serif; color: var(--gold); font-size: 0.9rem; margin-bottom: 15px; }
-        .book-details p { line-height: 1.8; color: var(--subtext); font-size: 1.1rem; }
+        .book-grid { display: grid; gap: 80px; margin-top: 40px; }
 
-        @media (max-width: 768px) {
-            .book-entry { flex-direction: column; align-items: center; text-align: center; }
+        .book-entry { 
+            display: flex; gap: 50px; align-items: flex-start; 
+            padding: 50px; position: relative;
+            overflow: hidden;
         }
 
-        nav { text-align: center; position: fixed; top: 0; width: 100%; background: rgba(0,0,0,0.5); backdrop-filter: blur(10px); padding: 20px 0; z-index: 100; border-bottom: 1px solid rgba(138, 107, 34, 0.2); }
-        nav ul { list-style: none; padding: 0; margin: 0; }
-        nav li { display: inline; margin: 0 25px; }
-        nav a { font-family: 'Cinzel', serif; color: var(--subtext); text-decoration: none; font-weight: bold; letter-spacing: 2px; font-size: 0.9rem; }
-        nav a:hover { color: var(--gold); }
+        /* Strongest Ward Visuals (Internal to the Card) */
+        .book-entry::before {
+            content: ""; position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(45deg, rgba(138, 107, 34, 0.05), transparent);
+            z-index: -1;
+        }
+
+        .book-cover { flex-shrink: 0; }
+        .book-cover img { 
+            width: 240px; 
+            border: 1px solid var(--gold); 
+            box-shadow: 0 20px 40px rgba(0,0,0,0.6); 
+            transition: transform 0.3s ease;
+        }
+        .book-cover img:hover { transform: scale(1.02); border-color: var(--gold-bright); }
+
+        .book-content { flex-grow: 1; }
+        .book-status { font-family: 'Cinzel', serif; color: var(--gold); font-size: 0.8rem; margin-bottom: 10px; display: block; }
+        .book-title { font-family: 'Cinzel', serif; font-size: 2.2rem; margin: 0 0 20px 0; color: #fff; line-height: 1.1; }
+        .book-description { font-size: 1.15rem; line-height: 1.8; color: var(--subtext); margin-bottom: 30px; }
+
+        .cta-group { display: flex; gap: 15px; flex-wrap: wrap; }
+
+        @media (max-width: 850px) {
+            .book-entry { flex-direction: column; align-items: center; text-align: center; padding: 30px; }
+            .book-cover img { width: 200px; }
+            .cta-group { justify-content: center; }
+        }
     </style>
 </head>
-<body>
+<body data-ward-intensity="1.00">
 
 <nav>
-    <ul>
-        <li><a href="index.html">HOME</a></li>
-        <li><a href="About.html">ABOUT</a></li>
-        <li><a href="Books.html">BOOKS</a></li>
-        <li><a href="Codex.html">CODEX</a></li>
-        <li><a href="Art.html">ART</a></li>
-        <li><a href="Contact.html">CONTACT</a></li>
-    </ul>
+    <a href="index.html">HOME</a>
+    <a href="About.html">ABOUT</a>
+    <a href="Books.html">BOOKS</a>
+    <a href="Codex.html">CODEX</a>
+    <a href="Art.html">ART</a>
+    <a href="Contact.html">CONTACT</a>
 </nav>
 
 <header>
-    <p class="subtitle">Rowe Institute Registry</p>
-    <h1>The Bibliography</h1>
+    <p class="tagline">The Rowe Institute Bibliography</p>
+    <h1>The Published Records</h1>
 </header>
 
-<div class="book-grid">
-    <div class="book-entry card wardline">
-        <div class="book-cover">
-            <img src="the quiet wing.png" alt="The Quiet Wing Cover">
-        </div>
-        <div class="book-details">
-            <div class="book-meta">Primary Record // Status: Published</div>
-            <h2>The Quiet Wing</h2>
-            <p>At the Rowe Institute, order is everything. Students are shaped to fit a system that prides itself on stability, but Caelum Rook is about to discover what the Academy is truly containing. A descent into the mechanics of doctrine and the price of structural silence.</p>
-        </div>
+<div class="series-container">
+    
+    <div class="start-here-banner">
+        RECOMMENDED ENTRY POINT: THE QUIET WING (PRIMARY RECORD)
     </div>
 
-    <div class="book-entry card" style="opacity: 0.6;">
-        <div class="book-cover">
-            <div style="width: 200px; height: 300px; background: rgba(0,0,0,0.5); border: 1px dashed var(--gold); display: flex; align-items: center; justify-content: center; font-family: 'Cinzel', serif;">[REDACTED]</div>
+    <div class="book-grid">
+        
+        <div class="book-entry card">
+            <div class="book-cover">
+                <img src="the%20quiet%20wing.png" alt="The Quiet Wing Cover">
+            </div>
+            <div class="book-content">
+                <span class="book-status">STATUS: ACTIVE // PRIMARY RECORD</span>
+                <h2 class="book-title">The Quiet Wing</h2>
+                <p class="book-description">
+                    At the Rowe Institute, order is everything. Students are shaped to fit a system that prides itself on stability, but Caelum Rook is about to discover what the Academy is truly containing. A descent into the mechanics of doctrine and the price of structural silence.
+                </p>
+                <div class="cta-group">
+                    <a href="#" class="btn-link">PRE-ORDER NOW</a>
+                    <a href="#" class="btn-link" style="border-color: rgba(255,255,255,0.2); color: #fff;">READ SAMPLE</a>
+                </div>
+            </div>
         </div>
-        <div class="book-details">
-            <div class="book-meta">Secondary Record // Status: In Progress</div>
-            <h2>The Second Fracture</h2>
-            <p>The institutional accounts continue as the Harmony Network begins to show the true cost of resonance. (Information restricted by the Rowe Archive).</p>
+
+        <div class="book-entry card" style="opacity: 0.7;">
+            <div class="book-cover">
+                <div style="width: 240px; height: 360px; background: rgba(0,0,0,0.4); border: 1px dashed var(--gold); display: flex; align-items: center; justify-content: center; color: var(--gold); font-family: 'Cinzel';">
+                    [REDACTED]
+                </div>
+            </div>
+            <div class="book-content">
+                <span class="book-status">STATUS: ENCRYPTED // FORTHCOMING</span>
+                <h2 class="book-title">The Fractured Wing</h2>
+                <p class="book-description">
+                    The institutional accounts continue as the Harmony Network begins to show the true cost of resonance. (Access restricted until the next cycle).
+                </p>
+                <div class="cta-group">
+                    <a href="Codex.html" class="btn-link">VIEW CASE FILE</a>
+                </div>
+            </div>
         </div>
+
     </div>
 </div>
 
-<footer style="text-align: center; padding: 100px 40px; opacity: 0.4; font-size: 0.7rem; letter-spacing: 3px; font-family: 'Cinzel', serif;">
-    [ SECURE TERMINAL // BIBLIOGRAPHY ACCESS ]
+<footer style="text-align: center; padding: 100px; opacity: 0.3; font-family: 'Cinzel'; font-size: 0.7rem;">
+    [ SECURE TERMINAL // BIBLIOGRAPHY ACCESS ENABLED ]
 </footer>
 
 </body>
