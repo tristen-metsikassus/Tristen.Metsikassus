@@ -3,183 +3,95 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About | Tristen C. Metsikassus</title>
+    <title>The Architect | Tristen C. Metsikassus</title>
+    <link rel="stylesheet" href="style.css">
     <style>
-        /* IMPORT CINEMATIC FONTS */
-        @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&display=swap');
+        header { text-align: center; padding: 140px 20px 40px; }
+        h1 { font-family: 'Cinzel', serif; font-size: 3rem; margin: 0; }
+        .about-subtitle { color: var(--gold); letter-spacing: 4px; font-size: 0.9rem; text-transform: uppercase; margin-top: 10px; }
 
-        /* The Animated Gradient Background */
-        body {
-            margin: 0;
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 1.15rem;
-            color: #eaeaea;
-            min-height: 100vh;
-            background: linear-gradient(-45deg, #0b192c, #1a1025, #4a154b, #8a6b22);
-            background-size: 400% 400%;
-            animation: arcaneShift 15s ease infinite;
+        .manifesto-container {
+            max-width: 850px;
+            margin: 40px auto;
+            padding: 0 20px;
         }
 
-        @keyframes arcaneShift {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
-        }
-
-        /* --- TYPOGRAPHY & ANIMATIONS --- */
-        h1, h2, h3 {
-            font-family: 'Cinzel', serif;
-            font-weight: normal;
-            letter-spacing: 2px;
-        }
-
-        header { text-align: center; padding: 60px 20px 30px; }
-        
-        /* Pulse for Title */
-        h1 { 
-            font-size: 3.5rem; 
-            margin-bottom: 10px; 
-            color: #ffffff;
-            animation: cinematicEntrance 3s ease-out forwards, arcanePulse 6s infinite alternate 3s;
-        }
-
-        @keyframes arcanePulse {
-            0% { transform: scale(1); text-shadow: 0 0 10px rgba(138, 107, 34, 0.4); }
-            100% { 
-                transform: scale(1.03); 
-                color: rgba(255,255,255,0.85); 
-                text-shadow: 0 0 25px rgba(138, 107, 34, 0.8), 0 0 40px rgba(74, 21, 75, 0.6); 
-            }
-        }
-
-        @keyframes cinematicEntrance {
-            0% { opacity: 0; transform: scale(0.9); text-shadow: 0 0 50px #fff; }
-            100% { opacity: 1; transform: scale(1); }
-        }
-
-        header p { 
-            color: #bdbdcc; 
-            font-size: 1.4rem; 
-            font-style: italic; 
-            letter-spacing: 1px;
-        }
-
-        nav { text-align: center; margin-bottom: 40px; }
-        nav ul { list-style: none; padding: 0; }
-        nav li { display: inline; margin: 0 20px; }
-        
-        nav a { 
-            font-family: 'Cinzel', serif;
-            color: #d8d8e8; 
-            text-decoration: none; 
-            font-weight: bold; 
-            letter-spacing: 2px; 
-            display: inline-block; 
-            transition: transform 0.5s ease, color 0.5s ease, text-shadow 0.5s ease; 
-        }
-
-        nav a:hover { 
-            transform: scale(1.15);
-            color: rgba(255, 255, 255, 0.7); 
-            text-shadow: 0 0 15px rgba(255, 255, 255, 0.8), 0 0 30px #8a6b22; 
-        }
-
-        /* Main Content Container */
-        main {
-            max-width: 800px;
-            margin: auto;
-            padding: 40px;
-            background: rgba(0, 0, 0, 0.6);
-            border-radius: 12px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.4);
-            margin-bottom: 60px;
-            opacity: 0;
-            animation: fadeIn 2s ease-in forwards 1s;
-        }
-
-        @keyframes fadeIn {
-            to { opacity: 1; }
-        }
-
-        h2 { color: #ffffff; text-align: center; margin-bottom: 30px; font-size: 2.2rem; }
-
-        .profile-container {
-            text-align: center;
-            margin-bottom: 35px;
-        }
-
-        .author-photo {
-            width: 220px;
-            height: 220px;
-            object-fit: cover;
-            border-radius: 50%;
-            border: 2px solid #8a6b22; 
-            box-shadow: 0 10px 30px rgba(0,0,0,0.6);
-            transition: transform 0.5s ease;
-        }
-
-        .author-photo:hover {
-            transform: scale(1.05);
-        }
-
-        .bio-section p {
-            line-height: 1.8;
-            color: #d2d2dc;
-            margin-bottom: 25px;
-            text-align: justify;
+        .manifesto-card {
+            background: rgba(11, 25, 44, 0.7);
+            backdrop-filter: blur(10px);
+            padding: 60px;
+            line-height: 2;
             font-size: 1.2rem;
+            color: var(--subtext);
         }
 
-        footer {
-            text-align: center;
-            padding: 25px 20px;
-            font-size: 0.9rem;
-            color: #8f8f9d;
-            border-top: 1px solid rgba(138, 107, 34, 0.3);
-            margin-top: 40px;
+        .manifesto-card h2 {
             font-family: 'Cinzel', serif;
+            color: #fff;
+            font-size: 1.8rem;
+            margin-bottom: 30px;
+            border-bottom: 1px solid var(--gold);
+            padding-bottom: 15px;
+            display: inline-block;
+        }
+
+        .manifesto-card p { margin-bottom: 30px; }
+        
+        .highlight { color: var(--gold); font-weight: bold; }
+
+        .signature {
+            margin-top: 60px;
+            text-align: right;
+            font-family: 'Cinzel', serif;
+            letter-spacing: 3px;
+            color: var(--gold);
+        }
+
+        @media (max-width: 768px) {
+            .manifesto-card { padding: 30px; font-size: 1.1rem; }
         }
     </style>
 </head>
 <body>
 
-    <header>
-        <h1>Tristen C. Metsikassus</h1>
-        <p>Author and Visual Worldbuilder</p>
-    </header>
+<nav>
+    <a href="index.html">HOME</a>
+    <a href="About.html">ABOUT</a>
+    <a href="Books.html">BOOKS</a>
+    <a href="Codex.html">CODEX</a>
+    <a href="Art.html">ART</a>
+    <a href="Contact.html">CONTACT</a>
+</nav>
 
-    <nav>
-        <ul>
-            <li><a href="index.html">HOME</a></li>
-            <li><a href="About.html">ABOUT</a></li>
-            <li><a href="Books.html">BOOKS</a></li>
-            <li><a href="Codex.html">CODEX</a></li>
-            <li><a href="Art.html">ART</a></li>
-            <li><a href="Contact.html">CONTACT</a></li>
-        </ul>
-    </nav>
+<header>
+    <p class="about-subtitle">Structural Identity // Origin Record</p>
+    <h1>The Architect</h1>
+</header>
 
-    <main>
-        <h2>The Architect</h2>
+<div class="manifesto-container">
+    <div class="manifesto-card card wardline">
+        <h2>The Design Intent</h2>
+        <p>
+            I build worlds that pull people in, challenge what they expect, and leave them thinking long after they close the page. To me, <span class="highlight">worldbuilding is not just scenery; it is architecture.</span> It is the study of how systems—institutional, magical, and human—interact under pressure.
+        </p>
         
-        <div class="profile-container">
-            <img src="659823009_2431351264003736_1850895456253538370_n.jpg" alt="Tristen C. Metsikassus" class="author-photo">
+        <p>
+            The World of Rowe is a reflection of this obsession with structural endurance. Every book, every sigil in the archive, and every doctrine in the Codex is a piece of a larger machine designed to explore the <span class="highlight">cadence of creation and the price of stability.</span>
+        </p>
+
+        <p>
+            As a visual worldbuilder and author, my goal is to translate the abstract mechanics of power and resonance into stories that feel as heavy and real as stone. Success is not gaining everything, but understanding the design of what you have built.
+        </p>
+
+        <div class="signature">
+            — TRISTEN C. METSIKASSUS
         </div>
+    </div>
+</div>
 
-        <section class="bio-section">
-            <p>My name is Tristen C. Metsikassus, and one thing I have come to understand about myself is that I have always felt different.</p>
-            <p>Growing up, I often felt like the odd one out. Even when I was surrounded by people, there was still a part of me that felt separate, like I was standing in the same room but hearing life through a different wall. What once felt like distance became perspective.</p>
-            <p>I’ve learned that some people are not broken just because they feel different. Sometimes they are simply listening to life at a deeper volume.</p>
-            <p>One of the greatest things life has taught me is patience. Patience has been the quiet force behind everything I create. Whether I am writing, drawing, or singing, I have learned that honest art cannot be rushed. A tree forced to grow too fast does not become stronger; it becomes easier to break.</p>
-            <p>I’ve also realized that all of this creating has never been about chasing the world. It has been about honoring my own cadence. I do not create to satisfy trends or keep up with someone else’s timing. Some things are meant to be built slowly if they are going to be built right.</p>
-            <p>That same patience, feeling, and observation is what I pour into my work as an author. I don’t just want to write books. I want to build worlds that pull people in, challenge what they expect, and leave them thinking long after they close the page.</p>
-            <p>Sometimes the deepest rivers make the least noise.</p>
-        </section>
-    </main>
-
-    <footer>
-        © 2026 Tristen C. Metsikassus
-    </footer>
+<footer style="text-align: center; padding: 100px; opacity: 0.3; font-family: 'Cinzel'; font-size: 0.7rem;">
+    [ SECURE TERMINAL // ARCHITECT-RESONANCE ESTABLISHED ]
+</footer>
 
 </body>
 </html>
