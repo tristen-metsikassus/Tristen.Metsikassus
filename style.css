@@ -96,7 +96,7 @@ nav a:hover { color: var(--gold-bright); }
     .featured-panel { flex-direction: column; text-align: center; }
 }
 
-/* GLOBAL TYPOGRAPHY */
+/* GLOBAL TYPOGRAPHY: Forces the Institutional look everywhere */
 h1, h2, h3, nav a, .btn-link, .tagline, .subtitle { 
     font-family: 'Cinzel', serif !important; 
     text-transform: uppercase; 
