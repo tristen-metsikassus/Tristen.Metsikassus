@@ -5,32 +5,85 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Books | Tristen C. Metsikassus</title>
     <style>
+        /* IMPORT CINEMATIC FONTS */
+        @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&display=swap');
+
         /* The Animated Gradient Background */
         body {
             margin: 0;
-            font-family: Garamond, serif;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.15rem;
             color: #eaeaea;
             min-height: 100vh;
             background: linear-gradient(-45deg, #0b192c, #1a1025, #4a154b, #8a6b22);
             background-size: 400% 400%;
             animation: arcaneShift 15s ease infinite;
         }
+
         @keyframes arcaneShift {
             0% { background-position: 0% 50%; }
             50% { background-position: 100% 50%; }
             100% { background-position: 0% 50%; }
         }
 
+        /* --- TYPOGRAPHY & ANIMATIONS --- */
+        h1, h2, h3 {
+            font-family: 'Cinzel', serif;
+            font-weight: normal;
+            letter-spacing: 2px;
+        }
+
         header { text-align: center; padding: 60px 20px 30px; }
-        h1 { font-size: 3rem; margin-bottom: 10px; }
-        header p { color: #bdbdcc; font-size: 1.2rem; font-style: italic; }
+        
+        h1 { 
+            font-size: 3.5rem; 
+            margin-bottom: 10px; 
+            color: #ffffff;
+            animation: cinematicEntrance 3s ease-out forwards, arcanePulse 6s infinite alternate 3s;
+        }
+
+        @keyframes arcanePulse {
+            0% { transform: scale(1); text-shadow: 0 0 10px rgba(138, 107, 34, 0.4); }
+            100% { 
+                transform: scale(1.03); 
+                color: rgba(255,255,255,0.85); 
+                text-shadow: 0 0 25px rgba(138, 107, 34, 0.8), 0 0 40px rgba(74, 21, 75, 0.6); 
+            }
+        }
+
+        @keyframes cinematicEntrance {
+            0% { opacity: 0; transform: scale(0.9); text-shadow: 0 0 50px #fff; }
+            100% { opacity: 1; transform: scale(1); }
+        }
+
+        header p { 
+            color: #bdbdcc; 
+            font-size: 1.4rem; 
+            font-style: italic; 
+            letter-spacing: 1px;
+        }
 
         nav { text-align: center; margin-bottom: 40px; }
         nav ul { list-style: none; padding: 0; }
-        nav li { display: inline; margin: 0 15px; }
-        nav a { color: #d8d8e8; text-decoration: none; font-weight: bold; letter-spacing: 1px; transition: color 0.3s ease; }
-        nav a:hover { color: #ffffff; text-shadow: 0 0 8px rgba(255, 255, 255, 0.5); }
+        nav li { display: inline; margin: 0 20px; }
+        
+        nav a { 
+            font-family: 'Cinzel', serif;
+            color: #d8d8e8; 
+            text-decoration: none; 
+            font-weight: bold; 
+            letter-spacing: 2px; 
+            display: inline-block; 
+            transition: transform 0.5s ease, color 0.5s ease, text-shadow 0.5s ease; 
+        }
 
+        nav a:hover { 
+            transform: scale(1.15);
+            color: rgba(255, 255, 255, 0.7); 
+            text-shadow: 0 0 15px rgba(255, 255, 255, 0.8), 0 0 30px #8a6b22; 
+        }
+
+        /* Main Content Container */
         main {
             max-width: 900px;
             margin: auto;
@@ -39,9 +92,15 @@
             border-radius: 12px;
             box-shadow: 0 4px 20px rgba(0,0,0,0.4);
             margin-bottom: 60px;
+            opacity: 0;
+            animation: fadeIn 2s ease-in forwards 1s;
         }
 
-        h2.section-title { color: #ffffff; text-align: center; margin-bottom: 40px; font-size: 2.2rem; letter-spacing: 2px; }
+        @keyframes fadeIn {
+            to { opacity: 1; }
+        }
+
+        h2.section-title { color: #ffffff; text-align: center; margin-bottom: 40px; font-size: 2.2rem; }
 
         .book-container {
             display: flex;
@@ -81,7 +140,7 @@
         .book-title {
             margin-top: 0;
             color: #ffffff;
-            font-size: 1.8rem;
+            font-size: 2rem;
             margin-bottom: 5px;
         }
 
@@ -90,45 +149,53 @@
             font-style: italic;
             font-size: 1.1rem;
             margin-bottom: 15px;
+            letter-spacing: 1px;
         }
 
         .book-info p {
             margin-bottom: 15px;
             text-align: justify;
-            line-height: 1.6;
+            line-height: 1.7;
             color: #d2d2dc;
+            font-size: 1.1rem;
         }
 
-        /* Styling for the Purchase/Read More buttons */
+        /* Cinematic Buttons */
         .read-more-btn {
             display: inline-block;
-            padding: 10px 20px;
+            padding: 12px 24px;
             background: transparent;
             color: #eaeaea;
             border: 1px solid #8a6b22;
             border-radius: 4px;
             text-decoration: none;
+            font-family: 'Cinzel', serif;
             font-weight: bold;
-            letter-spacing: 1px;
-            transition: all 0.3s ease;
+            letter-spacing: 1.5px;
+            transition: all 0.4s ease;
             margin-top: 10px;
         }
 
         .read-more-btn:hover {
             background: rgba(138, 107, 34, 0.2);
             color: #ffffff;
-            box-shadow: 0 0 10px rgba(138, 107, 34, 0.5);
+            box-shadow: 0 0 15px rgba(138, 107, 34, 0.6);
+            border-color: #ffffff;
         }
 
         @media (max-width: 768px) {
-            .book-card {
-                flex-direction: column;
-                align-items: center;
-                text-align: center;
-            }
-            .book-info p {
-                text-align: center;
-            }
+            .book-card { flex-direction: column; align-items: center; text-align: center; }
+            .book-info p { text-align: center; }
+        }
+
+        footer {
+            text-align: center;
+            padding: 25px 20px;
+            font-size: 0.9rem;
+            color: #8f8f9d;
+            border-top: 1px solid rgba(138, 107, 34, 0.3);
+            margin-top: 40px;
+            font-family: 'Cinzel', serif;
         }
     </style>
 </head>
@@ -154,13 +221,12 @@
         <h2 class="section-title">The Bibliography</h2>
         
         <div class="book-container">
-            
             <div class="book-card">
                 <img src="sigil-1.png" alt="The Sovereignty Stone Cover" class="book-cover">
                 <div class="book-info">
                     <h2 class="book-title">The Sovereignty Stone</h2>
                     <div class="book-status">A Prequel to The Rowe Institute Trilogy</div>
-                    <p>Before the Academy was a fortress of doctrine, it was a site of discovery—and dangerous ambition. <em>The Sovereignty Stone</em> traces the origins of the Institute's power and the first harmonic distortions that would eventually lead to the events of the trilogy.</p>
+                    <p>Before the Academy was a fortress of doctrine, it was a site of discovery—and dangerous ambition. This prequel explores the foundation of the Rowe legacy and the cost of the original "containment."</p>
                     <a href="#" class="read-more-btn">Coming Soon</a>
                 </div>
             </div>
@@ -170,7 +236,7 @@
                 <div class="book-info">
                     <h2 class="book-title">The Quiet Wing</h2>
                     <div class="book-status">Book I of The Rowe Institute</div>
-                    <p>At the Rowe Institute, order is everything. Students are measured, disciplined, and shaped to fit a system that prides itself on stability, precision, and control. When Caelum Rook enters that world, he quickly realizes the Academy’s elegance is hiding something older and far more dangerous.</p>
+                    <p>At the Rowe Institute, order is everything. When Caelum Rook enters that world, he quickly realizes the Academy’s elegance is hiding something older and far more dangerous.</p>
                     <a href="https://www.amazon.com/s?k=the+quiet+wing&ref=nb_sb_noss" class="read-more-btn" target="_blank">Purchase on Amazon</a>
                 </div>
             </div>
@@ -180,8 +246,8 @@
                 <div class="book-info">
                     <h2 class="book-title">The Fractured Wing</h2>
                     <div class="book-status">Book II of The Rowe Institute</div>
-                    <p>After the Harmonic Event, the Rowe Institute does what it does best: it corrects. By morning, the fractured courtyard has been replaced, the official story has already hardened into doctrine, and Caelum Rook has been classified as non-recoverable.</p>
-                    <a href="https://www.amazon.com/Fractured-Wing-institute-novel-Institute-ebook/dp/B0FTZT8C2B/ref=sr_1_2?crid=3QOWZ0H41GYK6&dib=eyJ2IjoiMSJ9.P4fGEXgVumgHyRu6Jw0w5fe-CMD0lLMrpdUAXRbbBiNn4npWsk-UIozLdMrk4u9mBuFmPgQAp5llYgPu54p5Aaad8lnzLX3fV1B5Xw-TIan34H0_ey4XOpzki2t_kLyie4-gfQ8tINpt6kOfFq9v7L9nqHKr2DZhEfwf_1MaQOA6S5In5eZrtSVEo60gYqfRQXBfltVlfAF8QqduwFAjOFW37Fby0hLqkidPZi-eLuU.nMNdAnpJdndhFIUPiy3T3mfJAntngHH1CnBEcE2gXr4&dib_tag=se&keywords=the+fractured+wing&qid=1775704850&sprefix=the+fractured+wing%2Caps%2C256&sr=8-2" class="read-more-btn" target="_blank">Purchase on Amazon</a>
+                    <p>After the Harmonic Event, the Rowe Institute does what it does best: it corrects. The fractured courtyard has been replaced, the official story has hardened into doctrine.</p>
+                    <a href="https://www.amazon.com/Fractured-Wing-institute-novel-Institute-ebook/dp/B0FTZT8C2B/ref=sr_1_2?keywords=the+fractured+wing" class="read-more-btn" target="_blank">Purchase on Amazon</a>
                 </div>
             </div>
 
@@ -190,13 +256,16 @@
                 <div class="book-info">
                     <h2 class="book-title">The Warning From Below</h2>
                     <div class="book-status">Book III of The Rowe Institute</div>
-                    <p>The Rowe Institute was built to contain what it never truly understood. Now, what was buried is beginning to answer. In the aftermath of fracture, failed correction, and the slow collapse of institutional certainty, the survivors are forced beneath the surface of everything they were taught to trust.</p>
+                    <p>The Rowe Institute was built to contain what it never truly understood. Now, what was buried is beginning to answer. The final movement of the Rowe Institute trilogy.</p>
                     <a href="#" class="read-more-btn">Coming Soon</a>
                 </div>
             </div>
-
         </div>
     </main>
+
+    <footer>
+        © 2026 Tristen C. Metsikassus
+    </footer>
 
 </body>
 </html>
