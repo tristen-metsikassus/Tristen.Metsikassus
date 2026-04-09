@@ -3,144 +3,83 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tristen | Author & Worldbuilder</title>
+    <title>Tristen C. Metsikassus | The World of Rowe</title>
+    <link rel="stylesheet" href="style.css">
     <style>
-        /* IMPORT CINEMATIC FONTS */
-        @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&display=swap');
+        header { text-align: center; padding: 80px 20px 40px; }
+        h1 { font-size: 3rem; margin-bottom: 0; animation: fadeUp 2s ease; }
+        .tagline { color: var(--gold); font-size: 1.2rem; margin-top: 5px; font-weight: bold; }
+        .atmospheric { max-width: 600px; margin: 30px auto; font-style: italic; font-size: 1.3rem; line-height: 1.6; color: var(--subtext); }
 
-        /* The Animated Gradient Background */
-        body {
-            margin: 0;
-            /* Updated Body Font */
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 1.15rem; 
-            color: #eaeaea;
-            min-height: 100vh;
-            background: linear-gradient(-45deg, #0b192c, #1a1025, #4a154b, #8a6b22);
-            background-size: 400% 400%;
-            animation: arcaneShift 15s ease infinite;
+        .entry-grid { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
+            gap: 20px; 
+            max-width: 1000px; 
+            margin: 40px auto; 
+            padding: 0 20px;
         }
 
-        @keyframes arcaneShift {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
+        .featured-panel {
+            max-width: 1000px;
+            margin: 0 auto 60px;
+            display: flex;
+            align-items: center;
+            gap: 40px;
+            padding: 40px;
         }
 
-        /* --- TYPOGRAPHY & ANIMATIONS --- */
-        h1, h2, h3 {
-            font-family: 'Cinzel', serif;
-            font-weight: normal;
-            letter-spacing: 2px;
+        .featured-panel img { width: 180px; border-radius: 4px; border: 1px solid var(--gold); }
+
+        @media (max-width: 768px) {
+            .featured-panel { flex-direction: column; text-align: center; }
         }
 
-        header { text-align: center; padding: 60px 20px 30px; }
-        
-        /* Cinematic Entrance & Pulse for Title */
-        h1 { 
-            font-size: 3.5rem; 
-            margin-bottom: 10px; 
-            color: #ffffff;
-            /* Fades in, then starts the continuous slow pulse */
-            animation: cinematicEntrance 3s ease-out forwards, arcanePulse 6s infinite alternate 3s;
-        }
-
-        /* The "Bigger and Fading Out" Continuous Animation */
-        @keyframes arcanePulse {
-            0% { transform: scale(1); text-shadow: 0 0 10px rgba(138, 107, 34, 0.4); }
-            100% { 
-                transform: scale(1.03); /* Gets bigger */
-                color: rgba(255,255,255,0.85); /* Fades slightly */
-                text-shadow: 0 0 25px rgba(138, 107, 34, 0.8), 0 0 40px rgba(74, 21, 75, 0.6); /* Aura expands */
-            }
-        }
-
-        /* The Initial Page Load Animation */
-        @keyframes cinematicEntrance {
-            0% { opacity: 0; transform: scale(0.9); text-shadow: 0 0 50px #fff; }
-            100% { opacity: 1; transform: scale(1); }
-        }
-
-        header p { 
-            color: #bdbdcc; 
-            font-size: 1.4rem; 
-            font-style: italic; 
-            letter-spacing: 1px;
-        }
-
-        nav { text-align: center; margin-bottom: 40px; }
-        nav ul { list-style: none; padding: 0; }
-        nav li { display: inline; margin: 0 20px; }
-        
-        nav a { 
-            font-family: 'Cinzel', serif;
-            color: #d8d8e8; 
-            text-decoration: none; 
-            font-weight: bold; 
-            letter-spacing: 2px; 
-            display: inline-block; 
-            transition: transform 0.5s ease, color 0.5s ease, text-shadow 0.5s ease; 
-        }
-
-        /* Nav Link Hover: Grows bigger and fades into a glowing aura */
-        nav a:hover { 
-            transform: scale(1.15);
-            color: rgba(255, 255, 255, 0.7); 
-            text-shadow: 0 0 15px rgba(255, 255, 255, 0.8), 0 0 30px #8a6b22; 
-        }
-
-        main {
-            text-align: center; max-width: 700px; margin: auto; padding: 40px;
-            background: rgba(0, 0, 0, 0.6); border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.4); margin-bottom: 60px;
-            /* Fade in the main content slightly after the title */
-            opacity: 0;
-            animation: fadeIn 2s ease-in forwards 1s;
-        }
-
-        @keyframes fadeIn {
-            to { opacity: 1; }
-        }
-
-        h2 { margin-bottom: 15px; color: #ffffff; font-size: 2.2rem; }
-        p { line-height: 1.7; color: #d2d2dc; }
-        
-        .hero-img { 
-            width: 100%; 
-            max-width: 600px; 
-            height: auto; 
-            border-radius: 8px; 
-            margin: 0 auto 25px auto; 
-            border: 1px solid #4a154b; 
-            display: block; 
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5); 
-        }
+        .author-statement { max-width: 700px; margin: 60px auto; text-align: center; border-top: 1px solid rgba(138, 107, 34, 0.2); padding-top: 40px; }
     </style>
 </head>
 <body>
 
-    <header>
-        <h1>Tristen C. Metsikassus</h1>
-        <p>Author and Visual Worldbuilder</p>
-    </header>
+<header>
+    <h1>Tristen C. Metsikassus</h1>
+    <p class="tagline">Architect of the Rowe Institute</p>
+    <p class="atmospheric">
+        "Enter a world of doctrine, fracture, and buried design—where institutions remember, and every threshold has a cost."
+    </p>
+</header>
 
-    <nav>
-        <ul>
-            <li><a href="index.html">HOME</a></li>
-            <li><a href="About.html">ABOUT</a></li>
-            <li><a href="Books.html">BOOKS</a></li>
-            <li><a href="Codex.html">CODEX</a></li>
-            <li><a href="Art.html">ART</a></li>
-            <li><a href="Contact.html">CONTACT</a></li>
-        </ul>
-    </nav>
+<div class="entry-grid">
+    <a href="Books.html" class="card">
+        <h3>The Bibliography</h3>
+        <p>Explore the published accounts of the Rowe Institute.</p>
+    </a>
+    <a href="Codex.html" class="card">
+        <h3>The Archive</h3>
+        <p>A deeper study into the mechanics of resonance and doctrine.</p>
+    </a>
+    <a href="Art.html" class="card">
+        <h3>The Gallery</h3>
+        <p>Visual translations of a world built on systems.</p>
+    </a>
+</div>
 
-    <main>
-        <img src="The World Of Rowe world map.png" alt="Detailed map of The World of Rowe showing key academies and bastions" class="hero-img">
-        
-        <h2>Enter the World Behind the Work</h2>
-        <p>I write dark, system-driven fiction shaped by structure, consequence, and hidden truths.</p>
-        <p>Here you’ll find my novels, worldbuilding, artwork, and the growing architecture behind the stories I create.</p>
-    </main>
+<div class="featured-panel card wardline">
+    <img src="the quiet wing.png" alt="The Quiet Wing">
+    <div>
+        <h2>Start Here: The Quiet Wing</h2>
+        <p>At the Rowe Institute, order is everything. But the Academy’s elegance is hiding something older and far more dangerous than simple doctrine.</p>
+        <a href="Books.html" style="color: var(--gold); font-weight: bold; text-decoration: none;">View Publication Details →</a>
+    </div>
+</div>
+
+<section class="author-statement">
+    <p>I build worlds that pull people in, challenge what they expect, and leave them thinking long after they close the page. Success is not gaining everything, but understanding the cadence of what you create.</p>
+    <a href="About.html" class="nav-link" style="font-size: 0.9rem; color: var(--gold); text-decoration: none;">Full Bio</a>
+</section>
+
+<footer style="text-align: center; padding: 40px; opacity: 0.6; font-size: 0.8rem;">
+    © 2026 TRISTEN C. METSIKASSUS
+</footer>
 
 </body>
 </html>
